@@ -1,0 +1,9 @@
+restaurant_name,full_address,city_name,lat,long,cuisine_type,avg_rating,total_reviews,items,cost_for_one
+BiryaniHub,"12 MG Rd, Near City Mall, Surat",Surat,21.170,72.831,Biryani|Mughlai,4.3,2450,"Chicken Biryani|Mutton Biryani|Veg Biryani|Raita",199
+Pizza Palace Vesu,"Shop No 4, Vesu Cir, Surat, Gujarat",Surat,21.146,72.775,Italian|Pizza,4.2,1920,"Margherita Pizza|Farmhouse Pizza|Pepperoni Pizza|Garlic Bread",329
+Sagar Ratna Restaurant,"Ring Rd, Near Bus Stand, Surat",Surat,21.196,72.830,South Indian|Chettinad,4.1,1050,"Masala Dosa|Idli-Sambar|Uttapam|Filter Coffee",165
+Burger Joint - Adajan,"14, Adajan Rd, Adajan, Surat",Surat,21.196,72.765,American|Fast Food,3.7,700,"Classic Burger|Cheese Burger|French Fries|Coke",175
+Punjabi Tadka Restaurant,"Athwa Gate, Main Rd, Surat",Surat,21.170,72.831,North Indian|Punjabi|Mughlai,4.5,3300,"Butter Chicken|Dal Makhani|Tandoori Naan|Lassi",265
+Sushi Zen Japanese Kitchen,"VIP Rd, Vesu, Surat",Surat,21.147,72.771,Japanese|Asian,4.6,810,"California Roll|Salmon Nigiri|Miso Soup|Edamame",475
+CCD - City Light,"City Light Rd, Surat",Surat,21.160,72.783,Cafe|Beverages,3.6,1200,"Cappuccino|Club Sandwich|Brownie|Cold Coffee",110
+Domino's - Ghod Dod,"Ghod Dod Rd, Surat, Gujarat 395007",Surat,21.189,72.813,Fast Food|Pizza,4.2,4900,"Pepperoni Pizza|Garlic Breadsticks|Choco Lava Cake",275
