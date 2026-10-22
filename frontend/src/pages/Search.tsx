@@ -4,7 +4,7 @@ import { api, inr } from '../api';
 import type { SearchResult } from '../types';
 import { FreshPill } from '../components/FreshPill';
 
-const CUISINES = ['Biryani', 'Pizza', 'Mughlai', 'Italian'];
+const CUISINES = ['Biryani', 'Pizza', 'Burgers', 'South Indian', 'Chinese', 'Healthy meals'];
 export default function Search() {
   const [q, setQ] = useState(''); const [cuisine, setCuisine] = useState('');
   const [res, setRes] = useState<SearchResult[] | null>(null); const [err, setErr] = useState('');
@@ -18,8 +18,9 @@ export default function Search() {
   return (
     <>
       <section className="hero">
-        <h1>One restaurant. Every provider. The real total.</h1>
-        <p>Search a dish or restaurant and see what each delivery app would actually charge, how fast, and how reliable.</p>
+        <div className="eyebrow">DISCOVER SMARTER</div>
+        <h1>Your next meal.<br /><span className="accent-text">A smarter decision.</span></h1>
+        <p>Compare meal prices, discover smarter choices, and split orders without the hassle.</p>
         <input className="searchbox" placeholder="Try “biryani” or “pizza palace”" value={q} onChange={e => setQ(e.target.value)} aria-label="Search restaurants and dishes" />
         <div className="chips">{CUISINES.map(c => <button key={c} className={'chip' + (cuisine === c ? ' on' : '')} onClick={() => setCuisine(cuisine === c ? '' : c)}>{c}</button>)}</div>
       </section>
