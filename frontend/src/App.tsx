@@ -5,6 +5,7 @@ import type { Meta } from './types';
 import Search from './pages/Search';
 import Restaurant from './pages/Restaurant';
 import Admin from './pages/Admin';
+import Login from './pages/Login';
 
 export default function App() {
   const [meta, setMeta] = useState<Meta | null>(null);
@@ -15,11 +16,12 @@ export default function App() {
       {meta?.dataMode === 'synthetic' && <div className="banner">{meta.notice}</div>}
       <header className="top">
         <Link to="/" className="brand">FoodLens</Link>
-        <nav><NavLink to="/">Search</NavLink><NavLink to="/admin">Data quality</NavLink></nav>
+        <nav><NavLink to="/">Search</NavLink><NavLink to="/admin">Data quality</NavLink><NavLink to="/login">Log in</NavLink></nav>
       </header>
       <main>
         {down && <div className="state error">Can't reach the API. Start the backend with <code>npm run dev</code> in /backend.</div>}
         <Routes>
+          <Route path="/login" element={<Login />} />
           <Route path="/" element={<Search />} />
           <Route path="/r/:id" element={<Restaurant />} />
           <Route path="/admin" element={<Admin />} />
