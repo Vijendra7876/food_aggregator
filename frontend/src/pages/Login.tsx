@@ -17,7 +17,7 @@ export default function Login() {
     <main className="login-page">
       <section className="login-shell" aria-labelledby="login-title">
         <div className="login-intro">
-          <Link to="/" className="login-brand"><span>buy</span>hatke <b>food</b></Link>
+          <Link to="/" className="login-brand"><span>Food</span>Lens</Link>
           <p className="eyebrow">COMPARE BEFORE YOU ORDER</p>
           <h1 id="login-title">Your smarter food<br />ordering starts here.</h1>
           <p className="login-copy">Sign in to compare prices, delivery fees, ratings, and offers across your favourite food apps.</p>
@@ -41,7 +41,7 @@ export default function Login() {
           </form>
           <div className="login-divider"><span>or</span></div>
           <button className="social-button" type="button" onClick={() => setSubmitted(true)}><span className="google-mark">G</span> Continue with Google</button>
-          <p className="login-signup">New to buyhatke food? <a href="#signup">Create an account</a></p>
+          <p className="login-signup">New to FoodLens? <a href="#signup">Create an account</a></p>
           <p className="login-terms">By continuing, you agree to our <a href="#terms">Terms</a> and <a href="#privacy">Privacy Policy</a>.</p>
         </div>
       </section>

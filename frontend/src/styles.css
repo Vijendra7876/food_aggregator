@@ -61,3 +61,73 @@ details { margin:.6rem 0; } summary { cursor:pointer; color:var(--leaf-d); font-
 .login-signup { text-align:center; color:#73839a; font-size:.82rem; margin:1.4rem 0 .8rem; } .login-terms { color:#a0adbd; text-align:center; font-size:.68rem; margin:0; }
 @media (max-width:720px) { .top nav a { margin-left:.55rem; font-size:.85rem; } .login-page { padding-top:1.5rem; } .login-shell { grid-template-columns:1fr; gap:1rem; max-width:440px; } .login-intro { text-align:center; } .login-brand { margin-bottom:1.8rem; } .login-copy { margin-left:auto; margin-right:auto; } .login-perks { text-align:left; margin:0 auto; } }
 
+.home-hero { position:relative; display:grid; grid-template-columns:1fr .9fr; gap:2rem; align-items:center; min-height:450px; padding:2.5rem clamp(1.4rem,5vw,4.5rem); margin:0 0 2.5rem; overflow:hidden; border:1px solid #e3eaf3; border-radius:28px; background:linear-gradient(112deg,#f8fbff 0%,#edf5ff 58%,#fff5e8 100%); }
+.home-copy { position:relative; z-index:1; max-width:580px; }
+.home-eyebrow { color:#276bd6; font-size:.72rem; font-weight:800; letter-spacing:.14em; margin:0 0 .85rem; }
+.home-eyebrow span { color:#f29d38; margin-right:.35rem; }
+.home-copy h1 { color:#172a4d; font-size:clamp(2.8rem,6vw,5rem); letter-spacing:-.065em; line-height:.98; }
+.home-copy h1 span { color:#276bd6; }
+.home-description { max-width:480px; color:#60718c; font-size:1.05rem; margin:1.2rem 0 1.5rem; }
+.home-actions { display:flex; flex-wrap:wrap; gap:.7rem; align-items:center; }
+.home-primary,.home-secondary { display:inline-flex; align-items:center; justify-content:center; gap:.65rem; border-radius:11px; padding:.78rem 1.1rem; font-weight:700; text-decoration:none; transition:transform .18s ease, box-shadow .18s ease; }
+.home-primary { color:#fff; background:#276bd6; box-shadow:0 8px 18px rgba(39,107,214,.2); }
+.home-primary:hover { color:#fff; background:#1b58b7; transform:translateY(-2px); }
+.home-secondary { color:#263b5d; background:#fff; border:1px solid #dfe7f1; }
+.home-secondary:hover { color:#1d65d6; border-color:#9bbced; }
+.home-trust { display:flex; align-items:center; gap:.6rem; color:#73839a; font-size:.8rem; margin-top:1.5rem; }
+.trust-stars { color:#ed9b31; letter-spacing:.08em; }
+.home-art { position:relative; display:grid; place-items:center; min-height:340px; }
+.home-orbit { position:absolute; width:min(80%,320px); aspect-ratio:1; border-radius:50%; }
+.orbit-one { background:linear-gradient(145deg,#ffe4bd,#ffd18c); box-shadow:inset 0 0 0 18px rgba(255,255,255,.32); }
+.orbit-two { width:min(62%,245px); background:linear-gradient(140deg,#fff1dc,#ffdaa8); border:1px solid rgba(255,255,255,.8); }
+.home-food { position:relative; z-index:1; display:grid; place-items:center; width:190px; aspect-ratio:1; border-radius:50%; background:linear-gradient(145deg,#fff,#f8f2e8); box-shadow:0 18px 45px rgba(125,87,37,.17); font-size:7rem; transform:rotate(-8deg); }
+.home-float { position:absolute; z-index:2; display:flex; align-items:center; gap:.65rem; padding:.65rem .85rem; border:1px solid #e9edf4; border-radius:14px; background:rgba(255,255,255,.96); box-shadow:0 12px 30px rgba(54,75,105,.12); }
+.home-float strong,.home-float small { display:block; white-space:nowrap; }
+.home-float strong { color:#263b5d; font-size:.78rem; }
+.home-float small { color:#8190a4; font-size:.68rem; }
+.float-icon { display:grid; place-items:center; width:2rem; height:2rem; border-radius:9px; color:#1d65d6; background:#e9f1ff; font-weight:800; }
+.rating-icon { color:#d98516; background:#fff2db; }
+.float-price { top:15%; left:0; }
+.float-rating { right:0; bottom:13%; }
+.home-spark { position:absolute; color:#ef9c35; }
+.spark-one { top:14%; right:15%; font-size:1.7rem; }
+.spark-two { bottom:16%; left:8%; font-size:1.2rem; color:#276bd6; }
+.home-search-section { margin:0 auto 2rem; max-width:900px; scroll-margin-top:1rem; }
+.home-section-heading { display:flex; justify-content:space-between; align-items:end; gap:1rem; margin-bottom:.9rem; }
+.home-section-heading h2,.home-results-heading h2 { color:#172a4d; font-size:clamp(1.5rem,3vw,2rem); letter-spacing:-.04em; }
+.home-section-heading > p { max-width:350px; margin:0 0 .5rem; color:#73839a; font-size:.88rem; }
+.home-search-card { padding:1.1rem 1.25rem; border:1px solid #e2eaf3; border-radius:17px; background:#fff; box-shadow:0 10px 30px rgba(48,91,145,.07); }
+.home-search-label { display:block; color:#35486a; font-size:.78rem; font-weight:700; }
+.home-search-control { display:flex; align-items:center; gap:.55rem; }
+.home-search-control > span { color:#276bd6; font-size:1.7rem; line-height:1; }
+.home-search-control .searchbox { min-width:0; margin:.35rem 0 .6rem; padding:.65rem .35rem; border:0; border-radius:0; box-shadow:none; }
+.home-search-control .searchbox:focus { outline:0; }
+.home-search-card .chips { margin:0; }
+.home-search-card .chip { font-size:.84rem; }
+.home-benefits { display:grid; grid-template-columns:repeat(3,1fr); gap:.85rem; margin:0 0 2.5rem; }
+.home-benefits article { display:flex; align-items:flex-start; gap:.8rem; padding:1rem; border:1px solid #e7edf4; border-radius:15px; background:#fff; }
+.home-benefits article > span { display:grid; place-items:center; flex:0 0 2.2rem; height:2.2rem; border-radius:10px; color:#1d65d6; background:#e9f1ff; font-weight:800; }
+.home-benefits h3 { color:#263b5d; font-size:.92rem; margin:0 0 .2rem; }
+.home-benefits p { color:#7788a1; font-size:.78rem; margin:0; }
+.home-benefits a { font-weight:700; text-decoration:none; }
+.home-results-heading { margin:2rem 0 .5rem; }
+.home-results-heading .home-eyebrow { margin-bottom:.25rem; }
+@media (max-width:760px) {
+  .home-hero { grid-template-columns:1fr; gap:0; min-height:0; padding:2rem 1.4rem 1rem; }
+  .home-art { min-height:280px; }
+  .home-orbit { width:min(68%,280px); }
+  .orbit-two { width:min(53%,220px); }
+  .home-food { width:155px; font-size:5.7rem; }
+  .float-price { top:12%; left:4%; }
+  .float-rating { right:2%; bottom:10%; }
+  .home-benefits { grid-template-columns:1fr; }
+}
+@media (max-width:520px) {
+  .home-section-heading { display:block; }
+  .home-section-heading > p { margin-top:.4rem; }
+  .home-float { padding:.5rem .65rem; }
+  .home-float strong { font-size:.7rem; }
+  .home-float small { font-size:.63rem; }
+  .float-icon { width:1.8rem; height:1.8rem; }
+}
+@media (prefers-reduced-motion: reduce) { .home-primary,.home-secondary { transition:none; } }

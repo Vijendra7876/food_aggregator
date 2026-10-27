@@ -17,15 +17,51 @@ export default function Search() {
   }, [q, cuisine]);
   return (
     <>
-      <section className="hero">
-        <h1>One restaurant. Every provider. The real total.</h1>
-        <p>Search a dish or restaurant and see what each delivery app would actually charge, how fast, and how reliable.</p>
-        <input className="searchbox" placeholder="Try “biryani” or “pizza palace”" value={q} onChange={e => setQ(e.target.value)} aria-label="Search restaurants and dishes" />
-        <div className="chips">{CUISINES.map(c => <button key={c} className={'chip' + (cuisine === c ? ' on' : '')} onClick={() => setCuisine(cuisine === c ? '' : c)}>{c}</button>)}</div>
+      <section className="home-hero">
+        <div className="home-copy">
+          <p className="home-eyebrow"><span aria-hidden="true">✦</span> YOUR FOOD, YOUR WAY</p>
+          <h1>Good food.<br /><span>Better choices.</span></h1>
+          <p className="home-description">Compare restaurant prices, delivery fees, ratings, and more in one place. Find what you love, then choose the deal that works for you.</p>
+          <div className="home-actions">
+            <a className="home-primary" href="#restaurant-search">Explore restaurants <span aria-hidden="true">↓</span></a>
+            <Link className="home-secondary" to="/login">Log in <span aria-hidden="true">→</span></Link>
+          </div>
+          <div className="home-trust"><span className="trust-stars" aria-hidden="true">★★★★★</span><span>Make every order a smarter one</span></div>
+        </div>
+        <div className="home-art" aria-label="FoodLens helps compare food delivery options">
+          <div className="home-orbit orbit-one" />
+          <div className="home-orbit orbit-two" />
+          <div className="home-food" aria-hidden="true">🍜</div>
+          <div className="home-float float-price"><span className="float-icon" aria-hidden="true">₹</span><span><strong>Compare prices</strong><small>One easy view</small></span></div>
+          <div className="home-float float-rating"><span className="float-icon rating-icon" aria-hidden="true">★</span><span><strong>Choose with confidence</strong><small>Ratings &amp; freshness</small></span></div>
+          <span className="home-spark spark-one" aria-hidden="true">✳</span>
+          <span className="home-spark spark-two" aria-hidden="true">✦</span>
+        </div>
+      </section>
+
+      <section className="home-search-section" id="restaurant-search">
+        <div className="home-section-heading">
+          <div><p className="home-eyebrow">FIND YOUR NEXT FAVOURITE</p><h2>What are you craving?</h2></div>
+          <p>Search a dish or restaurant and compare the real total across providers.</p>
+        </div>
+        <div className="home-search-card">
+          <label className="home-search-label" htmlFor="restaurant-search-input">Restaurant or dish</label>
+          <div className="home-search-control">
+            <span aria-hidden="true">⌕</span>
+            <input id="restaurant-search-input" className="searchbox" placeholder="Try “biryani” or “pizza palace”" value={q} onChange={e => setQ(e.target.value)} />
+          </div>
+          <div className="chips" aria-label="Filter by cuisine">{CUISINES.map(c => <button key={c} className={'chip' + (cuisine === c ? ' on' : '')} aria-pressed={cuisine === c} onClick={() => setCuisine(cuisine === c ? '' : c)}>{c}</button>)}</div>
+        </div>
+      </section>
+      <section className="home-benefits" aria-label="FoodLens benefits">
+        <article><span aria-hidden="true">₹</span><div><h3>See the full price</h3><p>Compare what your order really costs across providers.</p></div></article>
+        <article><span aria-hidden="true">◷</span><div><h3>Know what to expect</h3><p>Check delivery estimates and ratings before you decide.</p></div></article>
+        <article><span aria-hidden="true">♡</span><div><h3>Make it yours</h3><p><Link to="/login">Log in</Link> to get started with a more personal experience.</p></div></article>
       </section>
       {err && <div className="state error">{err}</div>}
       {!err && res === null && <div className="state">Searching…</div>}
       {res?.length === 0 && <div className="state">No restaurants match. Try a broader dish name or clear the cuisine filter.</div>}
+      {res && res.length > 0 && <div className="home-results-heading"><p className="home-eyebrow">MADE FOR YOUR CRAVINGS</p><h2>Restaurants to explore</h2></div>}
       <div className="grid">
         {res?.map(r => (
           <Link key={r.id} to={`/r/${r.id}`} className="card result">

@@ -16,7 +16,7 @@ export default function App() {
       {meta?.dataMode === 'synthetic' && <div className="banner">{meta.notice}</div>}
       <header className="top">
         <Link to="/" className="brand">FoodLens</Link>
-        <nav><NavLink to="/">Search</NavLink><NavLink to="/admin">Data quality</NavLink><NavLink to="/login">Log in</NavLink></nav>
+        <nav><NavLink to="/">Home</NavLink><NavLink to="/admin">Data quality</NavLink><NavLink to="/login">Log in</NavLink></nav>
       </header>
       <main>
         {down && <div className="state error">Can't reach the API. Start the backend with <code>npm run dev</code> in /backend.</div>}
