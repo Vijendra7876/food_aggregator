@@ -28,6 +28,7 @@ export default function App() {
           <Route path="*" element={<div className="state">Page not found. <Link to="/">Back to search</Link></div>} />
         </Routes>
       </main>
+      <footer id="contact"><div className="footer-brand"><span className="brand-orbit"><span>F</span></span><b>FoodLens</b><p>Make every penny worth spending.</p></div><div><span className="section-label">GET STARTED</span><h2>Start saving<br /><span>on every order</span></h2></div><a className="primary-button" href="https://github.com/ucloud/orderwise" target="_blank" rel="noreferrer">View on GitHub <span>↗</span></a></footer>
     </>
   );
 }
