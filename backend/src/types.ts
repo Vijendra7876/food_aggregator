@@ -2,7 +2,7 @@ export type Priority = "best_value" | "cheapest" | "fastest" | "most_reliable" |
 export type Aspect = "food" | "delivery" | "value" | "service";
 
 export interface Fresh {
-  ageMin: number;
+  ageMin: number | null;
   status: "fresh" | "aging" | "stale";
 }
 

@@ -1,8 +1,10 @@
 import os
 import sys
+from datetime import datetime, timezone
 import pandas as pd
 from fastapi import FastAPI, HTTPException, Body
 from fastapi.middleware.cors import CORSMiddleware
+from routers import admin
 
 if sys.stdout and hasattr(sys.stdout, "reconfigure"):
     try:
@@ -11,6 +13,9 @@ if sys.stdout and hasattr(sys.stdout, "reconfigure"):
         pass
 
 app = FastAPI(title="FoodLens API", version="1.0")
+
+# Register modular routers *after* app is initialized
+app.include_router(admin.router)
 
 app.add_middleware(
     CORSMiddleware,
@@ -28,7 +33,6 @@ def load_data(path=DATA_PATH):
     if not os.path.exists(path):
         return pd.DataFrame()
     df = pd.read_csv(path)
-    # Cast to object dtype so NaN correctly serializes to null/None
     df = df.astype(object).where(df.notnull(), None)
     return df
 
@@ -207,25 +211,86 @@ def get_meta():
     }
 
 @app.get("/api/search")
-def search_restaurants(q: str = "", cuisine: str = "", provider: str = "", city: str = ""):
+def search_restaurants(q: str = "", cuisine: str = "", provider: str = "", city: str = "", limit: int = 100):
+    """Return the canonical search-card contract consumed by the React app."""
     df = load_data(DATA_PATH)
     if df.empty:
         return {"total": 0, "results": []}
-    
-    if q:
-        df = df[df['restaurant_name'].str.contains(q, case=False, na=False) | 
-                df['canonical_name'].str.contains(q, case=False, na=False)]
-    if cuisine:
-        df = df[df['cuisines'].str.contains(cuisine, case=False, na=False) | 
-                df['canonical_cuisine'].str.contains(cuisine, case=False, na=False)]
-    if provider:
-        df = df[df['provider'].str.contains(provider, case=False, na=False)]
-    if city:
-        df = df[df['city_prov'].str.contains(city, case=False, na=False) | 
-                df['city_canon'].str.contains(city, case=False, na=False)]
-        
-    results = df.to_dict(orient="records")
-    return {"total": len(df), "results": results}
+
+    menus_path = os.path.join(SCRIPT_DIR, "data", "provider_menu_items.csv")
+    menus = pd.read_csv(menus_path) if os.path.exists(menus_path) else pd.DataFrame()
+    q_text = q.strip().casefold()
+    cuisine_text = cuisine.strip().casefold()
+    provider_text = provider.strip().casefold()
+    city_text = city.strip().casefold()
+    if not menus.empty:
+        menus["normalized_item_name"] = menus.get("normalized_item_name", menus["item_name"]).fillna("").astype(str)
+
+    results = []
+    for canonical_id, group in df.groupby("canonical_restaurant_id", sort=False, dropna=False):
+        if provider_text:
+            group = group[group["provider"].fillna("").astype(str).str.contains(provider_text, case=False, regex=False)]
+            if group.empty:
+                continue
+        first = group.iloc[0]
+        listing_ids = set(group["listing_id"].dropna().astype(str))
+        name = str(first.get("canonical_name") or first.get("restaurant_name") or "Unknown restaurant")
+        area = first.get("locality_canon") or first.get("locality_prov") or first.get("city_canon") or first.get("city_prov") or ""
+        cuisines = sorted({part.strip() for value in group.get("canonical_cuisine", group["cuisines"]).dropna().astype(str) for part in value.split(",") if part.strip()})
+
+        listing_names = " ".join(group.get("restaurant_name", pd.Series(dtype=str)).fillna("").astype(str))
+        menu_rows = menus[menus["listing_id"].astype(str).isin(listing_ids)] if not menus.empty else menus
+        menu_names = " ".join(menu_rows.get("item_name", pd.Series(dtype=str)).fillna("").astype(str))
+        if q_text and q_text not in name.casefold() and q_text not in listing_names.casefold() and q_text not in menu_names.casefold():
+            continue
+        if cuisine_text and not any(cuisine_text in value.casefold() for value in cuisines):
+            continue
+        if city_text and city_text not in " ".join(str(value) for value in group.get("city_canon", group["city_prov"]).dropna()).casefold() and city_text not in str(area).casefold():
+            continue
+
+        providers = []
+        rating_weighted = 0.0
+        rating_count = 0.0
+        for _, row in group.iterrows():
+            provider_name = str(row.get("provider") or "Unknown")
+            eta = row.get("average_delivery_time_minutes")
+            eta = float(eta) if pd.notna(eta) else None
+            updated = pd.to_datetime(row.get("source_updated_at"), errors="coerce", utc=True)
+            age_min = max(0, int((datetime.now(timezone.utc) - updated.to_pydatetime()).total_seconds() / 60)) if pd.notna(updated) else None
+            freshness = {"ageMin": age_min, "status": "stale" if age_min is None or age_min > 1440 else ("aging" if age_min > 180 else "fresh")}
+            providers.append({"id": str(row.get("listing_id")), "name": provider_name, "etaMin": eta, "freshness": freshness})
+            rating = row.get("rating")
+            count = row.get("rating_count")
+            if pd.notna(rating) and pd.notna(count) and float(count) > 0:
+                rating_weighted += float(rating) * float(count)
+                rating_count += float(count)
+        if not providers:
+            continue
+
+        grouped_items = {}
+        for _, item in menu_rows.iterrows():
+            item_key = str(item.get("normalized_item_name") or item.get("item_name") or "").strip().casefold()
+            if not item_key:
+                continue
+            entry = grouped_items.setdefault(item_key, {"name": str(item.get("item_name") or item_key), "prices": [], "providers": set()})
+            price = item.get("price_inr")
+            if pd.notna(price):
+                entry["prices"].append(float(price))
+            entry["providers"].add(str(item.get("provider") or ""))
+        matched_items = [{"name": item["name"], "minPrice": round(min(item["prices"]), 2) if item["prices"] else None,
+                          "maxPrice": round(max(item["prices"]), 2) if item["prices"] else None, "providers": len(item["providers"])}
+                         for item in grouped_items.values()]
+        if q_text and q_text not in name.casefold() and q_text not in listing_names.casefold():
+            matched_items = [item for item in matched_items if q_text in item["name"].casefold()]
+        combined = round(rating_weighted / rating_count, 2) if rating_count else None
+        evidence = "high" if rating_count >= 1000 else ("medium" if rating_count >= 100 else "low")
+        results.append({"id": str(canonical_id), "name": name, "area": str(area), "cuisines": cuisines,
+                        "rating": {"combined": combined, "evidence": evidence}, "matchedItems": matched_items,
+                        "providers": providers})
+
+    results.sort(key=lambda result: (result["rating"]["combined"] is None, -(result["rating"]["combined"] or 0), result["name"].casefold()))
+    bounded_limit = max(1, min(int(limit), 100))
+    return {"total": len(results), "results": results[:bounded_limit]}
 
 @app.get("/api/intelligence/recommendations")
 def get_intelligent_recommendations(limit: int = 10):

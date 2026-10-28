@@ -1,126 +1,71 @@
 # FoodLens Backend
 
-FoodLens is a cross-provider food comparison backend for the Indian delivery market. It creates a canonical restaurant view from provider listings, preserves provider-specific prices and delivery facts, analyses reputation, estimates basket totals, and explains provider rankings.
+FoodLens is a cross-provider food comparison project for the Indian delivery market. The currently connected app flow searches the committed synthetic provider and menu CSVs, groups provider listings by canonical restaurant, and returns search cards to React through Express.
 
 > **Important:** This starter backend uses synthetic demo data only. It does not scrape delivery platforms, verify checkout prices, place orders, or represent real restaurant availability. Admin routes are not authenticated and are for local development only.
 
 ## Highlights
 
-### Core product features
-- Provider adapter boundary (`src/data`) so authorised feeds can be added without rewriting the pipeline.
-- Data validation and data-quality issue log.
-- Name/address/phone/geography-based entity resolution with conservative thresholds.
-- Canonical restaurant profiles, cross-provider menu matching, conflict notes, and provider-specific offers.
-- Freshness labels and unknown values preserved as `null` rather than silently treated as zero.
-- Review de-duplication and aspect sentiment baseline for food, delivery, value, and service.
-- Basket price estimate including simplified GST/offer assumptions; unknown fees mark totals as a lower bound.
-- User-priority ranking: best value, cheapest, fastest, most reliable, best rated.
-- Ranking explanations, factor weights, exclusions, freshness penalties, and badges.
-- Human review queue for uncertain matches.
-- PostgreSQL target schema for persistent observations and auditable decisions.
-
-### Standout features to foreground in a demo
-1. **Truth, not just a score:** show which provider supplied each value, when it was observed, and where sources disagree.
-2. **Explainable comparison:** every ranking exposes its factor scores and weights instead of presenting a black-box “best”.
-3. **Unknown-fee honesty:** totals with missing fees are labelled “at least” / lower-bound estimates.
-4. **Conservative entity resolution:** uncertain restaurant identities are queued for a human rather than automatically merged.
-5. **Restaurant quality vs delivery quality:** food sentiment is not conflated with provider-specific delivery sentiment.
-6. **Price history-ready data model:** append-only observations support future price trends and “price changed” alerts.
-7. **Responsible review intelligence:** heuristic output is labelled, deduplicated reviews are counted, and fake-review detection is deliberately not claimed without evaluation.
+### Current connected functionality
+- Express exposes health and search routes and forwards them to the Python service.
+- Python groups matching CSV rows by canonical restaurant, searches restaurant names and menu items, and returns provider prices, ratings, ETAs, and freshness for the frontend search page.
+- The Python module also contains basket pricing and reputation helpers; detail and compare are not yet connected to Express or the current React contract.
 
 ## Stack and architecture
 
-- **API:** Node.js, TypeScript, Express
-- **Current data store:** in-memory synthetic MVP store
-- **Persistence target:** PostgreSQL (`db/schema.sql`)
-- **Python extension:** reserved for offline ML evaluation, anomaly features, demand forecasting, and later validated models
+- **Application API:** Node.js, TypeScript, Express
+- **Data and intelligence API:** Python, FastAPI, pandas, reading the committed CSV datasets
+- **Current data store:** synthetic CSV files; admin decisions are not yet durable
+- **Persistence target:** PostgreSQL (not yet implemented in this branch)
 - **Frontend:** React + Vite can call `/api/*`; configure its dev proxy to `http://localhost:4000`
 
 Data flow:
 
 ```text
-Provider adapters
-      |
-      v
-Validate -> Normalise -> Entity resolution -> Menu matching -> Reconcile
-      |                                                       |
-      v                                                       v
-Issues + uncertain-match queue                         Canonical store
-                                                              |
-                                  +---------------------------+------------------+
-                                  v                           v                  v
-                              Reputation                   Pricing            Ranking
-                                  +---------------------------+------------------+
-                                                              |
-                                                              v
-                                                       Express REST API
+Committed CSV datasets -> Python/FastAPI search and data operations
+                                      |
+                                      v
+                               Express REST API -> React/Vite
 ```
 
 ## Requirements
 
 - Node.js 20+ recommended
 - npm
-- Python is **not required** to run this API starter
+- Python 3.10+ and pip
 
 ## Run locally
 
+Install the Python service dependencies from `backend/`:
+
+```bash
+python -m pip install -r requirements.txt
+python -m uvicorn main:app --reload --port 8000
+```
+
+In a second terminal, start Express:
+
 ```bash
 npm install
-cp .env.example .env
 npm run dev
 ```
 
-On Windows PowerShell, if `cp` is unavailable:
-```powershell
-Copy-Item .env.example .env
-```
-
-API starts at `http://localhost:4000`.
+The React app calls Express at `http://localhost:4000`; Express forwards `/api/search` and `/api/health` to Python at `http://localhost:8000`. Set `PYTHON_API_URL` if Python runs elsewhere.
 
 ```bash
 npm run typecheck
-npm test
 ```
+
+The backend test script is present in `package.json`, but this branch has no committed `src/tests` suite yet.
 
 ## API reference
 
-All endpoints are prefixed with `/api`.
+All endpoints are prefixed with `/api`. The Express service currently exposes the working search path and its health check; other routes described by the larger product design are not yet implemented in this branch.
 
 | Method | Endpoint | Purpose |
 |---|---|---|
-| GET | `/health` | Health status |
-| GET | `/meta` | Data mode, synthetic warning, provider list, supported priorities |
-| GET | `/search?q=biryani&page=1&pageSize=12` | Search restaurants; supports `cuisine`, `minRating`, `maxEta`, `page`, `pageSize` |
-| GET | `/restaurants/:id` | Canonical restaurant, source listings, menu, conflicts, observations, reputation |
-| POST | `/compare` | Price a basket and rank providers for a selected priority |
-| GET | `/admin/review-queue` | Uncertain cross-provider matches |
-| POST | `/admin/review-queue/:id/decision` | Record `merge` or `reject` decision |
-| GET | `/admin/pipeline` | Pipeline counts and validation issues |
-
-### Example: compare basket
-
-First get a restaurant ID from `/api/search`, then send its menu item IDs:
-
-```json
-{
-  "restaurantId": "restaurant-1",
-  "selections": [
-    { "itemId": "foodhub-101-biryani", "quantity": 1 },
-    { "itemId": "foodhub-101-paneer", "quantity": 1 }
-  ],
-  "priority": "best_value",
-  "maxEta": 45
-}
-```
-
-`priority` must be one of `best_value`, `cheapest`, `fastest`, `most_reliable`, `best_rated`. Basket quantities must be integers from 1 to 20. Item IDs are provider-specific in this starter; choose IDs from the canonical restaurant menu response.
-
-### Response honesty
-- `verified` is always `false`.
-- Unknown delivery/platform fees are included in `unknownFees` and mark the total as a lower bound.
-- GST values are assumptions, not tax advice or a provider checkout quote.
-- Ranking weights are hypotheses and must be evaluated with users before production use.
-- Sentiment uses `lexicon-baseline-v0`, a simple word-list heuristic, not a validated ML model.
+| GET | `/health` | Express and Python data-service health |
+| GET | `/search?q=biryani` | Search canonical restaurants and menu items; supports `cuisine`, `provider`, `city`, and `limit` |
 
 ## Environment variables
 
@@ -129,26 +74,7 @@ First get a restaurant ID from `/api/search`, then send its menu item IDs:
 | `PORT` | `4000` | HTTP port |
 | `CORS_ORIGIN` | `http://localhost:5173` | Comma-separated allowed frontend origins |
 | `DATA_MODE` | `synthetic` | Data mode banner |
-| `PYTHON_BIN` | `python` | Reserved for later Python worker integration |
-
-## Folder structure
-
-```text
-backend/
-├── db/schema.sql
-├── python/README.md
-├── src/
-│   ├── data/synthetic.ts
-│   ├── intelligence/{pricing,reputation,ranking}.ts
-│   ├── pipeline/{text,validate,resolve,store}.ts
-│   ├── routes/api.ts
-│   ├── tests/pipeline.test.ts
-│   ├── server.ts
-│   └── types.ts
-├── .env.example
-├── package.json
-└── tsconfig.json
-```
+| `PYTHON_API_URL` | `http://localhost:8000` | Base URL for the FastAPI data service |
 
 ## Standout features to build next
 
