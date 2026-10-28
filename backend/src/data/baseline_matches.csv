@@ -1,0 +1,201 @@
+provider_restaurant_id,provider_name,matched_canonical_id,matched_canonical_name,confidence_score
+SWIG0001,Gupta's Bhavan,CAN0001,Gupta Udupi Bhavan,0.75
+ZOM0001,Gupta's Bhavan,CAN0001,Gupta Udupi Bhavan,0.75
+SWIG0002,Swed Dosa Corner,CAN0002,Swad Dosa Corner,0.9375
+ZOM0002,Swad's Corner,CAN0002,Swad Dosa Corner,0.8276
+SWIG0003,Rajwada's Room,CAN0003,Rajwada Tiffin Room,0.7273
+ZOM0003,RajwadaTiffinRoom,CAN0003,Rajwada Tiffin Room,0.9444
+SWIG0004,SwadBellaItalia,CAN0004,Swad Bella Italia,0.9375
+ZOM0004,Swad's Italia,CAN0004,Swad Bella Italia,0.7333
+SWIG0005,Medras Handi,CAN0005,Madras Handi,0.9167
+ZOM0005,Medras Handi,CAN0005,Madras Handi,0.9167
+SWIG0006,Krishna Biryani House,CAN0006,Krishna Biryani House,1.0
+ZOM0006,Krishna Biryani House,CAN0006,Krishna Biryani House,1.0
+SWIG0007,Mesala Local Tadka,CAN0007,Masala Local Tadka,0.9444
+ZOM0007,Masala's Tadka,CAN0007,Masala Local Tadka,0.75
+SWIG0008,Anand Tikki Junction,CAN0008,Anand Tikki Junction,1.0
+ZOM0008,Anand's Junction,CAN0008,Anand Tikki Junction,0.7778
+SWIG0009,Royal's Room,CAN0009,Royal Tiffin Room,0.6897
+ZOM0009,Royal Tiffin Room,CAN0009,Royal Tiffin Room,1.0
+SWIG0010,Annapurna's Bhavan,CAN0010,Annapurna Udupi Bhavan,0.8
+ZOM0010,Annepurna Udupi Bhavan,CAN0010,Annapurna Udupi Bhavan,0.9545
+SWIG0011,Sagar's Bar,CAN0011,Sagar Noodle Bar,0.6667
+ZOM0011,Sagar Noodle Bar,CAN0011,Sagar Noodle Bar,1.0
+SWIG0012,Swad's Kitchen,CAN0018,Sai Kitchen,0.8
+ZOM0012,Swad Dragon Kitchen,CAN0012,Swad Dragon Kitchen,1.0
+SWIG0013,TandoorVegRasoi,CAN0013,Tandoor Veg Rasoi,0.9375
+ZOM0013,Tandoor's Rasoi,CAN0013,Tandoor Veg Rasoi,0.8125
+SWIG0014,Bawarchi's Blues,CAN0014,Bawarchi Biryani Blues,0.7368
+ZOM0014,BawarchiBiryaniBlues,CAN0014,Bawarchi Biryani Blues,0.9524
+SWIG0015,Bewarchi Dessert Den,CAN0015,Bawarchi Dessert Den,0.95
+ZOM0015,Bawarchi Dessert Den,CAN0015,Bawarchi Dessert Den,1.0
+SWIG0016,Swad Veg Rasoi,CAN0016,Swad Veg Rasoi,1.0
+ZOM0016,SwadVegRasoi,CAN0016,Swad Veg Rasoi,0.9231
+SWIG0017,Sagar Gol Gappa Corner,CAN0017,Sagar Gol Gappa Corner,1.0
+ZOM0017,Sagar Gol Gappa Corner,CAN0017,Sagar Gol Gappa Corner,1.0
+SWIG0018,SaiKitchen,CAN0018,Sai Kitchen,0.9524
+ZOM0018,Sai Kitchen,CAN0018,Sai Kitchen,1.0
+SWIG0019,Hendi Desi Rasoi,CAN0019,Handi Desi Rasoi,0.9375
+ZOM0019,Handi Desi Rasoi,CAN0019,Handi Desi Rasoi,1.0
+SWIG0020,Swad Udupi Bhavan,CAN0020,Swad Udupi Bhavan,1.0
+ZOM0020,Swad's Bhavan,CAN0020,Swad Udupi Bhavan,0.7333
+SWIG0021,Handi's Express,CAN0021,Handi Wok Express,0.8125
+ZOM0021,Handi's Express,CAN0021,Handi Wok Express,0.8125
+SWIG0022,DesiTiffinRoom,CAN0022,Desi Tiffin Room,0.9333
+ZOM0022,DesiTiffinRoom,CAN0022,Desi Tiffin Room,0.9333
+SWIG0023,RasoiThaliJunction,CAN0023,Rasoi Thali Junction,0.9474
+ZOM0023,RasoiThaliJunction,CAN0023,Rasoi Thali Junction,0.9474
+SWIG0024,Sagar's Bhavan,CAN0024,Sagar Udupi Bhavan,0.75
+ZOM0024,Sagar's Bhavan,CAN0024,Sagar Udupi Bhavan,0.75
+SWIG0025,Anend Local Tadka,CAN0025,Anand Local Tadka,0.9412
+ZOM0025,AnandLocalTadka,CAN0025,Anand Local Tadka,0.9375
+SWIG0026,BombayShudhBhojan,CAN0026,Bombay Shudh Bhojan,0.9444
+ZOM0026,BombayShudhBhojan,CAN0026,Bombay Shudh Bhojan,0.9444
+SWIG0027,TikkaAnnaThali,CAN0027,Tikka Anna Thali,0.9333
+ZOM0027,TikkaAnnaThali,CAN0027,Tikka Anna Thali,0.9333
+SWIG0028,Desi Belle Italia,CAN0028,Desi Bella Italia,0.9412
+ZOM0028,DesiBellaItalia,CAN0028,Desi Bella Italia,0.9375
+SWIG0029,GoldenPizzaJunction,CAN0029,Golden Pizza Junction,0.95
+ZOM0029,Golden Pizza Junction,CAN0029,Golden Pizza Junction,1.0
+SWIG0030,GoldenBhojnalaya,CAN0030,Golden Bhojnalaya,0.9697
+ZOM0030,GoldenBhojnalaya,CAN0030,Golden Bhojnalaya,0.9697
+SWIG0031,Chulha's Room,CAN0031,Chulha Tiffin Room,0.7097
+ZOM0031,Chulha Tiffin Rum,CAN0031,Chulha Tiffin Room,0.9143
+SWIG0032,Bombay Anna Thali,CAN0032,Bombay Anna Thali,1.0
+ZOM0032,BombayAnnaThali,CAN0032,Bombay Anna Thali,0.9375
+SWIG0033,Krishna's Hub,CAN0033,Krishna Pizza Hub,0.7333
+ZOM0033,Krishne Pizza Hub,CAN0033,Krishna Pizza Hub,0.9412
+SWIG0034,Krishna Bhojanalaya,CAN0034,Krishna Bhojnalaya,0.973
+ZOM0034,Krishna Bhojanalaya,CAN0034,Krishna Bhojnalaya,0.973
+SWIG0035,CurryTiffinRoom,CAN0035,Curry Tiffin Room,0.9375
+ZOM0035,Curry Tiffin Rum,CAN0035,Curry Tiffin Room,0.9091
+SWIG0036,HyderabadiTikkiJunction,CAN0036,Hyderabadi Tikki Junction,0.9583
+ZOM0036,Hyderabadi's Junction,CAN0036,Hyderabadi Tikki Junction,0.8261
+SWIG0037,ZaikaDosaCorner,CAN0037,Zaika Dosa Corner,0.9375
+ZOM0037,Zaika's Corner,CAN0037,Zaika Dosa Corner,0.8387
+SWIG0038,Anand Kitchen,CAN0038,Anand Kitchen,1.0
+ZOM0038,Anend Kitchen,CAN0038,Anand Kitchen,0.9231
+SWIG0039,SpiceGolGappaCorner,CAN0039,Spice Gol Gappa Corner,0.9268
+ZOM0039,SpiceGolGappaCorner,CAN0039,Spice Gol Gappa Corner,0.9268
+SWIG0040,Handi's Shack,CAN0040,Handi Snack Shack,0.8
+ZOM0040,Handi's Shack,CAN0040,Handi Snack Shack,0.8
+SWIG0041,RajwadaBurgerJunction,CAN0041,Rajwada Burger Junction,0.9545
+ZOM0041,Rejwada Burger Junction,CAN0041,Rajwada Burger Junction,0.9565
+SWIG0042,Spice Hendi,CAN0042,Spice Handi,0.9091
+ZOM0042,Spice's Handi,CAN0042,Spice Handi,0.9167
+SWIG0043,Anand's Bhojan,CAN0043,Anand Shudh Bhojan,0.8125
+ZOM0043,Anend Shudh Bhojan,CAN0043,Anand Shudh Bhojan,0.9444
+SWIG0044,BawarchiPizzaHub,CAN0044,Bawarchi Pizza Hub,0.9412
+ZOM0044,BawarchiPizzaHub,CAN0044,Bawarchi Pizza Hub,0.9412
+SWIG0045,Namkin's Junction,CAN0045,Namkin Tikki Junction,0.7895
+ZOM0045,Namkin Tikki Junction,CAN0045,Namkin Tikki Junction,1.0
+SWIG0046,Curry Biryani Blues,CAN0046,Curry Biryani Blues,1.0
+ZOM0046,Curry's Blues,CAN0046,Curry Biryani Blues,0.6875
+SWIG0047,Sharma's House,CAN0047,Sharma Idli House,0.7742
+ZOM0047,Sharma Idli House,CAN0047,Sharma Idli House,1.0
+SWIG0048,SwadTiffinRoom,CAN0048,Swad Tiffin Room,0.9333
+ZOM0048,SwadTiffinRoom,CAN0048,Swad Tiffin Room,0.9333
+SWIG0049,Golden Dum Biryeni,CAN0049,Golden Dum Biryani,0.9444
+ZOM0049,Golden Dum Biryeni,CAN0049,Golden Dum Biryani,0.9444
+SWIG0050,Desi Theli Junction,CAN0050,Desi Thali Junction,0.9474
+ZOM0050,Desi Thali Junction,CAN0050,Desi Thali Junction,1.0
+SWIG0051,Bombey Udupi Bhavan,CAN0051,Bombay Udupi Bhavan,0.9474
+ZOM0051,Bombay Udupi Bhavan,CAN0051,Bombay Udupi Bhavan,1.0
+SWIG0052,Taste Noodle Bar,CAN0052,Taste Noodle Bar,1.0
+ZOM0052,Taste's Bar,CAN0052,Taste Noodle Bar,0.6667
+SWIG0053,ChulhaFryDay,CAN0053,Chulha Fry Day,0.9231
+ZOM0053,Chulha Fry Day,CAN0053,Chulha Fry Day,1.0
+SWIG0054,RoyalBurgerJunction,CAN0054,Royal Burger Junction,0.95
+ZOM0054,Royal Burger Junction,CAN0054,Royal Burger Junction,1.0
+SWIG0055,Swaad Dessert Den,CAN0055,Swaad Dessert Den,1.0
+ZOM0055,Swad Dessert Den,CAN0055,Swaad Dessert Den,0.9697
+SWIG0056,Swad Wok Express,CAN0056,Swad Wok Express,1.0
+ZOM0056,Swad Wok Express,CAN0056,Swad Wok Express,1.0
+SWIG0057,Desi Resoi,CAN0057,Desi Rasoi,0.9
+ZOM0057,Desi's Rasoi,CAN0057,Desi Rasoi,0.9091
+SWIG0058,Rejdhani Idli House,CAN0058,Rajdhani Idli House,0.9474
+ZOM0058,RajdhaniIdliHouse,CAN0058,Rajdhani Idli House,0.9444
+SWIG0059,Medras Oven Story,CAN0059,Madras Oven Story,0.9412
+ZOM0059,Madras's Story,CAN0059,Madras Oven Story,0.7742
+SWIG0060,NawabiDumBiryani,CAN0060,Nawabi Dum Biryani,0.9412
+ZOM0060,Newabi Dum Biryani,CAN0060,Nawabi Dum Biryani,0.9444
+SWIG0061,Kadhai Kitchen,CAN0061,Kadhai Kitchen,1.0
+ZOM0061,Kadhai's Kitchen,CAN0061,Kadhai Kitchen,0.9333
+SWIG0062,Tandur Pizza Hub,CAN0062,Tandoor Pizza Hub,0.9091
+ZOM0062,Tandur Pizza Hub,CAN0062,Tandoor Pizza Hub,0.9091
+SWIG0063,Taste's Bhavan,CAN0063,Taste Udupi Bhavan,0.75
+ZOM0063,Taste's Bhavan,CAN0063,Taste Udupi Bhavan,0.75
+SWIG0064,Balaji's Junction,CAN0064,Balaji Thali Junction,0.7895
+ZOM0064,BalajiThaliJunction,CAN0064,Balaji Thali Junction,0.95
+SWIG0065,Chetori Desi Rasoi,CAN0065,Chatori Desi Rasoi,0.9444
+ZOM0065,Chatori's Rasoi,CAN0065,Chatori Desi Rasoi,0.8485
+SWIG0066,SaiAnnaThali,CAN0066,Sai Anna Thali,0.9231
+ZOM0066,Sai Anna Thali,CAN0066,Sai Anna Thali,1.0
+SWIG0067,Sharma's Corner,CAN0067,Sharma Gol Gappa Corner,0.6842
+ZOM0067,Sherma Gol Gappa Corner,CAN0067,Sharma Gol Gappa Corner,0.9565
+SWIG0068,KebabBiryaniBlues,CAN0068,Kebab Biryani Blues,0.9444
+ZOM0068,Kebab Biryani Blues,CAN0068,Kebab Biryani Blues,1.0
+SWIG0069,Ganesh's House,CAN0069,Ganesh Bhel House,0.7742
+ZOM0069,Ganesh Bhel House,CAN0069,Ganesh Bhel House,1.0
+SWIG0070,Annapurna's Corner,CAN0070,Annapurna Gol Gappa Corner,0.7273
+ZOM0070,Annepurna Gol Gappa Corner,CAN0070,Annapurna Gol Gappa Corner,0.9615
+SWIG0071,Sherma Veg Rasoi,CAN0071,Sharma Veg Rasoi,0.9375
+ZOM0071,Tikke Desi Rasoi,CAN0072,Tikka Desi Rasoi,0.9375
+ZOM0072,ChulhaBellaItalia,CAN0073,Chulha Bella Italia,0.9444
+ZOM0073,Belaji Local Tadka,CAN0074,Balaji Local Tadka,0.9444
+SWIG0072,Delhi Pizze Hub,CAN0075,Delhi Pizza Hub,0.9333
+ZOM0074,Handi's House,CAN0076,Handi Idli House,0.7586
+ZOM0075,Tawa's House,CAN0077,Tawa Bhel House,0.7407
+SWIG0073,Krishna Handi,CAN0078,Krishna Handi,1.0
+SWIG0074,Sai's Italia,CAN0079,Sai Bella Italia,0.7143
+SWIG0075,Kebab Dessert Den,CAN0080,Kebab Dessert Den,1.0
+ZOM0076,ZaikaBakeStudio,CAN0081,Zaika Bake Studio,0.9375
+ZOM0077,Zaika Burger Junction,CAN0082,Zaika Burger Junction,1.0
+SWIG0076,TandoorChilliHouse,CAN0083,Tandoor Chilli House,0.9474
+SWIG0077,Swad's Ghar,CAN0084,Swad Kacchi Ghar,0.6667
+SWIG0078,NamkinChaatBazaar,CAN0085,Namkin Chaat Bazaar,0.9444
+ZOM0078,Desi Kacchi Ghar,CAN0086,Desi Kacchi Ghar,1.0
+SWIG0079,Chatori Fry Day,CAN0087,Chatori Fry Day,1.0
+ZOM0079,Madras Bhel House,CAN0088,Madras Bhel House,1.0
+SWIG0080,Chatori Tiffin Rum,CAN0089,Chatori Tiffin Room,0.9189
+ZOM0080,GaneshGolGappaCorner,CAN0090,Ganesh Gol Gappa Corner,0.9302
+SWIG0081,Taste Bhel House,CAN0091,Taste Bhel House,1.0
+SWIG0082,Spice Veg Resoi,CAN0092,Spice Veg Rasoi,0.9333
+ZOM0081,Gupta Kitchen,CAN0093,Gupta Kitchen,1.0
+SWIG0083,SaiCakeWala,CAN0094,Sai Cake Wala,0.9167
+ZOM0082,Tikke Wok Express,CAN0095,Tikka Wok Express,0.9412
+ZOM0083,NamasteFryDay,CAN0096,Namaste Fry Day,0.9286
+SWIG0084,KrishnaPizzaJunction,CAN0097,Krishna Pizza Junction,0.9524
+SWIG0085,Sagar's Bazaar,CAN0098,Sagar Chaat Bazaar,0.75
+SWIG0086,Tawa's Bazaar,CAN0099,Tawa Chaat Bazaar,0.7333
+ZOM0084,Delhi Dessert Dena,CAN0100,Delhi Dessert Den,0.9714
+SWIG0087,Tandoor's Rasoi,CAN0013,Tandoor Veg Rasoi,0.8125
+SWIG0088,Golden Bhojanalaya,CAN0030,Golden Bhojnalaya,0.9714
+SWIG0089,SwadDragonKitchen,CAN0012,Swad Dragon Kitchen,0.9444
+SWIG0090,Rajdhani Idli House,CAN0058,Rajdhani Idli House,1.0
+SWIG0091,Annapurna Udupi Bhavan,CAN0010,Annapurna Udupi Bhavan,1.0
+SWIG0092,Balaji's Junction,CAN0064,Balaji Thali Junction,0.7895
+SWIG0093,Tandoor Pizza Hub,CAN0062,Tandoor Pizza Hub,1.0
+ZOM0085,Chatori's Rasoi,CAN0065,Chatori Desi Rasoi,0.8485
+SWIG0094,Hendi Wok Express,CAN0021,Handi Wok Express,0.9412
+ZOM0086,Rajwada Burger Junction,CAN0041,Rajwada Burger Junction,1.0
+ZOM0087,Rajwada Tiffin Room,CAN0003,Rajwada Tiffin Room,1.0
+SWIG0095,BombayUdupiBhavan,CAN0051,Bombay Udupi Bhavan,0.9444
+ZOM0088,RasoiThaliJunction,CAN0023,Rasoi Thali Junction,0.9474
+SWIG0096,BalajiThaliJunction,CAN0064,Balaji Thali Junction,0.95
+SWIG0097,Bawarchi Biryani Blues,CAN0014,Bawarchi Biryani Blues,1.0
+ZOM0089,Madras Handi,CAN0005,Madras Handi,1.0
+SWIG0098,Swad's Ghar,CAN0084,Swad Kacchi Ghar,0.6667
+SWIG0099,Taste Udupi Bhavan,CAN0063,Taste Udupi Bhavan,1.0
+ZOM0090,Handi's Shack,CAN0040,Handi Snack Shack,0.8
+SWIG0100,Curry Tiffin Rum,CAN0035,Curry Tiffin Room,0.9091
+SWIG0101,Kadhai's Kitchen,CAN0061,Kadhai Kitchen,0.9333
+SWIG0102,Resoi Thali Junction,CAN0023,Rasoi Thali Junction,0.95
+ZOM0091,BombayUdupiBhavan,CAN0051,Bombay Udupi Bhavan,0.9444
+ZOM0092,Ganesh's House,CAN0069,Ganesh Bhel House,0.7742
+ZOM0093,NamasteFryDay,CAN0096,Namaste Fry Day,0.9286
+ZOM0094,Curry Tiffin Room,CAN0035,Curry Tiffin Room,1.0
+SWIG0103,Kebeb Biryani Blues,CAN0068,Kebab Biryani Blues,0.9474
+ZOM0095,Swad's Room,CAN0048,Swad Tiffin Room,0.6667
+SWIG0104,ChatoriFryDay,CAN0087,Chatori Fry Day,0.9286
+ZOM0096,Hyderabadi's Junction,CAN0036,Hyderabadi Tikki Junction,0.8261

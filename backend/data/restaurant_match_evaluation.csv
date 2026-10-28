@@ -1,0 +1,101 @@
+pair_id,listing_id_a,listing_id_b,name_similarity_case,same_outlet_ground_truth,expected_decision,rationale,is_synthetic
+PAIR0001,LIST0079,LIST0080,exact,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0002,LIST0103,LIST0104,abbreviation,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0003,LIST0021,LIST0022,spacing_variant,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0004,LIST0065,LIST0066,spacing_variant,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0005,LIST0025,LIST0026,spacing_variant,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0006,LIST0045,LIST0046,exact,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0007,LIST0087,LIST0088,exact,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0008,LIST0069,LIST0070,abbreviation,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0009,LIST0073,LIST0074,abbreviation,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0010,LIST0101,LIST0102,spelling_variant,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0011,LIST0091,LIST0092,spacing_variant,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0012,LIST0105,LIST0106,spelling_variant,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0013,LIST0129,LIST0130,spacing_variant,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0014,LIST0019,LIST0020,spacing_variant,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0015,LIST0135,LIST0136,abbreviation,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0016,LIST0113,LIST0114,abbreviation,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0017,LIST0051,LIST0052,exact,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0018,LIST0029,LIST0030,spelling_variant,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0019,LIST0099,LIST0100,spelling_variant,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0020,LIST0089,LIST0090,abbreviation,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0021,LIST0053,LIST0054,exact,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0022,LIST0115,LIST0116,spacing_variant,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0023,LIST0003,LIST0004,abbreviation,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0024,LIST0059,LIST0060,exact,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0025,LIST0093,LIST0094,spelling_variant,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0026,LIST0083,LIST0084,spacing_variant,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0027,LIST0119,LIST0120,spelling_variant,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0028,LIST0009,LIST0010,exact,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0029,LIST0125,LIST0126,exact,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0030,LIST0057,LIST0058,abbreviation,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0031,LIST0005,LIST0006,spelling_variant,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0032,LIST0049,LIST0050,abbreviation,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0033,LIST0117,LIST0118,spelling_variant,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0034,LIST0111,LIST0112,exact,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0035,LIST0031,LIST0032,abbreviation,True,match,Same canonical outlet with provider-specific name variants.,True
+PAIR0036,LIST0133,LIST0093,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0037,LIST0123,LIST0153,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0038,LIST0170,LIST0145,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0039,LIST0053,LIST0165,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0040,LIST0001,LIST0163,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0041,LIST0163,LIST0001,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0042,LIST0061,LIST0105,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0043,LIST0165,LIST0053,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0044,LIST0025,LIST0153,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0045,LIST0137,LIST0160,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0046,LIST0005,LIST0081,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0047,LIST0139,LIST0019,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0048,LIST0037,LIST0146,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0049,LIST0152,LIST0151,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0050,LIST0069,LIST0091,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0051,LIST0139,LIST0019,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0052,LIST0069,LIST0091,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0053,LIST0073,LIST0151,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0054,LIST0029,LIST0027,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0055,LIST0137,LIST0160,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0056,LIST0101,LIST0051,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0057,LIST0099,LIST0156,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0058,LIST0146,LIST0037,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0059,LIST0113,LIST0099,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0060,LIST0168,LIST0021,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0061,LIST0127,LIST0144,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0062,LIST0027,LIST0087,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0063,LIST0169,LIST0147,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0064,LIST0057,LIST0059,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0065,LIST0025,LIST0123,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0066,LIST0035,LIST0164,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0067,LIST0148,LIST0065,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0068,LIST0093,LIST0141,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0069,LIST0001,LIST0163,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0070,LIST0089,LIST0155,similar_name_different_entity,False,non_match,Similar names but different canonical outlets in the dataset.,True
+PAIR0071,LIST0199,LIST0004,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0072,LIST0198,LIST0165,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0073,LIST0200,LIST0012,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0074,LIST0188,LIST0064,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0075,LIST0198,LIST0022,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0076,LIST0190,LIST0037,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0077,LIST0196,LIST0154,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0078,LIST0186,LIST0003,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0079,LIST0198,LIST0028,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0080,LIST0194,LIST0189,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0081,LIST0199,LIST0087,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0082,LIST0199,LIST0182,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0083,LIST0187,LIST0052,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0084,LIST0188,LIST0123,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0085,LIST0198,LIST0145,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0086,LIST0200,LIST0114,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0087,LIST0199,LIST0042,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0088,LIST0190,LIST0085,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0089,LIST0193,LIST0040,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0090,LIST0189,LIST0015,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0091,LIST0194,LIST0178,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0092,LIST0190,LIST0161,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0093,LIST0194,LIST0032,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0094,LIST0186,LIST0012,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0095,LIST0187,LIST0140,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0096,LIST0190,LIST0027,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0097,LIST0194,LIST0107,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0098,LIST0188,LIST0001,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0099,LIST0200,LIST0058,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True
+PAIR0100,LIST0186,LIST0059,insufficient_information,unknown,manual_review,Unresolved listing lacks reliable identity evidence for an automatic decision.,True

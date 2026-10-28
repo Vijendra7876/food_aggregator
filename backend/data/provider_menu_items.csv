@@ -1,0 +1,321 @@
+menu_listing_id,listing_id,provider,provider_menu_item_id,item_name,normalized_item_name,category,description,price_inr,is_vegetarian,spice_level,is_available,is_synthetic
+MEN0001,LIST0001,Swiggy,SWMI0001,Uttapam,uttapam,South Indian,Synthetic uttapam prepared in south indian style.,130.0,True,medium,False,True
+MEN0002,LIST0002,Zomato,ZOMI0001,Masala Dosa,masala dosa,South Indian,Synthetic masala dosa prepared in south indian style.,120.0,True,,False,True
+MEN0003,LIST0002,Zomato,ZOMI0002,Filter Coffee,filter coffee,Beverages,Synthetic filter coffee prepared in south indian style.,75.0,True,mild,True,True
+MEN0004,LIST0003,Swiggy,SWMI0002,Uttapam,uttapam,South Indian,Synthetic uttapam prepared in south indian style.,162.0,True,mild,,True
+MEN0005,LIST0003,Swiggy,SWMI0003,Masala Dosa,masala dosa,South Indian,Synthetic masala dosa prepared in south indian style.,120.0,True,medium,True,True
+MEN0006,LIST0004,Zomato,ZOMI0003,Idli Sambar,idli sambar,South Indian,Synthetic idli sambar prepared in south indian style.,90.0,True,,True,True
+MEN0007,LIST0004,Zomato,ZOMI0004,Masala Dosa,masala dosa,South Indian,Synthetic masala dosa prepared in south indian style.,138.0,True,mild,True,True
+MEN0008,LIST0005,Swiggy,SWMI0004,Filter Coffee,filter coffee,Beverages,Synthetic filter coffee prepared in south indian style.,75.0,True,spicy,True,True
+MEN0009,LIST0006,Zomato,ZOMI0005,Uttapam,uttapam,South Indian,Synthetic uttapam prepared in south indian style.,130.0,True,,,True
+MEN0010,LIST0007,Swiggy,SWMI0005,Margherita Pizza,margherita pizza,Pizza,Synthetic margherita pizza prepared in pizza style.,250.0,False,spicy,,True
+MEN0011,LIST0008,Zomato,ZOMI0006,Garlic Bread,garlic bread,Sides,Synthetic garlic bread prepared in pizza style.,132.0,False,,False,True
+MEN0012,LIST0008,Zomato,ZOMI0007,Farmhouse Pizza,farmhouse pizza,Pizza,Synthetic farmhouse pizza prepared in pizza style.,298.0,False,spicy,True,True
+MEN0013,LIST0009,Swiggy,SWMI0006,Dal Makhani,dal makhani,Main Course,Synthetic dal makhani prepared in north indian style.,220.0,True,mild,True,True
+MEN0014,LIST0009,Swiggy,SWMI0007,Rajma Chawal,rajma chawal,Rice,Synthetic rajma chawal prepared in north indian style.,180.0,True,spicy,True,True
+MEN0015,LIST0010,Zomato,ZOMI0008,Chole Bhature,chole bhature,Main Course,Synthetic chole bhature prepared in north indian style.,150.0,True,medium,True,True
+MEN0016,LIST0011,Swiggy,SWMI0008,Veg Biryani,veg biryani,Biryani,Synthetic veg biryani prepared in biryani style.,216.0,False,medium,,True
+MEN0017,LIST0011,Swiggy,SWMI0009,Hyderabadi Chicken Biryani,hyderabadi chicken biryani,Biryani,Synthetic hyderabadi chicken biryani prepared in biryani style.,320.0,False,mild,True,True
+MEN0018,LIST0012,Zomato,ZOMI0009,Hyderabadi Chicken Biryani,hyderabadi chicken biryani,Biryani,Synthetic hyderabadi chicken biryani prepared in biryani style.,352.0,False,,,True
+MEN0019,LIST0012,Zomato,ZOMI0010,Mutton Biryani,mutton biryani,Biryani,Synthetic mutton biryani prepared in biryani style.,483.0,False,spicy,False,True
+MEN0020,LIST0013,Swiggy,SWMI0010,Misal Pav,misal pav,Main Course,Synthetic misal pav prepared in regional style.,130.0,True,mild,,True
+MEN0021,LIST0014,Zomato,ZOMI0011,Vada Pav,vada pav,Snacks,Synthetic vada pav prepared in regional style.,50.0,True,spicy,True,True
+MEN0022,LIST0014,Zomato,ZOMI0012,Jalebi,jalebi,Desserts,Synthetic jalebi prepared in regional style.,80.0,True,mild,True,True
+MEN0023,LIST0015,Swiggy,SWMI0011,Dahi Puri,dahi puri,Chaat,Synthetic dahi puri prepared in street food style.,100.0,True,spicy,True,True
+MEN0024,LIST0015,Swiggy,SWMI0012,Samosa,samosa,Snacks,Synthetic samosa prepared in street food style.,30.0,True,,True,True
+MEN0025,LIST0016,Zomato,ZOMI0013,Aloo Tikki,aloo tikki,Chaat,Synthetic aloo tikki prepared in street food style.,70.0,True,medium,True,True
+MEN0026,LIST0016,Zomato,ZOMI0014,Samosa,samosa,Snacks,Synthetic samosa prepared in street food style.,27.0,True,,True,True
+MEN0027,LIST0017,Swiggy,SWMI0013,Idli Sambar,idli sambar,South Indian,Synthetic idli sambar prepared in south indian style.,90.0,True,medium,,True
+MEN0028,LIST0018,Zomato,ZOMI0015,Uttapam,uttapam,South Indian,Synthetic uttapam prepared in south indian style.,110.0,True,medium,True,True
+MEN0029,LIST0018,Zomato,ZOMI0016,Medu Vada,medu vada,South Indian,Synthetic medu vada prepared in south indian style.,100.0,True,mild,False,True
+MEN0030,LIST0019,Swiggy,SWMI0014,Medu Vada,medu vada,South Indian,Synthetic medu vada prepared in south indian style.,100.0,True,spicy,True,True
+MEN0031,LIST0019,Swiggy,SWMI0015,Filter Coffee,filter coffee,Beverages,Synthetic filter coffee prepared in south indian style.,60.0,True,medium,,True
+MEN0032,LIST0020,Zomato,ZOMI0017,Medu Vada,medu vada,South Indian,Synthetic medu vada prepared in south indian style.,115.0,True,,True,True
+MEN0033,LIST0021,Swiggy,SWMI0016,Veg Manchurian,veg manchurian,Starters,Synthetic veg manchurian prepared in chinese style.,200.0,True,spicy,False,True
+MEN0034,LIST0021,Swiggy,SWMI0017,Chilli Paneer,chilli paneer,Starters,Synthetic chilli paneer prepared in chinese style.,300.0,True,mild,True,True
+MEN0035,LIST0022,Zomato,ZOMI0018,Veg Manchurian,veg manchurian,Starters,Synthetic veg manchurian prepared in chinese style.,200.0,True,spicy,,True
+MEN0036,LIST0023,Swiggy,SWMI0018,Veg Manchurian,veg manchurian,Starters,Synthetic veg manchurian prepared in chinese style.,250.0,False,,False,True
+MEN0037,LIST0023,Swiggy,SWMI0019,Chilli Paneer,chilli paneer,Starters,Synthetic chilli paneer prepared in chinese style.,240.0,False,medium,True,True
+MEN0038,LIST0024,Zomato,ZOMI0019,Veg Hakka Noodles,veg hakka noodles,Noodles,Synthetic veg hakka noodles prepared in chinese style.,180.0,False,,,True
+MEN0039,LIST0024,Zomato,ZOMI0020,Schezwan Fried Rice,schezwan fried rice,Rice,Synthetic schezwan fried rice prepared in chinese style.,190.0,False,mild,True,True
+MEN0040,LIST0025,Swiggy,SWMI0020,Special Thali,special thali,Thali,Synthetic special thali prepared in thali style.,308.0,True,spicy,False,True
+MEN0041,LIST0025,Swiggy,SWMI0021,Veg Thali,veg thali,Thali,Synthetic veg thali prepared in thali style.,198.0,True,medium,True,True
+MEN0042,LIST0026,Zomato,ZOMI0021,Dal Fry,dal fry,Main Course,Synthetic dal fry prepared in thali style.,160.0,True,spicy,,True
+MEN0043,LIST0027,Swiggy,SWMI0022,Veg Biryani,veg biryani,Biryani,Synthetic veg biryani prepared in biryani style.,240.0,False,,,True
+MEN0044,LIST0027,Swiggy,SWMI0023,Mutton Biryani,mutton biryani,Biryani,Synthetic mutton biryani prepared in biryani style.,525.0,False,spicy,False,True
+MEN0045,LIST0028,Zomato,ZOMI0022,Hyderabadi Chicken Biryani,hyderabadi chicken biryani,Biryani,Synthetic hyderabadi chicken biryani prepared in biryani style.,320.0,False,spicy,True,True
+MEN0046,LIST0029,Swiggy,SWMI0024,Blueberry Cheesecake,blueberry cheesecake,Desserts,Synthetic blueberry cheesecake prepared in cafe style.,,True,,False,True
+MEN0047,LIST0030,Zomato,ZOMI0023,Chocolate Cake,chocolate cake,Desserts,Synthetic chocolate cake prepared in cafe style.,150.0,True,spicy,True,True
+MEN0048,LIST0030,Zomato,ZOMI0024,Blueberry Cheesecake,blueberry cheesecake,Desserts,Synthetic blueberry cheesecake prepared in cafe style.,220.0,True,,True,True
+MEN0049,LIST0031,Swiggy,SWMI0025,Jeera Rice,jeera rice,Rice,Synthetic jeera rice prepared in thali style.,140.0,True,medium,,True
+MEN0050,LIST0032,Zomato,ZOMI0025,Dal Fry,dal fry,Main Course,Synthetic dal fry prepared in thali style.,184.0,True,mild,True,True
+MEN0051,LIST0032,Zomato,ZOMI0026,Jeera Rice,jeera rice,Rice,Synthetic jeera rice prepared in thali style.,140.0,True,,,True
+MEN0052,LIST0033,Swiggy,SWMI0026,Samosa,samosa,Snacks,Synthetic samosa prepared in street food style.,30.0,True,mild,True,True
+MEN0053,LIST0033,Swiggy,SWMI0027,Aloo Tikki,aloo tikki,Chaat,Synthetic aloo tikki prepared in street food style.,77.0,True,,True,True
+MEN0054,LIST0034,Zomato,ZOMI0027,Pani Puri,pani puri,Chaat,Synthetic pani puri prepared in street food style.,80.0,True,spicy,False,True
+MEN0055,LIST0035,Swiggy,SWMI0028,Chole Bhature,chole bhature,Main Course,Synthetic chole bhature prepared in north indian style.,135.0,True,,True,True
+MEN0056,LIST0035,Swiggy,SWMI0029,Paneer Butter Masala,paneer butter masala,Main Course,Synthetic paneer butter masala prepared in north indian style.,260.0,True,spicy,False,True
+MEN0057,LIST0036,Zomato,ZOMI0028,Paneer Butter Masala,paneer butter masala,Main Course,Synthetic paneer butter masala prepared in north indian style.,299.0,True,,True,True
+MEN0058,LIST0037,Swiggy,SWMI0030,Jalebi,jalebi,Desserts,Synthetic jalebi prepared in regional style.,100.0,True,medium,False,True
+MEN0059,LIST0038,Zomato,ZOMI0029,Dhokla,dhokla,Snacks,Synthetic dhokla prepared in regional style.,150.0,True,spicy,False,True
+MEN0060,LIST0038,Zomato,ZOMI0030,Misal Pav,misal pav,Main Course,Synthetic misal pav prepared in regional style.,117.0,True,mild,True,True
+MEN0061,LIST0039,Swiggy,SWMI0031,Idli Sambar,idli sambar,South Indian,Synthetic idli sambar prepared in south indian style.,90.0,True,spicy,,True
+MEN0062,LIST0040,Zomato,ZOMI0031,Uttapam,uttapam,South Indian,Synthetic uttapam prepared in south indian style.,130.0,True,,,True
+MEN0063,LIST0041,Swiggy,SWMI0032,Veg Manchurian,veg manchurian,Starters,Synthetic veg manchurian prepared in chinese style.,200.0,True,spicy,True,True
+MEN0064,LIST0042,Zomato,ZOMI0032,Veg Manchurian,veg manchurian,Starters,Synthetic veg manchurian prepared in chinese style.,170.0,True,medium,True,True
+MEN0065,LIST0043,Swiggy,SWMI0033,Uttapam,uttapam,South Indian,Synthetic uttapam prepared in south indian style.,130.0,True,spicy,True,True
+MEN0066,LIST0043,Swiggy,SWMI0034,Idli Sambar,idli sambar,South Indian,Synthetic idli sambar prepared in south indian style.,90.0,True,spicy,,True
+MEN0067,LIST0043,Swiggy,SWMI0035,Masala Chai,masala chai,Beverages,Synthetic masala chai prepared in south indian style.,36.0,True,spicy,True,True
+MEN0068,LIST0044,Zomato,ZOMI0033,Medu Vada,medu vada,South Indian,Synthetic medu vada prepared in south indian style.,100.0,False,spicy,False,True
+MEN0069,LIST0044,Zomato,ZOMI0034,Idli Sambar,idli sambar,South Indian,Synthetic idli sambar prepared in south indian style.,90.0,False,mild,,True
+MEN0070,LIST0044,Zomato,ZOMI0035,Masala Chai,masala chai,Beverages,Synthetic masala chai prepared in south indian style.,50.0,True,mild,,True
+MEN0071,LIST0045,Swiggy,SWMI0036,Special Thali,special thali,Thali,Synthetic special thali prepared in thali style.,252.0,True,spicy,False,True
+MEN0072,LIST0045,Swiggy,SWMI0037,Dal Fry,dal fry,Main Course,Synthetic dal fry prepared in thali style.,136.0,True,mild,True,True
+MEN0073,LIST0046,Zomato,ZOMI0036,Special Thali,special thali,Thali,Synthetic special thali prepared in thali style.,280.0,True,mild,True,True
+MEN0074,LIST0047,Swiggy,SWMI0038,Uttapam,uttapam,South Indian,Synthetic uttapam prepared in south indian style.,130.0,True,mild,True,True
+MEN0075,LIST0047,Swiggy,SWMI0039,Medu Vada,medu vada,South Indian,Synthetic medu vada prepared in south indian style.,85.0,True,mild,True,True
+MEN0076,LIST0047,Swiggy,SWMI0040,Masala Chai,masala chai,Beverages,Synthetic masala chai prepared in south indian style.,40.0,True,,True,True
+MEN0077,LIST0048,Zomato,ZOMI0037,Filter Coffee,filter coffee,Beverages,Synthetic filter coffee prepared in south indian style.,60.0,True,mild,True,True
+MEN0078,LIST0049,Swiggy,SWMI0041,Poha,poha,Breakfast,Synthetic poha prepared in regional style.,60.0,True,medium,,True
+MEN0079,LIST0050,Zomato,ZOMI0038,Misal Pav,misal pav,Main Course,Synthetic misal pav prepared in regional style.,130.0,True,spicy,False,True
+MEN0080,LIST0051,Swiggy,SWMI0042,Veg Thali,veg thali,Thali,Synthetic veg thali prepared in thali style.,220.0,True,medium,,True
+MEN0081,LIST0051,Swiggy,SWMI0043,Jeera Rice,jeera rice,Rice,Synthetic jeera rice prepared in thali style.,161.0,True,spicy,,True
+MEN0082,LIST0052,Zomato,ZOMI0039,Dal Fry,dal fry,Main Course,Synthetic dal fry prepared in thali style.,160.0,True,medium,,True
+MEN0083,LIST0052,Zomato,ZOMI0040,Special Thali,special thali,Thali,Synthetic special thali prepared in thali style.,280.0,True,spicy,True,True
+MEN0084,LIST0053,Swiggy,SWMI0044,Jeera Rice,jeera rice,Rice,Synthetic jeera rice prepared in thali style.,140.0,True,mild,,True
+MEN0085,LIST0053,Swiggy,SWMI0045,Special Thali,special thali,Thali,Synthetic special thali prepared in thali style.,280.0,True,mild,True,True
+MEN0086,LIST0053,Swiggy,SWMI0046,Masala Chai,masala chai,Beverages,Synthetic masala chai prepared in thali style.,36.0,True,mild,True,True
+MEN0087,LIST0054,Zomato,ZOMI0041,Veg Thali,veg thali,Thali,Synthetic veg thali prepared in thali style.,220.0,True,spicy,,True
+MEN0088,LIST0054,Zomato,ZOMI0042,Masala Chai,masala chai,Beverages,Synthetic masala chai prepared in thali style.,40.0,True,spicy,True,True
+MEN0089,LIST0055,Swiggy,SWMI0047,Farmhouse Pizza,farmhouse pizza,Pizza,Synthetic farmhouse pizza prepared in pizza style.,350.0,False,,,True
+MEN0090,LIST0055,Swiggy,SWMI0048,Pasta Arrabbiata,pasta arrabbiata,Pasta,Synthetic pasta arrabbiata prepared in pizza style.,238.0,False,spicy,True,True
+MEN0091,LIST0055,Swiggy,SWMI0049,Masala Chai,masala chai,Beverages,Synthetic masala chai prepared in pizza style.,50.0,False,mild,True,True
+MEN0092,LIST0056,Zomato,ZOMI0043,Garlic Bread,garlic bread,Sides,Synthetic garlic bread prepared in pizza style.,120.0,False,mild,False,True
+MEN0093,LIST0056,Zomato,ZOMI0044,Farmhouse Pizza,farmhouse pizza,Pizza,Synthetic farmhouse pizza prepared in pizza style.,350.0,False,spicy,,True
+MEN0094,LIST0057,Swiggy,SWMI0050,Pasta Arrabbiata,pasta arrabbiata,Pasta,Synthetic pasta arrabbiata prepared in pizza style.,280.0,True,,False,True
+MEN0095,LIST0058,Zomato,ZOMI0045,Farmhouse Pizza,farmhouse pizza,Pizza,Synthetic farmhouse pizza prepared in pizza style.,315.0,True,mild,False,True
+MEN0096,LIST0059,Swiggy,SWMI0051,Rajma Chawal,rajma chawal,Rice,Synthetic rajma chawal prepared in north indian style.,180.0,True,medium,True,True
+MEN0097,LIST0060,Zomato,ZOMI0046,Rajma Chawal,rajma chawal,Rice,Synthetic rajma chawal prepared in north indian style.,162.0,True,medium,True,True
+MEN0098,LIST0060,Zomato,ZOMI0047,Dal Makhani,dal makhani,Main Course,Synthetic dal makhani prepared in north indian style.,220.0,True,spicy,,True
+MEN0099,LIST0061,Swiggy,SWMI0052,Masala Dosa,masala dosa,South Indian,Synthetic masala dosa prepared in south indian style.,120.0,True,spicy,True,True
+MEN0100,LIST0062,Zomato,ZOMI0048,Medu Vada,medu vada,South Indian,Synthetic medu vada prepared in south indian style.,100.0,True,,,True
+MEN0101,LIST0063,Swiggy,SWMI0053,Jeera Rice,jeera rice,Rice,Synthetic jeera rice prepared in thali style.,126.0,True,medium,True,True
+MEN0102,LIST0063,Swiggy,SWMI0054,Masala Chai,masala chai,Beverages,Synthetic masala chai prepared in thali style.,40.0,True,medium,True,True
+MEN0103,LIST0064,Zomato,ZOMI0049,Dal Fry,dal fry,Main Course,Synthetic dal fry prepared in thali style.,160.0,True,mild,True,True
+MEN0104,LIST0065,Swiggy,SWMI0055,Farmhouse Pizza,farmhouse pizza,Pizza,Synthetic farmhouse pizza prepared in pizza style.,350.0,False,,,True
+MEN0105,LIST0066,Zomato,ZOMI0050,Margherita Pizza,margherita pizza,Pizza,Synthetic margherita pizza prepared in pizza style.,312.0,False,medium,True,True
+MEN0106,LIST0067,Swiggy,SWMI0056,Dal Makhani,dal makhani,Main Course,Synthetic dal makhani prepared in north indian style.,187.0,False,spicy,True,True
+MEN0107,LIST0067,Swiggy,SWMI0057,Butter Naan,butter naan,Breads,Synthetic butter naan prepared in north indian style.,51.0,False,,True,True
+MEN0108,LIST0067,Swiggy,SWMI0058,Masala Chai,masala chai,Beverages,Synthetic masala chai prepared in north indian style.,50.0,False,mild,True,True
+MEN0109,LIST0068,Zomato,ZOMI0051,Rajma Chawal,rajma chawal,Rice,Synthetic rajma chawal prepared in north indian style.,180.0,False,mild,True,True
+MEN0110,LIST0068,Zomato,ZOMI0052,Paneer Butter Masala,paneer butter masala,Main Course,Synthetic paneer butter masala prepared in north indian style.,260.0,False,spicy,False,True
+MEN0111,LIST0069,Swiggy,SWMI0059,Idli Sambar,idli sambar,South Indian,Synthetic idli sambar prepared in south indian style.,90.0,True,medium,,True
+MEN0112,LIST0069,Swiggy,SWMI0060,Masala Dosa,masala dosa,South Indian,Synthetic masala dosa prepared in south indian style.,120.0,True,spicy,False,True
+MEN0113,LIST0070,Zomato,ZOMI0053,Filter Coffee,filter coffee,Beverages,Synthetic filter coffee prepared in south indian style.,60.0,True,,True,True
+MEN0114,LIST0071,Swiggy,SWMI0061,Aloo Tikki,aloo tikki,Chaat,Synthetic aloo tikki prepared in street food style.,63.0,True,medium,False,True
+MEN0115,LIST0072,Zomato,ZOMI0054,Dahi Puri,dahi puri,Chaat,Synthetic dahi puri prepared in street food style.,100.0,True,medium,True,True
+MEN0116,LIST0072,Zomato,ZOMI0055,Samosa,samosa,Snacks,Synthetic samosa prepared in street food style.,30.0,True,medium,False,True
+MEN0117,LIST0073,Swiggy,SWMI0062,Filter Coffee,filter coffee,Beverages,Synthetic filter coffee prepared in south indian style.,60.0,True,mild,True,True
+MEN0118,LIST0074,Zomato,ZOMI0056,Idli Sambar,idli sambar,South Indian,Synthetic idli sambar prepared in south indian style.,103.0,True,spicy,False,True
+MEN0119,LIST0074,Zomato,ZOMI0057,Masala Dosa,masala dosa,South Indian,Synthetic masala dosa prepared in south indian style.,132.0,True,medium,True,True
+MEN0120,LIST0075,Swiggy,SWMI0063,Dal Makhani,dal makhani,Main Course,Synthetic dal makhani prepared in north indian style.,275.0,False,medium,,True
+MEN0121,LIST0075,Swiggy,SWMI0064,Masala Chai,masala chai,Beverages,Synthetic masala chai prepared in north indian style.,40.0,False,spicy,True,True
+MEN0122,LIST0076,Zomato,ZOMI0058,Dal Makhani,dal makhani,Main Course,Synthetic dal makhani prepared in north indian style.,220.0,False,,False,True
+MEN0123,LIST0076,Zomato,ZOMI0059,Chole Bhature,chole bhature,Main Course,Synthetic chole bhature prepared in north indian style.,150.0,False,mild,False,True
+MEN0124,LIST0077,Swiggy,SWMI0065,Samosa,samosa,Snacks,Synthetic samosa prepared in street food style.,30.0,True,medium,True,True
+MEN0125,LIST0078,Zomato,ZOMI0060,Bhel Puri,bhel puri,Chaat,Synthetic bhel puri prepared in street food style.,112.0,True,spicy,False,True
+MEN0126,LIST0079,Swiggy,SWMI0066,Cold Coffee,cold coffee,Beverages,Synthetic cold coffee prepared in fast food style.,90.0,False,,True,True
+MEN0127,LIST0080,Zomato,ZOMI0061,Veg Burger,veg burger,Burgers,Synthetic veg burger prepared in fast food style.,120.0,False,medium,,True
+MEN0128,LIST0080,Zomato,ZOMI0062,French Fries,french fries,Sides,Synthetic french fries prepared in fast food style.,110.0,False,mild,,True
+MEN0129,LIST0081,Swiggy,SWMI0067,Veg Burger,veg burger,Burgers,Synthetic veg burger prepared in fast food style.,120.0,True,spicy,False,True
+MEN0130,LIST0081,Swiggy,SWMI0068,Cold Coffee,cold coffee,Beverages,Synthetic cold coffee prepared in fast food style.,90.0,True,mild,,True
+MEN0131,LIST0082,Zomato,ZOMI0063,Cold Coffee,cold coffee,Beverages,Synthetic cold coffee prepared in fast food style.,90.0,True,mild,True,True
+MEN0132,LIST0083,Swiggy,SWMI0069,Chole Bhature,chole bhature,Main Course,Synthetic chole bhature prepared in north indian style.,150.0,True,medium,False,True
+MEN0133,LIST0084,Zomato,ZOMI0064,Butter Naan,butter naan,Breads,Synthetic butter naan prepared in north indian style.,54.0,True,mild,True,True
+MEN0134,LIST0085,Swiggy,SWMI0070,Jeera Rice,jeera rice,Rice,Synthetic jeera rice prepared in thali style.,140.0,True,medium,False,True
+MEN0135,LIST0086,Zomato,ZOMI0065,Veg Thali,veg thali,Thali,Synthetic veg thali prepared in thali style.,220.0,True,medium,True,True
+MEN0136,LIST0086,Zomato,ZOMI0066,Jeera Rice,jeera rice,Rice,Synthetic jeera rice prepared in thali style.,126.0,True,mild,False,True
+MEN0137,LIST0087,Swiggy,SWMI0071,Pasta Arrabbiata,pasta arrabbiata,Pasta,Synthetic pasta arrabbiata prepared in pizza style.,280.0,True,mild,True,True
+MEN0138,LIST0087,Swiggy,SWMI0072,Garlic Bread,garlic bread,Sides,Synthetic garlic bread prepared in pizza style.,102.0,True,spicy,True,True
+MEN0139,LIST0088,Zomato,ZOMI0067,Garlic Bread,garlic bread,Sides,Synthetic garlic bread prepared in pizza style.,120.0,True,medium,True,True
+MEN0140,LIST0088,Zomato,ZOMI0068,Farmhouse Pizza,farmhouse pizza,Pizza,Synthetic farmhouse pizza prepared in pizza style.,350.0,True,,False,True
+MEN0141,LIST0089,Swiggy,SWMI0073,Dahi Puri,dahi puri,Chaat,Synthetic dahi puri prepared in street food style.,100.0,True,medium,True,True
+MEN0142,LIST0090,Zomato,ZOMI0069,Bhel Puri,bhel puri,Chaat,Synthetic bhel puri prepared in street food style.,90.0,True,mild,,True
+MEN0143,LIST0090,Zomato,ZOMI0070,Masala Chai,masala chai,Beverages,Synthetic masala chai prepared in street food style.,44.0,True,mild,True,True
+MEN0144,LIST0091,Swiggy,SWMI0074,Mirchi Ka Salan,mirchi ka salan,Sides,Synthetic mirchi ka salan prepared in biryani style.,120.0,False,medium,False,True
+MEN0145,LIST0092,Zomato,ZOMI0071,Hyderabadi Chicken Biryani,hyderabadi chicken biryani,Biryani,Synthetic hyderabadi chicken biryani prepared in biryani style.,320.0,False,mild,False,True
+MEN0146,LIST0092,Zomato,ZOMI0072,Mirchi Ka Salan,mirchi ka salan,Sides,Synthetic mirchi ka salan prepared in biryani style.,102.0,False,medium,True,True
+MEN0147,LIST0093,Swiggy,SWMI0075,Medu Vada,medu vada,South Indian,Synthetic medu vada prepared in south indian style.,125.0,True,mild,False,True
+MEN0148,LIST0093,Swiggy,SWMI0076,Uttapam,uttapam,South Indian,Synthetic uttapam prepared in south indian style.,162.0,True,spicy,False,True
+MEN0149,LIST0094,Zomato,ZOMI0073,Medu Vada,medu vada,South Indian,Synthetic medu vada prepared in south indian style.,115.0,True,,False,True
+MEN0150,LIST0094,Zomato,ZOMI0074,Filter Coffee,filter coffee,Beverages,Synthetic filter coffee prepared in south indian style.,75.0,True,spicy,True,True
+MEN0151,LIST0095,Swiggy,SWMI0077,Masala Dosa,masala dosa,South Indian,Synthetic masala dosa prepared in south indian style.,102.0,True,medium,,True
+MEN0152,LIST0095,Swiggy,SWMI0078,Masala Chai,masala chai,Beverages,Synthetic masala chai prepared in south indian style.,46.0,True,spicy,,True
+MEN0153,LIST0096,Zomato,ZOMI0075,Masala Dosa,masala dosa,South Indian,Synthetic masala dosa prepared in south indian style.,132.0,True,spicy,True,True
+MEN0154,LIST0097,Swiggy,SWMI0079,Hyderabadi Chicken Biryani,hyderabadi chicken biryani,Biryani,Synthetic hyderabadi chicken biryani prepared in biryani style.,320.0,False,mild,True,True
+MEN0155,LIST0097,Swiggy,SWMI0080,Mirchi Ka Salan,mirchi ka salan,Sides,Synthetic mirchi ka salan prepared in biryani style.,120.0,True,,False,True
+MEN0156,LIST0098,Zomato,ZOMI0076,Veg Biryani,veg biryani,Biryani,Synthetic veg biryani prepared in biryani style.,300.0,True,,False,True
+MEN0157,LIST0099,Swiggy,SWMI0081,Dal Fry,dal fry,Main Course,Synthetic dal fry prepared in thali style.,200.0,True,medium,,True
+MEN0158,LIST0100,Zomato,ZOMI0077,Dal Fry,dal fry,Main Course,Synthetic dal fry prepared in thali style.,160.0,True,,,True
+MEN0159,LIST0100,Zomato,ZOMI0078,Veg Thali,veg thali,Thali,Synthetic veg thali prepared in thali style.,275.0,True,medium,,True
+MEN0160,LIST0101,Swiggy,SWMI0082,Medu Vada,medu vada,South Indian,Synthetic medu vada prepared in south indian style.,100.0,True,,True,True
+MEN0161,LIST0102,Zomato,ZOMI0079,Idli Sambar,idli sambar,South Indian,Synthetic idli sambar prepared in south indian style.,81.0,True,medium,True,True
+MEN0162,LIST0102,Zomato,ZOMI0080,Medu Vada,medu vada,South Indian,Synthetic medu vada prepared in south indian style.,100.0,True,medium,True,True
+MEN0163,LIST0103,Swiggy,SWMI0083,Veg Hakka Noodles,veg hakka noodles,Noodles,Synthetic veg hakka noodles prepared in chinese style.,180.0,False,,,True
+MEN0164,LIST0103,Swiggy,SWMI0084,Chilli Paneer,chilli paneer,Starters,Synthetic chilli paneer prepared in chinese style.,240.0,False,mild,,True
+MEN0165,LIST0104,Zomato,ZOMI0081,Chilli Paneer,chilli paneer,Starters,Synthetic chilli paneer prepared in chinese style.,240.0,False,mild,True,True
+MEN0166,LIST0105,Swiggy,SWMI0085,Veg Burger,veg burger,Burgers,Synthetic veg burger prepared in fast food style.,132.0,True,mild,True,True
+MEN0167,LIST0105,Swiggy,SWMI0086,French Fries,french fries,Sides,Synthetic french fries prepared in fast food style.,110.0,True,spicy,True,True
+MEN0168,LIST0106,Zomato,ZOMI0082,Chicken Burger,chicken burger,Burgers,Synthetic chicken burger prepared in fast food style.,160.0,False,,True,True
+MEN0169,LIST0106,Zomato,ZOMI0083,Cold Coffee,cold coffee,Beverages,Synthetic cold coffee prepared in fast food style.,90.0,True,mild,True,True
+MEN0170,LIST0107,Swiggy,SWMI0087,Chicken Burger,chicken burger,Burgers,Synthetic chicken burger prepared in fast food style.,160.0,False,spicy,,True
+MEN0171,LIST0108,Zomato,ZOMI0084,Chicken Burger,chicken burger,Burgers,Synthetic chicken burger prepared in fast food style.,176.0,False,mild,True,True
+MEN0172,LIST0108,Zomato,ZOMI0085,Masala Chai,masala chai,Beverages,Synthetic masala chai prepared in fast food style.,40.0,False,mild,True,True
+MEN0173,LIST0109,Swiggy,SWMI0088,Chocolate Cake,chocolate cake,Desserts,Synthetic chocolate cake prepared in cafe style.,150.0,True,,,True
+MEN0174,LIST0109,Swiggy,SWMI0089,Croissant,croissant,Bakery,Synthetic croissant prepared in cafe style.,120.0,True,medium,,True
+MEN0175,LIST0110,Zomato,ZOMI0086,Croissant,croissant,Bakery,Synthetic croissant prepared in cafe style.,120.0,True,,True,True
+MEN0176,LIST0111,Swiggy,SWMI0090,Veg Manchurian,veg manchurian,Starters,Synthetic veg manchurian prepared in chinese style.,230.0,True,medium,True,True
+MEN0177,LIST0111,Swiggy,SWMI0091,Schezwan Fried Rice,schezwan fried rice,Rice,Synthetic schezwan fried rice prepared in chinese style.,238.0,True,spicy,False,True
+MEN0178,LIST0112,Zomato,ZOMI0087,Veg Manchurian,veg manchurian,Starters,Synthetic veg manchurian prepared in chinese style.,230.0,True,mild,False,True
+MEN0179,LIST0113,Swiggy,SWMI0092,Butter Naan,butter naan,Breads,Synthetic butter naan prepared in north indian style.,66.0,True,medium,,True
+MEN0180,LIST0114,Zomato,ZOMI0088,Chole Bhature,chole bhature,Main Course,Synthetic chole bhature prepared in north indian style.,165.0,True,mild,True,True
+MEN0181,LIST0115,Swiggy,SWMI0093,Uttapam,uttapam,South Indian,Synthetic uttapam prepared in south indian style.,130.0,True,,False,True
+MEN0182,LIST0115,Swiggy,SWMI0094,Filter Coffee,filter coffee,Beverages,Synthetic filter coffee prepared in south indian style.,60.0,True,,False,True
+MEN0183,LIST0116,Zomato,ZOMI0089,Filter Coffee,filter coffee,Beverages,Synthetic filter coffee prepared in south indian style.,75.0,True,mild,,True
+MEN0184,LIST0116,Zomato,ZOMI0090,Idli Sambar,idli sambar,South Indian,Synthetic idli sambar prepared in south indian style.,90.0,True,mild,False,True
+MEN0185,LIST0117,Swiggy,SWMI0095,Pasta Arrabbiata,pasta arrabbiata,Pasta,Synthetic pasta arrabbiata prepared in pizza style.,280.0,True,,True,True
+MEN0186,LIST0118,Zomato,ZOMI0091,Margherita Pizza,margherita pizza,Pizza,Synthetic margherita pizza prepared in pizza style.,250.0,True,medium,False,True
+MEN0187,LIST0118,Zomato,ZOMI0092,Garlic Bread,garlic bread,Sides,Synthetic garlic bread prepared in pizza style.,120.0,False,,True,True
+MEN0188,LIST0119,Swiggy,SWMI0096,Mutton Biryani,mutton biryani,Biryani,Synthetic mutton biryani prepared in biryani style.,462.0,False,,True,True
+MEN0189,LIST0120,Zomato,ZOMI0093,Hyderabadi Chicken Biryani,hyderabadi chicken biryani,Biryani,Synthetic hyderabadi chicken biryani prepared in biryani style.,320.0,False,mild,True,True
+MEN0190,LIST0121,Swiggy,SWMI0097,Paneer Butter Masala,paneer butter masala,Main Course,Synthetic paneer butter masala prepared in north indian style.,286.0,False,spicy,True,True
+MEN0191,LIST0122,Zomato,ZOMI0094,Chole Bhature,chole bhature,Main Course,Synthetic chole bhature prepared in north indian style.,150.0,False,,False,True
+MEN0192,LIST0123,Swiggy,SWMI0098,Garlic Bread,garlic bread,Sides,Synthetic garlic bread prepared in pizza style.,120.0,False,,True,True
+MEN0193,LIST0123,Swiggy,SWMI0099,Pasta Arrabbiata,pasta arrabbiata,Pasta,Synthetic pasta arrabbiata prepared in pizza style.,252.0,False,medium,True,True
+MEN0194,LIST0124,Zomato,ZOMI0095,Margherita Pizza,margherita pizza,Pizza,Synthetic margherita pizza prepared in pizza style.,250.0,False,,True,True
+MEN0195,LIST0125,Swiggy,SWMI0100,Idli Sambar,idli sambar,South Indian,Synthetic idli sambar prepared in south indian style.,90.0,True,,,True
+MEN0196,LIST0126,Zomato,ZOMI0096,Uttapam,uttapam,South Indian,Synthetic uttapam prepared in south indian style.,130.0,True,spicy,True,True
+MEN0197,LIST0127,Swiggy,SWMI0101,Jeera Rice,jeera rice,Rice,Synthetic jeera rice prepared in thali style.,140.0,True,medium,,True
+MEN0198,LIST0128,Zomato,ZOMI0097,Jeera Rice,jeera rice,Rice,Synthetic jeera rice prepared in thali style.,140.0,True,,True,True
+MEN0199,LIST0128,Zomato,ZOMI0098,Dal Fry,dal fry,Main Course,Synthetic dal fry prepared in thali style.,160.0,True,mild,True,True
+MEN0200,LIST0129,Swiggy,SWMI0102,Vada Pav,vada pav,Snacks,Synthetic vada pav prepared in regional style.,45.0,True,mild,,True
+MEN0201,LIST0129,Swiggy,SWMI0103,Poha,poha,Breakfast,Synthetic poha prepared in regional style.,66.0,True,spicy,,True
+MEN0202,LIST0130,Zomato,ZOMI0099,Vada Pav,vada pav,Snacks,Synthetic vada pav prepared in regional style.,62.0,True,,True,True
+MEN0203,LIST0131,Swiggy,SWMI0104,Dal Fry,dal fry,Main Course,Synthetic dal fry prepared in thali style.,176.0,True,spicy,True,True
+MEN0204,LIST0131,Swiggy,SWMI0105,Veg Thali,veg thali,Thali,Synthetic veg thali prepared in thali style.,275.0,True,mild,True,True
+MEN0205,LIST0131,Swiggy,SWMI0106,Masala Chai,masala chai,Beverages,Synthetic masala chai prepared in thali style.,,True,,True,True
+MEN0206,LIST0132,Zomato,ZOMI0100,Veg Thali,veg thali,Thali,Synthetic veg thali prepared in thali style.,220.0,True,spicy,True,True
+MEN0207,LIST0133,Swiggy,SWMI0107,Pani Puri,pani puri,Chaat,Synthetic pani puri prepared in street food style.,72.0,True,spicy,True,True
+MEN0208,LIST0133,Swiggy,SWMI0108,Dahi Puri,dahi puri,Chaat,Synthetic dahi puri prepared in street food style.,100.0,True,,True,True
+MEN0209,LIST0134,Zomato,ZOMI0101,Samosa,samosa,Snacks,Synthetic samosa prepared in street food style.,38.0,True,medium,False,True
+MEN0210,LIST0135,Swiggy,SWMI0109,Mirchi Ka Salan,mirchi ka salan,Sides,Synthetic mirchi ka salan prepared in biryani style.,108.0,False,spicy,True,True
+MEN0211,LIST0135,Swiggy,SWMI0110,Hyderabadi Chicken Biryani,hyderabadi chicken biryani,Biryani,Synthetic hyderabadi chicken biryani prepared in biryani style.,272.0,False,,False,True
+MEN0212,LIST0136,Zomato,ZOMI0102,Mutton Biryani,mutton biryani,Biryani,Synthetic mutton biryani prepared in biryani style.,525.0,False,,False,True
+MEN0213,LIST0136,Zomato,ZOMI0103,Veg Biryani,veg biryani,Biryani,Synthetic veg biryani prepared in biryani style.,240.0,False,,True,True
+MEN0214,LIST0137,Swiggy,SWMI0111,Aloo Tikki,aloo tikki,Chaat,Synthetic aloo tikki prepared in street food style.,60.0,True,spicy,False,True
+MEN0215,LIST0137,Swiggy,SWMI0112,Dahi Puri,dahi puri,Chaat,Synthetic dahi puri prepared in street food style.,110.0,True,spicy,True,True
+MEN0216,LIST0138,Zomato,ZOMI0104,Dahi Puri,dahi puri,Chaat,Synthetic dahi puri prepared in street food style.,90.0,True,medium,,True
+MEN0217,LIST0138,Zomato,ZOMI0105,Aloo Tikki,aloo tikki,Chaat,Synthetic aloo tikki prepared in street food style.,70.0,True,medium,True,True
+MEN0218,LIST0139,Swiggy,SWMI0113,Pani Puri,pani puri,Chaat,Synthetic pani puri prepared in street food style.,80.0,True,mild,False,True
+MEN0219,LIST0140,Zomato,ZOMI0106,Bhel Puri,bhel puri,Chaat,Synthetic bhel puri prepared in street food style.,90.0,True,medium,,True
+MEN0220,LIST0140,Zomato,ZOMI0107,Samosa,samosa,Snacks,Synthetic samosa prepared in street food style.,26.0,True,medium,False,True
+MEN0221,LIST0141,Swiggy,SWMI0114,Veg Thali,veg thali,Thali,Synthetic veg thali prepared in thali style.,220.0,True,mild,False,True
+MEN0222,LIST0142,Zomato,ZOMI0108,Vada Pav,vada pav,Snacks,Synthetic vada pav prepared in regional style.,55.0,True,,False,True
+MEN0223,LIST0142,Zomato,ZOMI0109,Dhokla,dhokla,Snacks,Synthetic dhokla prepared in regional style.,120.0,True,spicy,True,True
+MEN0224,LIST0143,Zomato,ZOMI0110,Margherita Pizza,margherita pizza,Pizza,Synthetic margherita pizza prepared in pizza style.,250.0,False,,True,True
+MEN0225,LIST0143,Zomato,ZOMI0111,Farmhouse Pizza,farmhouse pizza,Pizza,Synthetic farmhouse pizza prepared in pizza style.,350.0,False,medium,,True
+MEN0226,LIST0144,Zomato,ZOMI0112,Vada Pav,vada pav,Snacks,Synthetic vada pav prepared in regional style.,50.0,True,spicy,False,True
+MEN0227,LIST0145,Swiggy,SWMI0115,Garlic Bread,garlic bread,Sides,Synthetic garlic bread prepared in pizza style.,102.0,False,spicy,True,True
+MEN0228,LIST0146,Zomato,ZOMI0113,Uttapam,uttapam,South Indian,Synthetic uttapam prepared in south indian style.,150.0,False,mild,,True
+MEN0229,LIST0146,Zomato,ZOMI0114,Masala Dosa,masala dosa,South Indian,Synthetic masala dosa prepared in south indian style.,120.0,False,,True,True
+MEN0230,LIST0147,Zomato,ZOMI0115,Samosa,samosa,Snacks,Synthetic samosa prepared in street food style.,26.0,True,spicy,True,True
+MEN0231,LIST0147,Zomato,ZOMI0116,Dahi Puri,dahi puri,Chaat,Synthetic dahi puri prepared in street food style.,110.0,True,medium,,True
+MEN0232,LIST0148,Swiggy,SWMI0116,Chole Bhature,chole bhature,Main Course,Synthetic chole bhature prepared in north indian style.,150.0,False,mild,True,True
+MEN0233,LIST0149,Swiggy,SWMI0117,Margherita Pizza,margherita pizza,Pizza,Synthetic margherita pizza prepared in pizza style.,250.0,False,mild,,True
+MEN0234,LIST0149,Swiggy,SWMI0118,Pasta Arrabbiata,pasta arrabbiata,Pasta,Synthetic pasta arrabbiata prepared in pizza style.,280.0,False,spicy,False,True
+MEN0235,LIST0150,Swiggy,SWMI0119,Chocolate Cake,chocolate cake,Desserts,Synthetic chocolate cake prepared in cafe style.,150.0,True,,True,True
+MEN0236,LIST0150,Swiggy,SWMI0120,Croissant,croissant,Bakery,Synthetic croissant prepared in cafe style.,120.0,True,,,True
+MEN0237,LIST0151,Zomato,ZOMI0117,Blueberry Cheesecake,blueberry cheesecake,Desserts,Synthetic blueberry cheesecake prepared in cafe style.,220.0,False,mild,False,True
+MEN0238,LIST0152,Zomato,ZOMI0118,Chicken Burger,chicken burger,Burgers,Synthetic chicken burger prepared in fast food style.,160.0,False,mild,True,True
+MEN0239,LIST0153,Swiggy,SWMI0121,Schezwan Fried Rice,schezwan fried rice,Rice,Synthetic schezwan fried rice prepared in chinese style.,162.0,True,medium,True,True
+MEN0240,LIST0154,Swiggy,SWMI0122,Mirchi Ka Salan,mirchi ka salan,Sides,Synthetic mirchi ka salan prepared in biryani style.,138.0,True,medium,True,True
+MEN0241,LIST0155,Swiggy,SWMI0123,Pani Puri,pani puri,Chaat,Synthetic pani puri prepared in street food style.,80.0,True,medium,False,True
+MEN0242,LIST0156,Zomato,ZOMI0119,Mutton Biryani,mutton biryani,Biryani,Synthetic mutton biryani prepared in biryani style.,420.0,False,mild,True,True
+MEN0243,LIST0157,Swiggy,SWMI0124,Cold Coffee,cold coffee,Beverages,Synthetic cold coffee prepared in fast food style.,90.0,False,mild,True,True
+MEN0244,LIST0158,Zomato,ZOMI0120,Pani Puri,pani puri,Chaat,Synthetic pani puri prepared in street food style.,80.0,True,,True,True
+MEN0245,LIST0159,Swiggy,SWMI0125,Idli Sambar,idli sambar,South Indian,Synthetic idli sambar prepared in south indian style.,90.0,True,medium,,True
+MEN0246,LIST0160,Zomato,ZOMI0121,Dahi Puri,dahi puri,Chaat,Synthetic dahi puri prepared in street food style.,100.0,True,spicy,True,True
+MEN0247,LIST0161,Swiggy,SWMI0126,Pani Puri,pani puri,Chaat,Synthetic pani puri prepared in street food style.,68.0,True,medium,False,True
+MEN0248,LIST0161,Swiggy,SWMI0127,Bhel Puri,bhel puri,Chaat,Synthetic bhel puri prepared in street food style.,81.0,True,medium,True,True
+MEN0249,LIST0162,Swiggy,SWMI0128,Jeera Rice,jeera rice,Rice,Synthetic jeera rice prepared in thali style.,140.0,True,mild,True,True
+MEN0250,LIST0163,Zomato,ZOMI0122,Dal Makhani,dal makhani,Main Course,Synthetic dal makhani prepared in north indian style.,253.0,True,mild,,True
+MEN0251,LIST0163,Zomato,ZOMI0123,Chole Bhature,chole bhature,Main Course,Synthetic chole bhature prepared in north indian style.,150.0,True,,,True
+MEN0252,LIST0164,Swiggy,SWMI0129,Chocolate Cake,chocolate cake,Desserts,Synthetic chocolate cake prepared in cafe style.,188.0,False,,True,True
+MEN0253,LIST0165,Zomato,ZOMI0124,Chilli Paneer,chilli paneer,Starters,Synthetic chilli paneer prepared in chinese style.,240.0,True,medium,False,True
+MEN0254,LIST0165,Zomato,ZOMI0125,Veg Hakka Noodles,veg hakka noodles,Noodles,Synthetic veg hakka noodles prepared in chinese style.,153.0,True,,True,True
+MEN0255,LIST0166,Zomato,ZOMI0126,Chicken Burger,chicken burger,Burgers,Synthetic chicken burger prepared in fast food style.,160.0,False,medium,False,True
+MEN0256,LIST0166,Zomato,ZOMI0127,Veg Burger,veg burger,Burgers,Synthetic veg burger prepared in fast food style.,132.0,True,medium,True,True
+MEN0257,LIST0167,Swiggy,SWMI0130,Margherita Pizza,margherita pizza,Pizza,Synthetic margherita pizza prepared in pizza style.,250.0,True,,False,True
+MEN0258,LIST0168,Swiggy,SWMI0131,Bhel Puri,bhel puri,Chaat,Synthetic bhel puri prepared in street food style.,90.0,True,medium,,True
+MEN0259,LIST0168,Swiggy,SWMI0132,Samosa,samosa,Snacks,Synthetic samosa prepared in street food style.,27.0,True,,True,True
+MEN0260,LIST0169,Swiggy,SWMI0133,Aloo Tikki,aloo tikki,Chaat,Synthetic aloo tikki prepared in street food style.,70.0,True,medium,True,True
+MEN0261,LIST0169,Swiggy,SWMI0134,Samosa,samosa,Snacks,Synthetic samosa prepared in street food style.,30.0,True,medium,,True
+MEN0262,LIST0169,Swiggy,SWMI0135,Masala Chai,masala chai,Beverages,Synthetic masala chai prepared in street food style.,46.0,True,mild,False,True
+MEN0263,LIST0170,Zomato,ZOMI0128,Croissant,croissant,Bakery,Synthetic croissant prepared in cafe style.,120.0,False,mild,False,True
+MEN0264,LIST0171,Swiggy,SWMI0136,Special Thali,special thali,Thali,Synthetic special thali prepared in thali style.,280.0,True,medium,True,True
+MEN0265,LIST0171,Swiggy,SWMI0137,Veg Thali,veg thali,Thali,Synthetic veg thali prepared in thali style.,220.0,True,mild,True,True
+MEN0266,LIST0172,Swiggy,SWMI0138,Butter Naan,butter naan,Breads,Synthetic butter naan prepared in north indian style.,,True,,False,True
+MEN0267,LIST0172,Swiggy,SWMI0139,Dal Makhani,dal makhani,Main Course,Synthetic dal makhani prepared in north indian style.,253.0,True,spicy,False,True
+MEN0268,LIST0173,Swiggy,SWMI0140,Veg Hakka Noodles,veg hakka noodles,Noodles,Synthetic veg hakka noodles prepared in chinese style.,225.0,False,,True,True
+MEN0269,LIST0174,Swiggy,SWMI0141,Masala Dosa,masala dosa,South Indian,Synthetic masala dosa prepared in south indian style.,120.0,True,spicy,True,True
+MEN0270,LIST0175,Swiggy,SWMI0142,Uttapam,uttapam,South Indian,Synthetic uttapam prepared in south indian style.,143.0,True,mild,,True
+MEN0271,LIST0176,Swiggy,SWMI0143,Special Thali,special thali,Thali,Synthetic special thali prepared in thali style.,280.0,True,,,True
+MEN0272,LIST0177,Swiggy,SWMI0144,Farmhouse Pizza,farmhouse pizza,Pizza,Synthetic farmhouse pizza prepared in pizza style.,438.0,False,spicy,True,True
+MEN0273,LIST0178,Zomato,ZOMI0129,Dhokla,dhokla,Snacks,Synthetic dhokla prepared in regional style.,120.0,True,mild,False,True
+MEN0274,LIST0179,Swiggy,SWMI0145,Schezwan Fried Rice,schezwan fried rice,Rice,Synthetic schezwan fried rice prepared in chinese style.,162.0,True,,True,True
+MEN0275,LIST0179,Swiggy,SWMI0146,Veg Manchurian,veg manchurian,Starters,Synthetic veg manchurian prepared in chinese style.,200.0,True,spicy,True,True
+MEN0276,LIST0180,Zomato,ZOMI0130,Chicken Burger,chicken burger,Burgers,Synthetic chicken burger prepared in fast food style.,184.0,False,mild,True,True
+MEN0277,LIST0181,Zomato,ZOMI0131,Filter Coffee,filter coffee,Beverages,Synthetic filter coffee prepared in south indian style.,60.0,True,mild,True,True
+MEN0278,LIST0181,Zomato,ZOMI0132,Idli Sambar,idli sambar,South Indian,Synthetic idli sambar prepared in south indian style.,,True,medium,,True
+MEN0279,LIST0182,Swiggy,SWMI0147,Uttapam,uttapam,South Indian,Synthetic uttapam prepared in south indian style.,150.0,True,,False,True
+MEN0280,LIST0182,Swiggy,SWMI0148,Medu Vada,medu vada,South Indian,Synthetic medu vada prepared in south indian style.,100.0,True,spicy,True,True
+MEN0281,LIST0183,Zomato,ZOMI0133,Special Thali,special thali,Thali,Synthetic special thali prepared in thali style.,280.0,True,medium,True,True
+MEN0282,LIST0183,Zomato,ZOMI0134,Jeera Rice,jeera rice,Rice,Synthetic jeera rice prepared in thali style.,140.0,True,medium,,True
+MEN0283,LIST0184,Swiggy,SWMI0149,Special Thali,special thali,Thali,Synthetic special thali prepared in thali style.,252.0,True,mild,True,True
+MEN0284,LIST0184,Swiggy,SWMI0150,Veg Thali,veg thali,Thali,Synthetic veg thali prepared in thali style.,275.0,True,spicy,True,True
+MEN0285,LIST0185,Swiggy,SWMI0151,Veg Biryani,veg biryani,Biryani,Synthetic veg biryani prepared in biryani style.,240.0,False,spicy,True,True
+MEN0286,LIST0186,Zomato,ZOMI0135,Chole Bhature,chole bhature,Main Course,Synthetic chole bhature prepared in north indian style.,,True,,True,True
+MEN0287,LIST0186,Zomato,ZOMI0136,Dal Makhani,dal makhani,Main Course,Synthetic dal makhani prepared in north indian style.,242.0,True,spicy,True,True
+MEN0288,LIST0187,Swiggy,SWMI0152,Mutton Biryani,mutton biryani,Biryani,Synthetic mutton biryani prepared in biryani style.,483.0,False,mild,False,True
+MEN0289,LIST0187,Swiggy,SWMI0153,Mirchi Ka Salan,mirchi ka salan,Sides,Synthetic mirchi ka salan prepared in biryani style.,108.0,True,mild,True,True
+MEN0290,LIST0188,Swiggy,SWMI0154,Uttapam,uttapam,South Indian,Synthetic uttapam prepared in south indian style.,130.0,True,spicy,True,True
+MEN0291,LIST0189,Zomato,ZOMI0137,Chicken Burger,chicken burger,Burgers,Synthetic chicken burger prepared in fast food style.,,False,,True,True
+MEN0292,LIST0190,Swiggy,SWMI0155,Idli Sambar,idli sambar,South Indian,Synthetic idli sambar prepared in south indian style.,76.0,True,spicy,False,True
+MEN0293,LIST0190,Swiggy,SWMI0156,Uttapam,uttapam,South Indian,Synthetic uttapam prepared in south indian style.,130.0,True,spicy,False,True
+MEN0294,LIST0191,Swiggy,SWMI0157,Paneer Butter Masala,paneer butter masala,Main Course,Synthetic paneer butter masala prepared in north indian style.,260.0,False,mild,True,True
+MEN0295,LIST0191,Swiggy,SWMI0158,Butter Naan,butter naan,Breads,Synthetic butter naan prepared in north indian style.,69.0,False,,False,True
+MEN0296,LIST0192,Swiggy,SWMI0159,Special Thali,special thali,Thali,Synthetic special thali prepared in thali style.,280.0,True,medium,,True
+MEN0297,LIST0192,Swiggy,SWMI0160,Dal Fry,dal fry,Main Course,Synthetic dal fry prepared in thali style.,160.0,True,spicy,False,True
+MEN0298,LIST0193,Zomato,ZOMI0138,Masala Dosa,masala dosa,South Indian,Synthetic masala dosa prepared in south indian style.,120.0,True,,True,True
+MEN0299,LIST0193,Zomato,ZOMI0139,Uttapam,uttapam,South Indian,Synthetic uttapam prepared in south indian style.,130.0,True,medium,True,True
+MEN0300,LIST0193,Zomato,ZOMI0140,Masala Chai,masala chai,Beverages,Synthetic masala chai prepared in south indian style.,40.0,True,,True,True
+MEN0301,LIST0194,Zomato,ZOMI0141,Dahi Puri,dahi puri,Chaat,Synthetic dahi puri prepared in street food style.,90.0,True,medium,True,True
+MEN0302,LIST0194,Zomato,ZOMI0142,Samosa,samosa,Snacks,Synthetic samosa prepared in street food style.,30.0,False,spicy,False,True
+MEN0303,LIST0195,Zomato,ZOMI0143,Cold Coffee,cold coffee,Beverages,Synthetic cold coffee prepared in fast food style.,76.0,True,spicy,False,True
+MEN0304,LIST0196,Zomato,ZOMI0144,Filter Coffee,filter coffee,Beverages,Synthetic filter coffee prepared in south indian style.,60.0,True,spicy,False,True
+MEN0305,LIST0197,Swiggy,SWMI0161,Mutton Biryani,mutton biryani,Biryani,Synthetic mutton biryani prepared in biryani style.,420.0,False,medium,,True
+MEN0306,LIST0198,Zomato,ZOMI0145,Idli Sambar,idli sambar,South Indian,Synthetic idli sambar prepared in south indian style.,81.0,True,mild,True,True
+MEN0307,LIST0199,Swiggy,SWMI0162,Cold Coffee,cold coffee,Beverages,Synthetic cold coffee prepared in fast food style.,90.0,False,mild,,True
+MEN0308,LIST0199,Swiggy,SWMI0163,French Fries,french fries,Sides,Synthetic french fries prepared in fast food style.,110.0,False,mild,,True
+MEN0309,LIST0200,Zomato,ZOMI0146,Dahi Puri,dahi puri,Chaat,Synthetic dahi puri prepared in street food style.,100.0,True,spicy,True,True
+MEN0310,LIST0176,Swiggy,SWMI0164,Dal Fry,dal fry,Main Course,Synthetic dal fry item.,160.0,True,mild,True,True
+MEN0311,LIST0137,Swiggy,SWMI0165,Dahi Puri,dahi puri,Chaat,Synthetic dahi puri item.,100.0,True,spicy,True,True
+MEN0312,LIST0037,Swiggy,SWMI0166,Poha,poha,Breakfast,Synthetic poha item.,60.0,True,medium,True,True
+MEN0313,LIST0133,Swiggy,SWMI0167,Samosa,samosa,Snacks,Synthetic samosa item.,30.0,True,spicy,True,True
+MEN0314,LIST0200,Zomato,ZOMI0147,Aloo Tikki,aloo tikki,Chaat,Synthetic aloo tikki item.,70.0,True,,True,True
+MEN0315,LIST0088,Zomato,ZOMI0148,Farmhouse Pizza,farmhouse pizza,Pizza,Synthetic farmhouse pizza item.,350.0,True,mild,True,True
+MEN0316,LIST0056,Zomato,ZOMI0149,Farmhouse Pizza,farmhouse pizza,Pizza,Synthetic farmhouse pizza item.,350.0,True,medium,True,True
+MEN0317,LIST0049,Swiggy,SWMI0168,Misal Pav,misal pav,Main Course,Synthetic misal pav item.,130.0,True,mild,True,True
+MEN0318,LIST0107,Swiggy,SWMI0169,Cold Coffee,cold coffee,Beverages,Synthetic cold coffee item.,90.0,True,mild,True,True
+MEN0319,LIST0030,Zomato,ZOMI0150,Blueberry Cheesecake,blueberry cheesecake,Desserts,Synthetic blueberry cheesecake item.,220.0,True,mild,True,True
+MEN0320,LIST0123,Swiggy,SWMI0170,Pasta Arrabbiata,pasta arrabbiata,Pasta,Synthetic pasta arrabbiata item.,280.0,True,spicy,True,True

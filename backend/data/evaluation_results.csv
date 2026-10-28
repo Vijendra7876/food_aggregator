@@ -1,0 +1,71 @@
+pair_id,listing_id_a,listing_id_b,name_a,name_b,expected,predicted,confidence
+PAIR0001,LIST0079,LIST0080,Handi's Shack,Handi's Shack,match,match,1.0
+PAIR0002,LIST0103,LIST0104,Taste Noodle Bar,Taste's Bar,match,match,0.7667
+PAIR0003,LIST0021,LIST0022,Sagar's Bar,Sagar Noodle Bar,match,match,0.7667
+PAIR0004,LIST0065,LIST0066,Krishna's Hub,Krishne Pizza Hub,match,match,0.8133
+PAIR0005,LIST0025,LIST0026,TandoorVegRasoi,Tandoor's Rasoi,match,match,0.86
+PAIR0006,LIST0045,LIST0046,RasoiThaliJunction,RasoiThaliJunction,match,match,1.0
+PAIR0007,LIST0087,LIST0088,BawarchiPizzaHub,BawarchiPizzaHub,match,match,1.0
+PAIR0008,LIST0069,LIST0070,CurryTiffinRoom,Curry Tiffin Rum,match,non_match,0.5871
+PAIR0009,LIST0073,LIST0074,ZaikaDosaCorner,Zaika's Corner,match,match,0.8793
+PAIR0010,LIST0101,LIST0102,Bombey Udupi Bhavan,Bombay Udupi Bhavan,match,match,0.9632
+PAIR0011,LIST0091,LIST0092,Curry Biryani Blues,Curry's Blues,match,non_match,0.4812
+PAIR0012,LIST0105,LIST0106,ChulhaFryDay,Chulha Fry Day,match,match,0.9462
+PAIR0013,LIST0129,LIST0130,Chetori Desi Rasoi,Chatori's Rasoi,match,match,0.8515
+PAIR0014,LIST0019,LIST0020,Annapurna's Bhavan,Annepurna Udupi Bhavan,match,match,0.825
+PAIR0015,LIST0135,LIST0136,KebabBiryaniBlues,Kebab Biryani Blues,match,match,0.9611
+PAIR0016,LIST0113,LIST0114,Desi Resoi,Desi's Rasoi,match,match,0.8727
+PAIR0017,LIST0051,LIST0052,BombayShudhBhojan,BombayShudhBhojan,match,match,1.0
+PAIR0018,LIST0029,LIST0030,Bewarchi Dessert Den,Bawarchi Dessert Den,match,match,0.965
+PAIR0019,LIST0099,LIST0100,Desi Theli Junction,Desi Thali Junction,match,match,0.9632
+PAIR0020,LIST0089,LIST0090,Namkin's Junction,Namkin Tikki Junction,match,match,0.8526
+PAIR0021,LIST0053,LIST0054,TikkaAnnaThali,TikkaAnnaThali,match,match,1.0
+PAIR0022,LIST0115,LIST0116,Rejdhani Idli House,RajdhaniIdliHouse,match,match,0.9222
+PAIR0023,LIST0003,LIST0004,Swed Dosa Corner,Swad's Corner,match,match,0.831
+PAIR0024,LIST0059,LIST0060,GoldenBhojnalaya,GoldenBhojnalaya,match,match,1.0
+PAIR0025,LIST0093,LIST0094,Sharma's House,Sharma Idli House,match,match,0.8419
+PAIR0026,LIST0083,LIST0084,Spice Hendi,Spice's Handi,match,match,0.8833
+PAIR0027,LIST0119,LIST0120,NawabiDumBiryani,Newabi Dum Biryani,match,match,0.9176
+PAIR0028,LIST0009,LIST0010,Medras Handi,Medras Handi,match,match,1.0
+PAIR0029,LIST0125,LIST0126,Taste's Bhavan,Taste's Bhavan,match,match,1.0
+PAIR0030,LIST0057,LIST0058,GoldenPizzaJunction,Golden Pizza Junction,match,match,0.965
+PAIR0031,LIST0005,LIST0006,Rajwada's Room,RajwadaTiffinRoom,match,match,0.7968
+PAIR0032,LIST0049,LIST0050,Anend Local Tadka,AnandLocalTadka,match,match,0.9125
+PAIR0033,LIST0117,LIST0118,Medras Oven Story,Madras's Story,match,match,0.7968
+PAIR0034,LIST0111,LIST0112,Swad Wok Express,Swad Wok Express,match,match,1.0
+PAIR0035,LIST0031,LIST0032,Swad Veg Rasoi,SwadVegRasoi,match,match,0.9462
+PAIR0036,LIST0133,LIST0093,Sharma's Corner,Sharma's House,non_match,non_match,0.531
+PAIR0037,LIST0123,LIST0153,Tandur Pizza Hub,TandoorChilliHouse,non_match,non_match,0.2059
+PAIR0038,LIST0170,LIST0145,Delhi Dessert Dena,Delhi Pizze Hub,non_match,non_match,0.3394
+PAIR0039,LIST0053,LIST0165,TikkaAnnaThali,Tikke Wok Express,non_match,non_match,0.1806
+PAIR0040,LIST0001,LIST0163,Gupta's Bhavan,Gupta Kitchen,non_match,non_match,0.4148
+PAIR0041,LIST0163,LIST0001,Gupta Kitchen,Gupta's Bhavan,non_match,non_match,0.4148
+PAIR0042,LIST0061,LIST0105,Chulha's Room,ChulhaFryDay,non_match,non_match,0.392
+PAIR0043,LIST0165,LIST0053,Tikke Wok Express,TikkaAnnaThali,non_match,non_match,0.1806
+PAIR0044,LIST0025,LIST0153,TandoorVegRasoi,TandoorChilliHouse,non_match,non_match,0.3394
+PAIR0045,LIST0137,LIST0160,Ganesh's House,GaneshGolGappaCorner,non_match,non_match,0.3294
+PAIR0046,LIST0005,LIST0081,Rajwada's Room,RajwadaBurgerJunction,non_match,non_match,0.36
+PAIR0047,LIST0139,LIST0019,Annapurna's Corner,Annapurna's Bhavan,non_match,non_match,0.5056
+PAIR0048,LIST0037,LIST0146,Hendi Desi Rasoi,Handi's House,non_match,non_match,0.2897
+PAIR0049,LIST0152,LIST0151,Zaika Burger Junction,ZaikaBakeStudio,non_match,non_match,0.35
+PAIR0050,LIST0069,LIST0091,CurryTiffinRoom,Curry Biryani Blues,non_match,non_match,0.2882
+PAIR0051,LIST0139,LIST0019,Annapurna's Corner,Annapurna's Bhavan,non_match,non_match,0.5056
+PAIR0052,LIST0069,LIST0091,CurryTiffinRoom,Curry Biryani Blues,non_match,non_match,0.2882
+PAIR0053,LIST0073,LIST0151,ZaikaDosaCorner,ZaikaBakeStudio,non_match,non_match,0.3267
+PAIR0054,LIST0029,LIST0027,Bewarchi Dessert Den,Bawarchi's Blues,non_match,non_match,0.3889
+PAIR0055,LIST0137,LIST0160,Ganesh's House,GaneshGolGappaCorner,non_match,non_match,0.3294
+PAIR0056,LIST0101,LIST0051,Bombey Udupi Bhavan,BombayShudhBhojan,non_match,non_match,0.4278
+PAIR0057,LIST0099,LIST0156,Desi Theli Junction,Desi Kacchi Ghar,non_match,non_match,0.32
+PAIR0058,LIST0146,LIST0037,Handi's House,Hendi Desi Rasoi,non_match,non_match,0.3379
+PAIR0059,LIST0113,LIST0099,Desi Resoi,Desi Theli Junction,non_match,non_match,0.3379
+PAIR0060,LIST0168,LIST0021,Sagar's Bazaar,Sagar's Bar,non_match,non_match,0.616
+PAIR0061,LIST0127,LIST0144,Balaji's Junction,Belaji Local Tadka,non_match,non_match,0.32
+PAIR0062,LIST0027,LIST0087,Bawarchi's Blues,BawarchiPizzaHub,non_match,non_match,0.3937
+PAIR0063,LIST0169,LIST0147,Tawa's Bazaar,Tawa's House,non_match,non_match,0.392
+PAIR0064,LIST0057,LIST0059,GoldenPizzaJunction,GoldenBhojnalaya,non_match,non_match,0.28
+PAIR0065,LIST0025,LIST0123,TandoorVegRasoi,Tandur Pizza Hub,non_match,non_match,0.271
+PAIR0066,LIST0035,LIST0164,SaiKitchen,SaiCakeWala,non_match,non_match,0.3333
+PAIR0067,LIST0148,LIST0065,Krishna Handi,Krishna's Hub,non_match,non_match,0.4846
+PAIR0068,LIST0093,LIST0141,Sharma's House,Sherma Veg Rasoi,non_match,non_match,0.3267
+PAIR0069,LIST0001,LIST0163,Gupta's Bhavan,Gupta Kitchen,non_match,non_match,0.4148
+PAIR0070,LIST0089,LIST0155,Namkin's Junction,NamkinChaatBazaar,non_match,non_match,0.3294
