@@ -3,6 +3,7 @@ import sys
 import pandas as pd
 from fastapi import FastAPI, HTTPException, Body
 from fastapi.middleware.cors import CORSMiddleware
+from routers import admin
 
 if sys.stdout and hasattr(sys.stdout, "reconfigure"):
     try:
@@ -11,6 +12,9 @@ if sys.stdout and hasattr(sys.stdout, "reconfigure"):
         pass
 
 app = FastAPI(title="FoodLens API", version="1.0")
+
+# Register modular routers *after* app is initialized
+app.include_router(admin.router)
 
 app.add_middleware(
     CORSMiddleware,
@@ -28,7 +32,6 @@ def load_data(path=DATA_PATH):
     if not os.path.exists(path):
         return pd.DataFrame()
     df = pd.read_csv(path)
-    # Cast to object dtype so NaN correctly serializes to null/None
     df = df.astype(object).where(df.notnull(), None)
     return df
 
