@@ -4,7 +4,7 @@ import pytest
 import pandas as pd
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from services.pricing import price_basket # type: ignore
+from main import price_basket # type: ignore
 
 def test_pricing_minimum_order_and_gst():
     # Mock data frames for testing pricing rule 7

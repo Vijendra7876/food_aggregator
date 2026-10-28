@@ -1,6 +1,6 @@
 export type Priority = 'cheapest' | 'fastest' | 'reliable' | 'rated' | 'value';
 export interface Fresh { ageMin: number | null; status: 'fresh' | 'aging' | 'stale' }
-export interface Meta { dataMode: string; notice: string; providers: { id: string; name: string }[] }
+export interface Meta { dataMode: string; notice: string; providers: { id: string; name: string }[]; adminDemoEnabled?: boolean }
 export interface SearchResult {
   id: string;
   name: string;
