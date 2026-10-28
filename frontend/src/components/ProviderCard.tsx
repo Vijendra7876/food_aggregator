@@ -25,7 +25,7 @@ export function ProviderCard({ o }: { o: Option }) {
           <div key={f.factor} className="factor"><span>{f.factor} <em>(weight {f.weight})</em>{!f.known && ' · unknown → neutral'}</span>
             <div className="bar"><i style={{ width: `${f.value * 100}%` }} /></div></div>))}
       </details>
-      <a className="btn" href={o.url} target="_blank" rel="noopener noreferrer">Open on {o.providerName} (demo link)</a>
+      {o.url ? <a className="btn" href={o.url} target="_blank" rel="noopener noreferrer">Open on {o.providerName}</a> : <span className="muted small">Provider link unavailable in synthetic data.</span>}
     </article>
   );
 }

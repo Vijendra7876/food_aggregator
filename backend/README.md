@@ -1,15 +1,15 @@
 # FoodLens Backend
 
-FoodLens is a cross-provider food comparison project for the Indian delivery market. The currently connected app flow searches the committed synthetic provider and menu CSVs, groups provider listings by canonical restaurant, and returns search cards to React through Express.
+FoodLens is a cross-provider food comparison project for the Indian delivery market. Express is the frontend-facing API gateway; Python processes the committed synthetic provider, menu, offer, and review CSVs.
 
-> **Important:** This starter backend uses synthetic demo data only. It does not scrape delivery platforms, verify checkout prices, place orders, or represent real restaurant availability. Admin routes are not authenticated and are for local development only.
+> **Important:** This backend uses synthetic demo data only. It does not scrape delivery platforms, verify checkout prices, place orders, or represent real restaurant availability. Admin decisions are local demo actions kept in memory and do not alter canonical assignments.
 
 ## Highlights
 
 ### Current connected functionality
-- Express exposes health and search routes and forwards them to the Python service.
-- Python groups matching CSV rows by canonical restaurant, searches restaurant names and menu items, and returns provider prices, ratings, ETAs, and freshness for the frontend search page.
-- The Python module also contains basket pricing and reputation helpers; detail and compare are not yet connected to Express or the current React contract.
+- Express exposes health, metadata, search, restaurant detail, basket comparison, and data-quality routes and forwards them to Python.
+- Python returns the exact search/detail/compare shapes consumed by React, groups provider listings by canonical identity, and retains provider-specific menu, price, rating, review, freshness, and offer facts.
+- Admin review cards come from synthetic benchmark rows marked `manual_review`; choices only hide a sample for the current Python process and never rewrite source datasets.
 
 ## Stack and architecture
 
@@ -50,22 +50,35 @@ npm install
 npm run dev
 ```
 
-The React app calls Express at `http://localhost:4000`; Express forwards `/api/search` and `/api/health` to Python at `http://localhost:8000`. Set `PYTHON_API_URL` if Python runs elsewhere.
+The React app calls Express at `http://127.0.0.1:4000`; Express forwards API requests to Python at `http://127.0.0.1:8000`. Set `PYTHON_API_URL` if Python runs elsewhere.
+
+Administrative write actions are disabled by default. To enable them for a local demo, set `ADMIN_DEMO_MODE=true` in both service environments while keeping Express and Python bound to loopback. Express also refuses these writes in production or when configured to listen on a non-loopback host.
 
 ```bash
 npm run typecheck
 ```
 
-The backend test script is present in `package.json`, but this branch has no committed `src/tests` suite yet.
+Run Python tests from `backend/` after installing the development test requirements:
+
+```bash
+python -m pip install -r requirements-dev.txt
+python -m pytest
+```
 
 ## API reference
 
-All endpoints are prefixed with `/api`. The Express service currently exposes the working search path and its health check; other routes described by the larger product design are not yet implemented in this branch.
+All endpoints are prefixed with `/api`.
 
 | Method | Endpoint | Purpose |
 |---|---|---|
 | GET | `/health` | Express and Python data-service health |
+| GET | `/meta` | Data mode, synthetic-data notice, provider list, and demo-write status |
 | GET | `/search?q=biryani` | Search canonical restaurants and menu items; supports `cuisine`, `provider`, `city`, and `limit` |
+| GET | `/restaurants/:id` | Complete canonical restaurant detail, listings, menu offers, sentiment summary, conflicts, and observations |
+| POST | `/compare` | Accepts `restaurantId`, `selections: [{itemId, qty}]`, `priority`, and optional `maxEta`; returns ranked `options` and `excluded` providers |
+| GET | `/admin/review-queue` | Synthetic `manual_review` benchmark examples; explicitly marked demo-only |
+| GET | `/admin/pipeline` | Listing/canonical counts and CSV validation issues |
+| POST | `/admin/review-queue/:id/decision` | Local demo-only `merge` or `keep_separate` action, disabled by default and not persisted |
 
 ## Environment variables
 
@@ -73,8 +86,9 @@ All endpoints are prefixed with `/api`. The Express service currently exposes th
 |---|---|---|
 | `PORT` | `4000` | HTTP port |
 | `CORS_ORIGIN` | `http://localhost:5173` | Comma-separated allowed frontend origins |
-| `DATA_MODE` | `synthetic` | Data mode banner |
-| `PYTHON_API_URL` | `http://localhost:8000` | Base URL for the FastAPI data service |
+| `HOST` | `127.0.0.1` | Express bind host; non-loopback hosts disable demo admin writes |
+| `PYTHON_API_URL` | `http://127.0.0.1:8000` | Base URL for the FastAPI data service |
+| `ADMIN_DEMO_MODE` | `false` | Enables process-local demo decisions outside production only |
 
 ## Standout features to build next
 
@@ -90,8 +104,8 @@ All endpoints are prefixed with `/api`. The Express service currently exposes th
 ## Current limitations
 
 - Synthetic provider data only.
-- In-memory state resets after restart; review decisions are not durable.
-- Admin endpoints are open and must not be exposed publicly.
+- Review decisions are in-memory demo state, reset after restart, and do not change the canonical datasets.
+- Provider links and exact delivery/platform fees are absent from the CSV data; comparison totals are marked as lower bounds when fees are unknown.
 - Review sentiment is English word-list based and can miss sarcasm, context, and non-English reviews.
 - Ranking and GST/discount assumptions have not been validated against real checkout data.
 - No accounts, payments, orders, or real provider integrations.

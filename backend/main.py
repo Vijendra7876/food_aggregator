@@ -1,10 +1,13 @@
 import os
+import math
+import re
 import sys
 from datetime import datetime, timezone
 import pandas as pd
 from fastapi import FastAPI, HTTPException, Body
 from fastapi.middleware.cors import CORSMiddleware
 from routers import admin
+from services.admin_service import demo_admin_enabled
 
 if sys.stdout and hasattr(sys.stdout, "reconfigure"):
     try:
@@ -44,6 +47,39 @@ def load_all():
     offers = pd.read_csv(os.path.join(data_dir, "provider_offers.csv"))
     reviews = pd.read_csv(os.path.join(data_dir, "reviews.csv"))
     return canonical, providers, menus, offers, reviews
+
+def _text(value, default=""):
+    return default if value is None or pd.isna(value) else str(value).strip()
+
+def _number(value, default=None):
+    return default if value is None or pd.isna(value) else float(value)
+
+def _boolean(value, default=False):
+    if value is None or pd.isna(value):
+        return default
+    if isinstance(value, str):
+        return value.strip().casefold() in {"true", "1", "yes", "available", "active"}
+    return bool(value)
+
+def _provider_id(value):
+    return re.sub(r"[^a-z0-9]+", "-", _text(value, "unknown").casefold()).strip("-") or "unknown"
+
+def _freshness(value):
+    timestamp = pd.to_datetime(value, errors="coerce", utc=True)
+    if pd.isna(timestamp):
+        return {"ageMin": None, "status": "stale"}
+    age_min = max(0, int((datetime.now(timezone.utc) - timestamp.to_pydatetime()).total_seconds() / 60))
+    status = "stale" if age_min > 1440 else ("aging" if age_min > 180 else "fresh")
+    return {"ageMin": age_min, "status": status}
+
+def _sentiment_aggregate(reviews_df, column):
+    if reviews_df.empty or column not in reviews_df.columns:
+        return {"score": None, "mentions": 0, "enough": False}
+    values = reviews_df[column].fillna("").astype(str).str.casefold()
+    expressed = values[values.isin(["positive", "negative"])]
+    mentions = len(expressed)
+    return {"score": round(float((expressed == "positive").mean()), 3) if mentions else None,
+            "mentions": mentions, "enough": mentions >= 5}
 
 def compute_reputation(listing_id, providers_df, reviews_df):
     prov_row = providers_df[providers_df['listing_id'] == listing_id]
@@ -93,23 +129,30 @@ def price_basket(listing_id, selections, menus_df, offers_df, providers_df):
     missing_items = []
     
     for sel in selections:
-        q = sel.get('quantity', 1)
-        item_query = str(sel.get('item_name', sel.get('itemId', ''))).strip().lower()
-        
-        match = listing_menus[listing_menus['item_name'].str.lower() == item_query]
+        q = int(sel.get('quantity', sel.get('qty', 1)))
+        item_query = str(sel.get('item_name', sel.get('itemId', ''))).strip().casefold()
+        if not item_query or q < 1 or q > 20:
+            missing_items.append(item_query or "invalid basket selection")
+            continue
+
+        normalized = listing_menus.get("normalized_item_name", listing_menus["item_name"]).fillna("").astype(str).str.casefold()
+        match = listing_menus[normalized == item_query]
         if match.empty:
-            match = listing_menus[listing_menus['item_name'].str.lower().str.contains(item_query, na=False)]
+            match = listing_menus[listing_menus["item_name"].fillna("").astype(str).str.casefold() == item_query]
             
         if match.empty:
             missing_items.append(item_query)
         else:
             m_row = match.iloc[0]
-            is_avail = m_row.get('is_available', True)
-            if pd.notna(is_avail) and not is_avail:
+            is_avail = _boolean(m_row.get('is_available'), True)
+            if not is_avail:
                 missing_items.append(f"{m_row['item_name']} (unavailable)")
             else:
                 price = m_row.get('price_inr', 0.0)
-                subtotal += float(price) * q
+                if pd.isna(price):
+                    missing_items.append(f"{m_row['item_name']} (price unknown)")
+                else:
+                    subtotal += float(price) * q
                 
     if missing_items:
         return {
@@ -119,15 +162,25 @@ def price_basket(listing_id, selections, menus_df, offers_df, providers_df):
         }
         
     food_gst = 0.05 * subtotal
-    delivery_fee = 30.0
-    platform_fee = 5.0
-    gst_on_fees = 0.18 * (delivery_fee + platform_fee)
+    provider_row = prov_row.iloc[0]
+    delivery_fee = _number(provider_row.get("delivery_fee_inr", provider_row.get("delivery_fee")))
+    platform_fee = _number(provider_row.get("platform_fee_inr", provider_row.get("platform_fee")))
+    gst_on_fees = 0.18 * (delivery_fee + platform_fee) if delivery_fee is not None and platform_fee is not None else 0.0
     
     listing_offers = offers_df[offers_df['listing_id'] == listing_id]
     max_discount = 0.0
     applied_offer_title = None
     
+    today = pd.Timestamp.now(tz="UTC").date()
     for _, offer in listing_offers.iterrows():
+        if _text(offer.get("offer_status"), "active").casefold() not in {"active", "valid", ""}:
+            continue
+        valid_from = pd.to_datetime(offer.get("valid_from"), errors="coerce")
+        valid_until = pd.to_datetime(offer.get("valid_until"), errors="coerce")
+        if pd.notna(valid_from) and valid_from.date() > today:
+            continue
+        if pd.notna(valid_until) and valid_until.date() < today:
+            continue
         min_ord = offer.get('minimum_order_value_inr', 0)
         if pd.isna(min_ord) or subtotal >= min_ord:
             disc_type = offer.get('discount_type', 'percentage')
@@ -144,7 +197,7 @@ def price_basket(listing_id, selections, menus_df, offers_df, providers_df):
                 max_discount = disc
                 applied_offer_title = offer.get('offer_title')
                 
-    total = subtotal + food_gst + delivery_fee + platform_fee + gst_on_fees - max_discount
+    total = max(0.0, subtotal + food_gst + gst_on_fees - max_discount)
     
     return {
         "available": True,
@@ -155,7 +208,9 @@ def price_basket(listing_id, selections, menus_df, offers_df, providers_df):
         "gst_on_fees": round(gst_on_fees, 2),
         "discount": round(max_discount, 2),
         "applied_offer": applied_offer_title,
-        "total": round(total, 2)
+        "total": round(total, 2),
+        "is_lower_bound": delivery_fee is None or platform_fee is None,
+        "unknowns": [fee for fee, value in (("delivery fee", delivery_fee), ("platform fee", platform_fee)) if value is None],
     }
 
 @app.get("/")
@@ -183,31 +238,186 @@ def get_restaurants(limit: int = 20, search: str = None):
 
 @app.get("/api/restaurants/{listing_id}")
 def get_restaurant_detail(listing_id: str):
-    df = load_data(DATA_PATH)
-    if df.empty:
-        raise HTTPException(status_code=404, detail="Dataset not found")
+    canonical, providers, menus, offers, reviews = load_all()
+    if canonical.empty or providers.empty:
+        raise HTTPException(status_code=404, detail="Restaurant datasets are unavailable")
 
-    match = df[df['listing_id'] == listing_id]
-    if match.empty:
-        raise HTTPException(status_code=404, detail="Restaurant not found")
-    
-    record = match.iloc[0].to_dict()
-    return record
+    listing_match = providers[providers["listing_id"].astype(str) == listing_id]
+    master = load_data(DATA_PATH)
+    if not listing_match.empty:
+        linked_id = _text(listing_match.iloc[0].get("canonical_restaurant_id"))
+        if linked_id:
+            canonical_id = linked_id
+            canonical_match = canonical[canonical["canonical_restaurant_id"].astype(str) == canonical_id]
+            restaurant = canonical_match.iloc[0] if not canonical_match.empty else None
+            listings = providers[providers["canonical_restaurant_id"].astype(str) == canonical_id].copy()
+        else:
+            # Unmatched single-provider records have no canonical row; keep each listing independent.
+            canonical_id = listing_id
+            row_match = master[master["listing_id"].astype(str) == listing_id]
+            restaurant = row_match.iloc[0] if not row_match.empty else listing_match.iloc[0]
+            listings = listing_match.copy()
+    else:
+        canonical_id = listing_id
+        canonical_match = canonical[canonical["canonical_restaurant_id"].astype(str) == canonical_id]
+        if canonical_match.empty:
+            raise HTTPException(status_code=404, detail="Restaurant not found")
+        restaurant = canonical_match.iloc[0]
+        listings = providers[providers["canonical_restaurant_id"].astype(str) == canonical_id].copy()
+    if listings.empty:
+        raise HTTPException(status_code=404, detail="Restaurant has no provider listings")
+    listing_ids = set(listings["listing_id"].astype(str))
+    restaurant_menus = menus[menus["listing_id"].astype(str).isin(listing_ids)].copy()
+    restaurant_reviews = reviews[reviews["listing_id"].astype(str).isin(listing_ids)].copy()
+
+    detail_listings = []
+    for _, row in listings.iterrows():
+        source_id = str(row["listing_id"])
+        detail_listings.append({
+            "providerId": _provider_id(row.get("provider")),
+            "providerName": _text(row.get("provider"), "Unknown provider"),
+            "recordId": _text(row.get("provider_restaurant_id"), source_id),
+            "providerListingName": _text(row.get("restaurant_name"), "Unknown listing"),
+            "etaMin": _number(row.get("average_delivery_time_minutes")),
+            "deliveryFee": _number(row.get("delivery_fee_inr", row.get("delivery_fee"))),
+            "platformFee": _number(row.get("platform_fee_inr", row.get("platform_fee"))),
+            "rating": _number(row.get("rating")),
+            "ratingCount": _number(row.get("rating_count")),
+            "url": "",
+            "fetchedAt": _text(row.get("source_updated_at")),
+            "freshness": _freshness(row.get("source_updated_at")),
+        })
+
+    if not restaurant_menus.empty:
+        restaurant_menus["normalized_item_name"] = restaurant_menus.get("normalized_item_name", restaurant_menus["item_name"]).fillna("").astype(str).str.casefold()
+    items = []
+    for item_key, item_rows in restaurant_menus.groupby("normalized_item_name", sort=True, dropna=False):
+        if not _text(item_key):
+            continue
+        first_item = item_rows.iloc[0]
+        item_offers = []
+        for _, item_row in item_rows.iterrows():
+            provider_row = listings[listings["listing_id"].astype(str) == str(item_row["listing_id"])].iloc[0]
+            item_offers.append({
+                "providerId": _provider_id(provider_row.get("provider")),
+                "providerName": _text(provider_row.get("provider"), "Unknown provider"),
+                "providerItemName": _text(item_row.get("item_name")),
+                "price": _number(item_row.get("price_inr")),
+                "available": _boolean(item_row.get("is_available"), True),
+            })
+        items.append({
+            "id": str(item_key),
+            "name": _text(first_item.get("item_name"), str(item_key)),
+            "veg": all(_boolean(value, False) for value in item_rows.get("is_vegetarian", pd.Series(dtype=object)).tolist()),
+            "vegetarian": all(_boolean(value, False) for value in item_rows.get("is_vegetarian", pd.Series(dtype=object)).tolist()),
+            "portion": "regular",
+            "offers": item_offers,
+        })
+
+    # Use listing ratings with Bayesian shrinkage; sentiment labels remain separate evidence.
+    per_source = []
+    weighted_rating = 0.0
+    weight_total = 0.0
+    for _, row in listings.iterrows():
+        raw_rating = _number(row.get("rating"))
+        count = _number(row.get("rating_count"), 0.0) or 0.0
+        if raw_rating is None:
+            continue
+        adjusted = (count * raw_rating + 30 * 3.9) / (count + 30)
+        provider_id = _provider_id(row.get("provider"))
+        per_source.append({"providerId": provider_id, "raw": raw_rating, "count": int(count), "adjusted": round(adjusted, 2)})
+        weighted_rating += adjusted * max(count, 1)
+        weight_total += max(count, 1)
+    combined_rating = round(weighted_rating / weight_total, 2) if weight_total else None
+
+    aspects = {
+        "food": _sentiment_aggregate(restaurant_reviews, "food_sentiment"),
+        "delivery": _sentiment_aggregate(restaurant_reviews, "delivery_sentiment"),
+        "service": _sentiment_aggregate(restaurant_reviews, "service_sentiment"),
+        "value": {"score": None, "mentions": 0, "enough": False},
+    }
+    provider_delivery = {}
+    for _, row in listings.iterrows():
+        provider_id = _provider_id(row.get("provider"))
+        provider_listing_reviews = restaurant_reviews[restaurant_reviews["listing_id"].astype(str) == str(row["listing_id"])]
+        provider_delivery[provider_id] = _sentiment_aggregate(provider_listing_reviews, "delivery_sentiment")
+
+    review_text_column = restaurant_reviews.get("review_text", pd.Series(dtype=str)).fillna("").astype(str)
+    dedup_mask = ~review_text_column.str.strip().str.casefold().duplicated()
+    unique_reviews = restaurant_reviews[dedup_mask]
+    positive_highlights = []
+    negative_highlights = []
+    for _, review in unique_reviews.iterrows():
+        for column, sentiment, target, aspect in (
+            ("food_sentiment", "positive", positive_highlights, "food"),
+            ("food_sentiment", "negative", negative_highlights, "food"),
+            ("delivery_sentiment", "positive", positive_highlights, "delivery"),
+            ("delivery_sentiment", "negative", negative_highlights, "delivery"),
+        ):
+            if _text(review.get(column)).casefold() == sentiment and len(target) < 3:
+                snippet = _text(review.get("review_text"))[:180]
+                if snippet:
+                    target.append({"aspect": aspect, "snippet": snippet, "providerId": _provider_id(review.get("provider"))})
+    evidence = "high" if sum(_number(row.get("rating_count"), 0) or 0 for _, row in listings.iterrows()) >= 1000 else ("medium" if per_source else "low")
+    reputation = {
+        "evidence": evidence,
+        "reviewsAnalyzed": len(unique_reviews),
+        "duplicatesRemoved": len(restaurant_reviews) - len(unique_reviews),
+        "method": "Provider ratings with prior shrinkage; supplied synthetic sentiment labels",
+        "disclaimer": "Synthetic demonstration data; sentiment labels are provided with the dataset, not independently verified.",
+        "rating": {"combined": combined_rating, "perSource": per_source},
+        "foodQuality": {"value": aspects["food"]["score"], "basis": "positive share of labeled food reviews"} if aspects["food"]["score"] is not None else None,
+        "aspects": aspects,
+        "providerDelivery": provider_delivery,
+        "highlights": {"positive": positive_highlights, "negative": negative_highlights},
+    }
+
+    conflicts = []
+    name_variants = sorted(set(listings["restaurant_name"].dropna().astype(str)))
+    if len(name_variants) > 1:
+        conflicts.append({"attribute": "provider name", "severity": "info", "detail": "Provider listings use different names: " + ", ".join(name_variants), "policy": "Keep provider names attached to their source listings."})
+    observations = []
+    observation_fields = (("rating", "rating"), ("ratingCount", "rating_count"), ("averagePriceInr", "average_price_inr"), ("etaMin", "average_delivery_time_minutes"), ("identityConfidence", "identity_confidence"))
+    for _, row in listings.iterrows():
+        provider_id = _provider_id(row.get("provider"))
+        observed_at = _text(row.get("source_updated_at"))
+        confidence = _number(row.get("identity_confidence"), 0.0) or 0.0
+        for attribute, column in observation_fields:
+            if column in listings.columns:
+                observations.append({"attribute": attribute, "value": _number(row.get(column)), "providerId": provider_id, "observedAt": observed_at, "confidence": confidence})
+
+    cuisine_value = _text(restaurant.get("canonical_cuisine")) or _text(restaurant.get("cuisines"))
+    cuisines = sorted({part.strip() for part in cuisine_value.split(",") if part.strip()})
+    area = _text(restaurant.get("locality")) or _text(restaurant.get("locality_canon")) or _text(restaurant.get("locality_prov")) or _text(restaurant.get("city")) or _text(restaurant.get("city_canon")) or _text(restaurant.get("city_prov"))
+    return {
+        "id": str(canonical_id),
+        "name": _text(restaurant.get("canonical_name")) or _text(restaurant.get("restaurant_name"), str(canonical_id)),
+        "area": area,
+        "phone": None,
+        "cuisines": cuisines,
+        "listings": detail_listings,
+        "items": items,
+        "reputation": reputation,
+        "conflicts": conflicts,
+        "observations": observations,
+    }
 
 @app.get("/api/meta")
 def get_meta():
     df = load_data(DATA_PATH)
     if df.empty:
-        return {"providers": [], "cities": [], "cuisines": []}
+        return {"dataMode": "synthetic", "notice": "Synthetic demonstration data only.", "providers": [], "adminDemoEnabled": demo_admin_enabled()}
     
-    providers = df['provider'].dropna().unique().tolist() if 'provider' in df.columns else []
-    cities = df['city_prov'].dropna().unique().tolist() if 'city_prov' in df.columns else []
-    cuisines = df['cuisines'].dropna().unique().tolist() if 'cuisines' in df.columns else []
+    provider_names = df['provider'].dropna().astype(str).unique().tolist() if 'provider' in df.columns else []
+    providers = [{"id": _provider_id(name), "name": name} for name in provider_names]
+    synthetic_values = df.get("is_synthetic_prov", pd.Series([True]))
+    synthetic = all(_boolean(value, True) for value in synthetic_values)
     
     return {
+        "dataMode": "synthetic" if synthetic else "mixed",
+        "notice": "Synthetic demonstration data only. Provider prices, availability, fees, and ratings are not live or verified.",
         "providers": providers,
-        "cities": cities,
-        "cuisines": cuisines
+        "adminDemoEnabled": demo_admin_enabled(),
     }
 
 @app.get("/api/search")
@@ -226,17 +436,22 @@ def search_restaurants(q: str = "", cuisine: str = "", provider: str = "", city:
     if not menus.empty:
         menus["normalized_item_name"] = menus.get("normalized_item_name", menus["item_name"]).fillna("").astype(str)
 
+    df["_search_group"] = df["canonical_restaurant_id"].where(df["canonical_restaurant_id"].notna(), df["listing_id"])
     results = []
-    for canonical_id, group in df.groupby("canonical_restaurant_id", sort=False, dropna=False):
+    for search_group_id, group in df.groupby("_search_group", sort=False, dropna=False):
         if provider_text:
             group = group[group["provider"].fillna("").astype(str).str.contains(provider_text, case=False, regex=False)]
             if group.empty:
                 continue
         first = group.iloc[0]
         listing_ids = set(group["listing_id"].dropna().astype(str))
-        name = str(first.get("canonical_name") or first.get("restaurant_name") or "Unknown restaurant")
+        canonical_id = _text(first.get("canonical_restaurant_id")) or str(search_group_id)
+        name = _text(first.get("canonical_name")) or _text(first.get("restaurant_name"), "Unknown restaurant")
         area = first.get("locality_canon") or first.get("locality_prov") or first.get("city_canon") or first.get("city_prov") or ""
-        cuisines = sorted({part.strip() for value in group.get("canonical_cuisine", group["cuisines"]).dropna().astype(str) for part in value.split(",") if part.strip()})
+        cuisine_values = group.get("canonical_cuisine", pd.Series(dtype=str)).dropna().astype(str)
+        if not len(cuisine_values):
+            cuisine_values = group.get("cuisines", pd.Series(dtype=str)).dropna().astype(str)
+        cuisines = sorted({part.strip() for value in cuisine_values for part in value.split(",") if part.strip()})
 
         listing_names = " ".join(group.get("restaurant_name", pd.Series(dtype=str)).fillna("").astype(str))
         menu_rows = menus[menus["listing_id"].astype(str).isin(listing_ids)] if not menus.empty else menus
@@ -245,7 +460,11 @@ def search_restaurants(q: str = "", cuisine: str = "", provider: str = "", city:
             continue
         if cuisine_text and not any(cuisine_text in value.casefold() for value in cuisines):
             continue
-        if city_text and city_text not in " ".join(str(value) for value in group.get("city_canon", group["city_prov"]).dropna()).casefold() and city_text not in str(area).casefold():
+        cities = []
+        for city_column in ("city_canon", "city_prov"):
+            if city_column in group.columns:
+                cities.extend(group[city_column].dropna().astype(str).tolist())
+        if city_text and city_text not in " ".join(cities).casefold() and city_text not in str(area).casefold():
             continue
 
         providers = []
@@ -305,108 +524,150 @@ def get_intelligent_recommendations(limit: int = 10):
 
 @app.post("/api/compare")
 def compare_basket(payload: dict = Body(...)):
-    restaurant_id = payload.get("restaurantId")
-    selections = payload.get("selections", [])
-    priority = payload.get("priority", "Best value")
+    restaurant_id = _text(payload.get("restaurantId"))
+    selections = payload.get("selections")
+    if not restaurant_id or not isinstance(selections, list) or not selections:
+        raise HTTPException(status_code=400, detail="restaurantId and at least one basket selection are required.")
+    normalized_selections = []
+    for selection in selections:
+        if not isinstance(selection, dict):
+            raise HTTPException(status_code=400, detail="Each basket selection must be an object.")
+        item_id = _text(selection.get("itemId"))
+        quantity = selection.get("qty", selection.get("quantity", 1))
+        if not item_id or isinstance(quantity, bool):
+            raise HTTPException(status_code=400, detail="Each selection requires itemId and an integer qty from 1 to 20.")
+        try:
+            numeric_quantity = float(quantity)
+        except (TypeError, ValueError):
+            raise HTTPException(status_code=400, detail="Each selection requires itemId and an integer qty from 1 to 20.")
+        if not math.isfinite(numeric_quantity) or not numeric_quantity.is_integer() or not 1 <= numeric_quantity <= 20:
+            raise HTTPException(status_code=400, detail="Each selection requires itemId and an integer qty from 1 to 20.")
+        normalized_selections.append({"itemId": item_id, "quantity": int(numeric_quantity)})
+
     max_eta = payload.get("maxEta")
+    if max_eta is not None:
+        try:
+            max_eta = float(max_eta)
+        except (TypeError, ValueError):
+            raise HTTPException(status_code=400, detail="maxEta must be a positive number.")
+        if not math.isfinite(max_eta) or max_eta <= 0:
+            raise HTTPException(status_code=400, detail="maxEta must be a positive number.")
 
     canonical, providers, menus, offers, reviews = load_all()
-    
-    listings = providers[
-        (providers['canonical_restaurant_id'] == restaurant_id) | 
-        (providers['listing_id'] == restaurant_id)
-    ]
-    
-    if listings.empty:
-        raise HTTPException(status_code=404, detail="Restaurant or listings not found")
-        
-    eligible_options = []
-    excluded_options = []
+    restaurant_listings = providers[providers["canonical_restaurant_id"].astype(str) == restaurant_id]
+    if restaurant_listings.empty:
+        alias = providers[providers["listing_id"].astype(str) == restaurant_id]
+        if not alias.empty:
+            linked_id = _text(alias.iloc[0].get("canonical_restaurant_id"))
+            restaurant_listings = providers[providers["canonical_restaurant_id"].astype(str) == linked_id] if linked_id else alias
+    if restaurant_listings.empty:
+        raise HTTPException(status_code=404, detail="Restaurant or provider listings not found.")
 
-    for _, listing in listings.iterrows():
-        listing_id = listing['listing_id']
-        provider_name = listing['provider']
-        eta = listing.get('average_delivery_time_minutes', 30)
-        
-        pricing = price_basket(listing_id, selections, menus, offers, providers)
-        if not pricing['available']:
-            excluded_options.append({
-                "listing_id": listing_id,
-                "provider": provider_name,
-                "reason": pricing['reason']
-            })
-            continue
-            
-        if max_eta and pd.notna(eta) and eta > int(max_eta):
-            excluded_options.append({
-                "listing_id": listing_id,
-                "provider": provider_name,
-                "reason": f"Delivery time ({eta} mins) exceeds maximum limit ({max_eta} mins)"
-            })
-            continue
-            
-        rep = compute_reputation(listing_id, providers, reviews)
-        
-        eligible_options.append({
-            "listing_id": listing_id,
-            "provider": provider_name,
-            "eta": eta,
-            "pricing": pricing,
-            "reputation": rep
-        })
-
-    if not eligible_options:
-        return {
-            "rankedOptions": [],
-            "excludedOptions": excluded_options,
-            "weightsUsed": {},
-            "disclaimer": "No eligible providers found for the current basket and delivery constraints."
-        }
-
-    costs = [opt['pricing']['total'] for opt in eligible_options]
-    etas = [opt['eta'] for opt in eligible_options]
-    
-    min_cost, max_cost = min(costs), max(costs)
-    min_eta, max_eta_val = min(etas), max(etas)
-    
+    priority = _text(payload.get("priority"), "value").casefold().replace(" ", "_")
+    priority_aliases = {"best_value": "value", "most_reliable": "reliable", "best_rated": "rated"}
+    priority = priority_aliases.get(priority, priority)
     weights_map = {
-        "Best value": {"cost": 0.40, "eta": 0.20, "reliability": 0.25, "rating": 0.15},
-        "Cheapest": {"cost": 0.70, "eta": 0.10, "reliability": 0.10, "rating": 0.10},
-        "Fastest": {"cost": 0.10, "eta": 0.70, "reliability": 0.10, "rating": 0.10},
-        "Most reliable": {"cost": 0.10, "eta": 0.15, "reliability": 0.65, "rating": 0.10},
-        "Best rated": {"cost": 0.10, "eta": 0.10, "reliability": 0.20, "rating": 0.60}
+        "value": {"cost": 0.40, "eta": 0.20, "reliability": 0.25, "rating": 0.15},
+        "cheapest": {"cost": 0.70, "eta": 0.10, "reliability": 0.10, "rating": 0.10},
+        "fastest": {"cost": 0.10, "eta": 0.70, "reliability": 0.10, "rating": 0.10},
+        "reliable": {"cost": 0.10, "eta": 0.15, "reliability": 0.65, "rating": 0.10},
+        "rated": {"cost": 0.10, "eta": 0.10, "reliability": 0.20, "rating": 0.60},
     }
-    w = weights_map.get(priority, weights_map["Best value"])
-
-    scored_options = []
-    for opt in eligible_options:
-        c_score = (max_cost - opt['pricing']['total']) / (max_cost - min_cost) if max_cost != min_cost else 1.0
-        e_score = (max_eta_val - opt['eta']) / (max_eta_val - min_eta) if max_eta_val != min_eta else 1.0
-        r_score = opt['reputation']['delivery_sentiment']
-        rt_score = (opt['reputation']['adjusted_rating'] - 1.0) / 4.0
-        
-        final_score = (w['cost'] * c_score + w['eta'] * e_score + w['reliability'] * r_score + w['rating'] * rt_score) * 100
-        
-        scored_options.append({
-            **opt,
-            "score": round(final_score, 2),
-            "breakdown": {
-                "cost_score": round(c_score, 2),
-                "eta_score": round(e_score, 2),
-                "reliability_score": round(r_score, 2),
-                "rating_score": round(rt_score, 2)
-            }
+    weights = weights_map.get(priority, weights_map["value"])
+    eligible = []
+    excluded = []
+    for _, listing in restaurant_listings.iterrows():
+        listing_id = str(listing["listing_id"])
+        provider_name = _text(listing.get("provider"), "Unknown provider")
+        provider_id = _provider_id(provider_name)
+        eta = _number(listing.get("average_delivery_time_minutes"))
+        pricing_result = price_basket(listing_id, normalized_selections, menus, offers, providers)
+        if not pricing_result["available"]:
+            excluded.append({"providerId": provider_id, "providerName": provider_name, "reason": pricing_result["reason"]})
+            continue
+        if max_eta is not None and (eta is None or eta > max_eta):
+            reason = "Delivery time is unknown; cannot confirm the selected limit." if eta is None else f"Delivery time ({eta:g} min) exceeds the {max_eta:g} min limit."
+            excluded.append({"providerId": provider_id, "providerName": provider_name, "reason": reason})
+            continue
+        listing_reviews = reviews[reviews["listing_id"].astype(str) == listing_id]
+        sentiments = listing_reviews.get("delivery_sentiment", pd.Series(dtype=str)).fillna("").astype(str).str.casefold()
+        expressed = sentiments[sentiments.isin(["positive", "negative"])]
+        reliability = float((expressed == "positive").mean()) if len(expressed) else None
+        raw_rating = _number(listing.get("rating"))
+        rating_count = _number(listing.get("rating_count"), 0) or 0
+        adjusted_rating = ((rating_count * raw_rating + 30 * 3.9) / (rating_count + 30)) if raw_rating is not None else None
+        pricing = {
+            "subtotal": pricing_result["subtotal"],
+            "foodTax": pricing_result["food_gst"],
+            "deliveryFee": pricing_result["delivery_fee"],
+            "platformFee": pricing_result["platform_fee"],
+            "feeTax": pricing_result["gst_on_fees"],
+            "discount": pricing_result["discount"],
+            "discountNote": pricing_result["applied_offer"],
+            "total": pricing_result["total"],
+            "isLowerBound": pricing_result["is_lower_bound"],
+            "unknowns": pricing_result["unknowns"],
+            "assumptions": ["Food GST is estimated at 5%."] + (["Delivery and platform fees are unavailable; total excludes them and is a lower bound."] if pricing_result["is_lower_bound"] else []),
+            "verified": False,
+        }
+        eligible.append({
+            "providerId": provider_id,
+            "providerName": provider_name,
+            "url": "",
+            "etaMin": eta,
+            "freshness": _freshness(listing.get("source_updated_at")),
+            "pricing": pricing,
+            "reliability": reliability,
+            "rating": round(adjusted_rating, 2) if adjusted_rating is not None else None,
         })
 
-    scored_options.sort(key=lambda x: x['score'], reverse=True)
-    
+    if not eligible:
+        return {"options": [], "excluded": excluded, "disclaimer": "No provider can fulfil this basket under the selected constraints. Basket totals are synthetic estimates, not provider checkout prices."}
+
+    costs = [option["pricing"]["total"] for option in eligible]
+    known_etas = [option["etaMin"] for option in eligible if option["etaMin"] is not None]
+    min_cost, max_cost = min(costs), max(costs)
+    min_eta, max_eta = (min(known_etas), max(known_etas)) if known_etas else (None, None)
+    for option in eligible:
+        cost_score = (max_cost - option["pricing"]["total"]) / (max_cost - min_cost) if max_cost != min_cost else 1.0
+        eta_known = option["etaMin"] is not None
+        eta_score = ((max_eta - option["etaMin"]) / (max_eta - min_eta) if max_eta != min_eta else 1.0) if eta_known and max_eta is not None else 0.5
+        reliability_known = option["reliability"] is not None
+        reliability_score = option["reliability"] if reliability_known else 0.5
+        rating_known = option["rating"] is not None
+        rating_score = min(1.0, max(0.0, (option["rating"] - 1.0) / 4.0)) if rating_known else 0.5
+        values = {"cost": cost_score, "eta": eta_score, "reliability": reliability_score, "rating": rating_score}
+        known = {"cost": True, "eta": eta_known, "reliability": reliability_known, "rating": rating_known}
+        factors = [{"factor": factor, "weight": weights[factor], "value": round(values[factor], 3),
+                    "contribution": round(weights[factor] * values[factor], 3), "known": known[factor]}
+                   for factor in ("cost", "eta", "reliability", "rating")]
+        option["score"] = round(sum(factor["contribution"] for factor in factors) * 100, 2)
+        option["factors"] = factors
+        option["reasons"] = [
+            f"Basket estimate: ₹{option['pricing']['total']:.2f}" + (" before unknown delivery/platform fees" if option["pricing"]["isLowerBound"] else ""),
+            f"Reported delivery time: {option['etaMin']} min" if eta_known else "Delivery time is unknown.",
+            f"Adjusted rating: {option['rating']:.2f}/5" if rating_known else "Rating evidence is unavailable.",
+        ]
+        option["badges"] = []
+        option.pop("reliability")
+        option.pop("rating")
+
+    eligible.sort(key=lambda option: (-option["score"], option["pricing"]["total"], option["providerName"]))
+    for rank, option in enumerate(eligible, start=1):
+        option["rank"] = rank
+        if rank == 1:
+            option["badges"].append("Best match for selected priority")
+        if option["pricing"]["total"] == min_cost:
+            option["badges"].append("Lowest estimated basket total")
+        if option["etaMin"] is not None and option["etaMin"] == min_eta:
+            option["badges"].append("Fastest reported delivery")
+
     return {
-        "rankedOptions": scored_options,
-        "excludedOptions": excluded_options,
-        "weightsUsed": w,
-        "disclaimer": "Prices include estimated GST and platform fees. Offers applied per provider terms."
+        "options": eligible,
+        "excluded": excluded,
+        "disclaimer": "Synthetic demo data. Basket totals use a 5% food GST assumption; unknown fees are excluded and shown as a lower bound. No checkout total is verified.",
     }
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("main:app", host=os.getenv("HOST", "127.0.0.1"), port=8000, reload=True)
