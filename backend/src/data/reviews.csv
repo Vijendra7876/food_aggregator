@@ -1,0 +1,321 @@
+review_id,listing_id,provider,review_date,rating,review_text,food_sentiment,delivery_sentiment,service_sentiment,is_synthetic
+REV0001,LIST0177,Swiggy,2026-10-10,4.2,"Really enjoyed the taste; the spices were well balanced. Delivery was fine. Good service, order was complete and correct.",positive,neutral,positive,True
+REV0002,LIST0178,Zomato,2026-07-18,1.2,"Portion size was very small for the price. Arrived earlier than expected, well packed.",negative,positive,not_mentioned,True
+REV0003,LIST0029,Swiggy,2026-08-22,4.8,"The food was fresh, flavourful and the portion size was generous. The package leaked and the order arrived damaged.",positive,negative,not_mentioned,True
+REV0004,LIST0152,Zomato,2026-10-11,4.0,"Loved the freshness and the packaging was neat. Delivery was quick and the rider was polite. Good service, order was complete and correct.",positive,positive,positive,True
+REV0005,LIST0155,Swiggy,2026-08-13,2.9,Really enjoyed the taste; the spices were well balanced. Delivery was late by 30 minutes and the food was cold. Customer support was unhelpful about the missing item.,mixed,negative,negative,True
+REV0006,LIST0090,Zomato,2026-08-20,4.5,Really enjoyed the taste; the spices were well balanced. Standard delivery experience. Service was courteous and the order was accurate.,positive,neutral,positive,True
+REV0007,LIST0056,Zomato,2026-07-28,3.2,Great value for money and the food arrived hot. Delivery was late by 30 minutes and the food was cold. Service was poor; wrong item was delivered.,mixed,negative,negative,True
+REV0008,LIST0122,Zomato,2026-09-27,4.2,Really enjoyed the taste; the spices were well balanced. Delivery was fine. Service was courteous and the order was accurate.,positive,neutral,positive,True
+REV0009,LIST0105,Swiggy,2026-09-20,4.5,Great value for money and the food arrived hot. Delivery was late by 30 minutes and the food was cold.,positive,negative,not_mentioned,True
+REV0010,LIST0143,Zomato,2026-07-11,4.1,"The food was fresh, flavourful and the portion size was generous. Arrived earlier than expected, well packed. Good service, order was complete and correct.",positive,positive,positive,True
+REV0011,LIST0114,Zomato,2026-08-01,3.1,Loved the freshness and the packaging was neat. The package leaked and the order arrived damaged. Customer support was unhelpful about the missing item.,mixed,negative,negative,True
+REV0012,LIST0095,Swiggy,2026-10-16,1.2,The food was cold and tasted stale. Delivery was on time and food was warm.,negative,positive,not_mentioned,True
+REV0013,LIST0031,Swiggy,2026-10-05,2.5,"Got a missing item and the taste was disappointing. Arrived earlier than expected, well packed.",negative,positive,not_mentioned,True
+REV0014,LIST0017,Swiggy,2026-07-26,4.6,Really enjoyed the taste; the spices were well balanced. Delivery was fine. Service was courteous and the order was accurate.,positive,neutral,positive,True
+REV0015,LIST0128,Zomato,2026-09-11,3.4,"Standard fare, neither great nor bad. Standard delivery experience.",neutral,neutral,not_mentioned,True
+REV0016,LIST0122,Zomato,2026-08-25,1.2,Got a missing item and the taste was disappointing. Delivery was fine.,negative,neutral,not_mentioned,True
+REV0017,LIST0128,Zomato,2026-10-04,2.5,Really enjoyed the taste; the spices were well balanced. Delivery was late by 30 minutes and the food was cold. Service was poor; wrong item was delivered.,mixed,negative,negative,True
+REV0018,LIST0098,Zomato,2026-08-21,1.9,The food was bland and the packaging leaked. Delivery took the usual time.,negative,neutral,not_mentioned,True
+REV0019,LIST0197,Swiggy,2026-07-15,3.2,Loved the freshness and the packaging was neat. Delivery was quick and the rider was polite.,mixed,positive,not_mentioned,True
+REV0020,LIST0139,Swiggy,2026-07-09,2.9,"Food was okay, nothing special. Delivery was quick and the rider was polite.",neutral,positive,not_mentioned,True
+REV0021,LIST0097,Swiggy,2026-07-28,2.9,Loved the freshness and the packaging was neat. Delivery was quick and the rider was polite.,mixed,positive,not_mentioned,True
+REV0022,LIST0043,Swiggy,2026-08-25,3.2,Loved the freshness and the packaging was neat. Delivery was quick and the rider was polite.,mixed,positive,not_mentioned,True
+REV0023,LIST0169,Swiggy,2026-09-06,3.5,"Standard fare, neither great nor bad. Delivery was on time and food was warm.",neutral,positive,not_mentioned,True
+REV0024,LIST0068,Zomato,2026-08-12,2.6,Loved the freshness and the packaging was neat. Delivery was on time and food was warm.,mixed,positive,not_mentioned,True
+REV0025,LIST0012,Zomato,2026-09-08,1.9,"The food was bland and the packaging leaked. Arrived earlier than expected, well packed.",negative,positive,not_mentioned,True
+REV0026,LIST0025,Swiggy,2026-08-12,2.0,The food was bland and the packaging leaked. The package leaked and the order arrived damaged. Customer support was unhelpful about the missing item.,negative,negative,negative,True
+REV0027,LIST0022,Zomato,2026-07-08,4.3,Great value for money and the food arrived hot. Delivery was late by 30 minutes and the food was cold.,positive,negative,not_mentioned,True
+REV0028,LIST0109,Swiggy,2026-08-14,1.7,Got a missing item and the taste was disappointing. Delivery was fine.,negative,neutral,not_mentioned,True
+REV0029,LIST0100,Zomato,2026-08-02,4.7,"The food was fresh, flavourful and the portion size was generous. Delivery was fine. Service was courteous and the order was accurate.",positive,neutral,positive,True
+REV0030,LIST0087,Swiggy,2026-10-17,1.3,"The food was bland and the packaging leaked. Arrived earlier than expected, well packed.",negative,positive,not_mentioned,True
+REV0031,LIST0138,Zomato,2026-10-15,3.3,Great value for money and the food arrived hot. The package leaked and the order arrived damaged. Service was poor; wrong item was delivered.,mixed,negative,negative,True
+REV0032,LIST0184,Swiggy,2026-09-30,1.1,The food was cold and tasted stale. Standard delivery experience.,negative,neutral,not_mentioned,True
+REV0033,LIST0089,Swiggy,2026-09-05,4.8,Great value for money and the food arrived hot. Rider was rude and delivery took too long.,positive,negative,not_mentioned,True
+REV0034,LIST0065,Swiggy,2026-07-08,1.3,Got a missing item and the taste was disappointing. Standard delivery experience.,negative,neutral,not_mentioned,True
+REV0035,LIST0048,Zomato,2026-08-06,2.2,Got a missing item and the taste was disappointing. Delivery took the usual time.,negative,neutral,not_mentioned,True
+REV0036,LIST0137,Swiggy,2026-09-26,1.1,Got a missing item and the taste was disappointing. Standard delivery experience.,negative,neutral,not_mentioned,True
+REV0037,LIST0039,Swiggy,2026-09-04,2.9,"Average taste, decent quantity. Delivery was fine.",neutral,neutral,not_mentioned,True
+REV0038,LIST0069,Swiggy,2026-10-02,3.1,"Standard fare, neither great nor bad. Delivery took the usual time.",neutral,neutral,not_mentioned,True
+REV0039,LIST0008,Zomato,2026-10-06,2.5,Great value for money and the food arrived hot. The package leaked and the order arrived damaged. Customer support was unhelpful about the missing item.,mixed,negative,negative,True
+REV0040,LIST0070,Zomato,2026-10-21,1.4,"The food was cold and tasted stale. Arrived earlier than expected, well packed.",negative,positive,not_mentioned,True
+REV0041,LIST0185,Swiggy,2026-07-03,3.6,"The food was fresh, flavourful and the portion size was generous. Delivery was quick and the rider was polite.",mixed,positive,not_mentioned,True
+REV0042,LIST0105,Swiggy,2026-08-02,4.2,"The food was fresh, flavourful and the portion size was generous. Delivery was fine. Service was courteous and the order was accurate.",positive,neutral,positive,True
+REV0043,LIST0149,Swiggy,2026-09-14,2.9,"Average taste, decent quantity. Arrived earlier than expected, well packed.",neutral,positive,not_mentioned,True
+REV0044,LIST0150,Swiggy,2026-09-24,1.3,Portion size was very small for the price. The package leaked and the order arrived damaged. Service was poor; wrong item was delivered.,negative,negative,negative,True
+REV0045,LIST0151,Zomato,2026-09-25,4.7,"Loved the freshness and the packaging was neat. Delivery was on time and food was warm. Good service, order was complete and correct.",positive,positive,positive,True
+REV0046,LIST0072,Zomato,2026-08-10,2.2,"The food was bland and the packaging leaked. Arrived earlier than expected, well packed.",negative,positive,not_mentioned,True
+REV0047,LIST0009,Swiggy,2026-10-11,4.3,"Really enjoyed the taste; the spices were well balanced. Arrived earlier than expected, well packed. Good service, order was complete and correct.",positive,positive,positive,True
+REV0048,LIST0137,Swiggy,2026-10-15,2.8,Loved the freshness and the packaging was neat. The package leaked and the order arrived damaged. Service was poor; wrong item was delivered.,mixed,negative,negative,True
+REV0049,LIST0194,Zomato,2026-09-04,3.5,Great value for money and the food arrived hot. Delivery was late by 30 minutes and the food was cold. Service was poor; wrong item was delivered.,mixed,negative,negative,True
+REV0050,LIST0009,Swiggy,2026-07-06,3.5,"Food was okay, nothing special. Delivery was fine.",neutral,neutral,not_mentioned,True
+REV0051,LIST0026,Zomato,2026-09-15,1.6,The food was bland and the packaging leaked. Delivery was on time and food was warm.,negative,positive,not_mentioned,True
+REV0052,LIST0117,Swiggy,2026-08-07,4.6,"The food was fresh, flavourful and the portion size was generous. Delivery was on time and food was warm. Service was courteous and the order was accurate.",positive,positive,positive,True
+REV0053,LIST0079,Swiggy,2026-10-10,4.2,"The food was fresh, flavourful and the portion size was generous. Delivery took the usual time. Service was courteous and the order was accurate.",positive,neutral,positive,True
+REV0054,LIST0153,Swiggy,2026-09-15,1.2,The food was bland and the packaging leaked. The package leaked and the order arrived damaged. Customer support was unhelpful about the missing item.,negative,negative,negative,True
+REV0055,LIST0073,Swiggy,2026-09-28,3.6,"The food was fresh, flavourful and the portion size was generous. The package leaked and the order arrived damaged. Customer support was unhelpful about the missing item.",mixed,negative,negative,True
+REV0056,LIST0006,Zomato,2026-09-02,4.2,"Really enjoyed the taste; the spices were well balanced. Delivery was quick and the rider was polite. Good service, order was complete and correct.",positive,positive,positive,True
+REV0057,LIST0154,Swiggy,2026-08-20,3.3,"Food was okay, nothing special. Delivery took the usual time.",neutral,neutral,not_mentioned,True
+REV0058,LIST0112,Zomato,2026-09-22,3.6,Loved the freshness and the packaging was neat. Delivery was quick and the rider was polite.,mixed,positive,not_mentioned,True
+REV0059,LIST0074,Zomato,2026-07-25,3.6,Loved the freshness and the packaging was neat. Delivery was quick and the rider was polite.,mixed,positive,not_mentioned,True
+REV0060,LIST0174,Swiggy,2026-08-30,2.8,Loved the freshness and the packaging was neat. Delivery was late by 30 minutes and the food was cold. Customer support was unhelpful about the missing item.,mixed,negative,negative,True
+REV0061,LIST0064,Zomato,2026-09-29,4.5,Loved the freshness and the packaging was neat. Delivery took the usual time. Service was courteous and the order was accurate.,positive,neutral,positive,True
+REV0062,LIST0183,Zomato,2026-08-27,1.8,Got a missing item and the taste was disappointing. Rider was rude and delivery took too long. Customer support was unhelpful about the missing item.,negative,negative,negative,True
+REV0063,LIST0091,Swiggy,2026-09-09,1.9,The food was cold and tasted stale. Delivery took the usual time.,negative,neutral,not_mentioned,True
+REV0064,LIST0034,Zomato,2026-08-28,3.2,"Food was okay, nothing special. Delivery was on time and food was warm.",neutral,positive,not_mentioned,True
+REV0065,LIST0034,Zomato,2026-10-10,4.5,Great value for money and the food arrived hot. Rider was rude and delivery took too long.,positive,negative,not_mentioned,True
+REV0066,LIST0128,Zomato,2026-07-21,3.5,"Standard fare, neither great nor bad. Delivery was fine.",neutral,neutral,not_mentioned,True
+REV0067,LIST0068,Zomato,2026-10-07,3.6,"Average taste, decent quantity. Arrived earlier than expected, well packed.",neutral,positive,not_mentioned,True
+REV0068,LIST0143,Zomato,2026-07-28,2.8,"The food was fresh, flavourful and the portion size was generous. Delivery was quick and the rider was polite.",mixed,positive,not_mentioned,True
+REV0069,LIST0120,Zomato,2026-10-12,2.5,The food was cold and tasted stale. The package leaked and the order arrived damaged. Service was poor; wrong item was delivered.,negative,negative,negative,True
+REV0070,LIST0185,Swiggy,2026-08-22,2.3,"The food was cold and tasted stale. Arrived earlier than expected, well packed.",negative,positive,not_mentioned,True
+REV0071,LIST0070,Zomato,2026-07-01,1.0,Portion size was very small for the price. Standard delivery experience.,negative,neutral,not_mentioned,True
+REV0072,LIST0020,Zomato,2026-09-06,3.4,Loved the freshness and the packaging was neat. Rider was rude and delivery took too long. Service was poor; wrong item was delivered.,mixed,negative,negative,True
+REV0073,LIST0096,Zomato,2026-08-29,1.1,The food was cold and tasted stale. Delivery was fine.,negative,neutral,not_mentioned,True
+REV0074,LIST0161,Swiggy,2026-09-15,3.3,"Standard fare, neither great nor bad. Standard delivery experience.",neutral,neutral,not_mentioned,True
+REV0075,LIST0188,Swiggy,2026-07-23,2.2,Portion size was very small for the price. Delivery took the usual time.,negative,neutral,not_mentioned,True
+REV0076,LIST0019,Swiggy,2026-09-05,3.0,"Standard fare, neither great nor bad. Arrived earlier than expected, well packed.",neutral,positive,not_mentioned,True
+REV0077,LIST0023,Swiggy,2026-10-11,4.8,"Really enjoyed the taste; the spices were well balanced. Delivery was quick and the rider was polite. Good service, order was complete and correct.",positive,positive,positive,True
+REV0078,LIST0077,Swiggy,2026-08-02,2.7,Loved the freshness and the packaging was neat. Delivery was on time and food was warm.,mixed,positive,not_mentioned,True
+REV0079,LIST0025,Swiggy,2026-07-22,4.9,"Really enjoyed the taste; the spices were well balanced. Delivery was fine. Good service, order was complete and correct.",positive,neutral,positive,True
+REV0080,LIST0109,Swiggy,2026-08-05,4.1,"Really enjoyed the taste; the spices were well balanced. Delivery was fine. Good service, order was complete and correct.",positive,neutral,positive,True
+REV0081,LIST0176,Swiggy,2026-07-02,1.8,Got a missing item and the taste was disappointing. Delivery was on time and food was warm.,negative,positive,not_mentioned,True
+REV0082,LIST0123,Swiggy,2026-08-15,3.0,"Food was okay, nothing special. Delivery took the usual time.",neutral,neutral,not_mentioned,True
+REV0083,LIST0013,Swiggy,2026-07-26,3.1,"Food was okay, nothing special. Delivery was quick and the rider was polite.",neutral,positive,not_mentioned,True
+REV0084,LIST0146,Zomato,2026-08-28,2.8,"Average taste, decent quantity. Delivery was fine.",neutral,neutral,not_mentioned,True
+REV0085,LIST0046,Zomato,2026-08-29,2.3,Got a missing item and the taste was disappointing. Delivery was quick and the rider was polite.,negative,positive,not_mentioned,True
+REV0086,LIST0194,Zomato,2026-07-23,2.7,"Great value for money and the food arrived hot. Arrived earlier than expected, well packed.",mixed,positive,not_mentioned,True
+REV0087,LIST0155,Swiggy,2026-08-04,3.1,"Standard fare, neither great nor bad. Delivery took the usual time.",neutral,neutral,not_mentioned,True
+REV0088,LIST0123,Swiggy,2026-08-09,3.3,Loved the freshness and the packaging was neat. Delivery was on time and food was warm.,mixed,positive,not_mentioned,True
+REV0089,LIST0093,Swiggy,2026-10-02,1.3,The food was bland and the packaging leaked. Delivery was late by 30 minutes and the food was cold. Service was poor; wrong item was delivered.,negative,negative,negative,True
+REV0090,LIST0007,Swiggy,2026-10-02,3.5,Loved the freshness and the packaging was neat. Rider was rude and delivery took too long. Service was poor; wrong item was delivered.,mixed,negative,negative,True
+REV0091,LIST0023,Swiggy,2026-07-29,2.9,"Average taste, decent quantity. Delivery took the usual time.",neutral,neutral,not_mentioned,True
+REV0092,LIST0114,Zomato,2026-07-12,3.2,Loved the freshness and the packaging was neat. Delivery was quick and the rider was polite.,mixed,positive,not_mentioned,True
+REV0093,LIST0101,Swiggy,2026-07-24,4.6,Great value for money and the food arrived hot. Delivery was quick and the rider was polite. Service was courteous and the order was accurate.,positive,positive,positive,True
+REV0094,LIST0149,Swiggy,2026-08-01,1.7,The food was bland and the packaging leaked. Delivery took the usual time.,negative,neutral,not_mentioned,True
+REV0095,LIST0125,Swiggy,2026-09-03,3.7,"The food was fresh, flavourful and the portion size was generous. Rider was rude and delivery took too long. Service was poor; wrong item was delivered.",mixed,negative,negative,True
+REV0096,LIST0122,Zomato,2026-09-20,4.9,Loved the freshness and the packaging was neat. Rider was rude and delivery took too long.,positive,negative,not_mentioned,True
+REV0097,LIST0186,Zomato,2026-08-10,2.9,Loved the freshness and the packaging was neat. The package leaked and the order arrived damaged. Customer support was unhelpful about the missing item.,mixed,negative,negative,True
+REV0098,LIST0184,Swiggy,2026-08-04,3.7,"Really enjoyed the taste; the spices were well balanced. Arrived earlier than expected, well packed.",mixed,positive,not_mentioned,True
+REV0099,LIST0189,Zomato,2026-10-01,4.3,Loved the freshness and the packaging was neat. Delivery took the usual time. Service was courteous and the order was accurate.,positive,neutral,positive,True
+REV0100,LIST0041,Swiggy,2026-08-16,2.4,Got a missing item and the taste was disappointing. Delivery took the usual time.,negative,neutral,not_mentioned,True
+REV0101,LIST0013,Swiggy,2026-07-15,4.7,"Great value for money and the food arrived hot. Arrived earlier than expected, well packed. Good service, order was complete and correct.",positive,positive,positive,True
+REV0102,LIST0017,Swiggy,2026-09-11,4.1,Loved the freshness and the packaging was neat. Delivery took the usual time. Service was courteous and the order was accurate.,positive,neutral,positive,True
+REV0103,LIST0197,Swiggy,2026-07-11,4.7,Great value for money and the food arrived hot. Delivery was quick and the rider was polite. Service was courteous and the order was accurate.,positive,positive,positive,True
+REV0104,LIST0194,Zomato,2026-08-23,4.6,"The food was fresh, flavourful and the portion size was generous. Rider was rude and delivery took too long.",positive,negative,not_mentioned,True
+REV0105,LIST0027,Swiggy,2026-08-23,1.2,The food was cold and tasted stale. Delivery was quick and the rider was polite.,negative,positive,not_mentioned,True
+REV0106,LIST0128,Zomato,2026-09-03,4.4,Really enjoyed the taste; the spices were well balanced. Rider was rude and delivery took too long.,positive,negative,not_mentioned,True
+REV0107,LIST0197,Swiggy,2026-09-03,4.3,"Really enjoyed the taste; the spices were well balanced. Arrived earlier than expected, well packed. Good service, order was complete and correct.",positive,positive,positive,True
+REV0108,LIST0093,Swiggy,2026-07-04,3.7,Really enjoyed the taste; the spices were well balanced. Rider was rude and delivery took too long. Customer support was unhelpful about the missing item.,mixed,negative,negative,True
+REV0109,LIST0118,Zomato,2026-08-21,3.4,"Standard fare, neither great nor bad. Arrived earlier than expected, well packed.",neutral,positive,not_mentioned,True
+REV0110,LIST0018,Zomato,2026-10-22,4.4,Great value for money and the food arrived hot. The package leaked and the order arrived damaged.,positive,negative,not_mentioned,True
+REV0111,LIST0170,Zomato,2026-09-03,2.2,The food was cold and tasted stale. Delivery was on time and food was warm.,negative,positive,not_mentioned,True
+REV0112,LIST0103,Swiggy,2026-08-20,2.8,"Average taste, decent quantity. Delivery was on time and food was warm.",neutral,positive,not_mentioned,True
+REV0113,LIST0157,Swiggy,2026-08-31,2.3,"Got a missing item and the taste was disappointing. Arrived earlier than expected, well packed.",negative,positive,not_mentioned,True
+REV0114,LIST0179,Swiggy,2026-07-06,4.1,"Loved the freshness and the packaging was neat. Delivery took the usual time. Good service, order was complete and correct.",positive,neutral,positive,True
+REV0115,LIST0033,Swiggy,2026-08-06,3.0,"Standard fare, neither great nor bad. Arrived earlier than expected, well packed.",neutral,positive,not_mentioned,True
+REV0116,LIST0041,Swiggy,2026-10-12,4.2,"The food was fresh, flavourful and the portion size was generous. Delivery was on time and food was warm. Good service, order was complete and correct.",positive,positive,positive,True
+REV0117,LIST0188,Swiggy,2026-08-14,4.1,"Great value for money and the food arrived hot. Arrived earlier than expected, well packed. Good service, order was complete and correct.",positive,positive,positive,True
+REV0118,LIST0189,Zomato,2026-08-07,4.8,"Loved the freshness and the packaging was neat. Arrived earlier than expected, well packed. Service was courteous and the order was accurate.",positive,positive,positive,True
+REV0119,LIST0171,Swiggy,2026-08-01,3.4,"Standard fare, neither great nor bad. Delivery was quick and the rider was polite.",neutral,positive,not_mentioned,True
+REV0120,LIST0036,Zomato,2026-10-08,1.3,Portion size was very small for the price. Delivery was late by 30 minutes and the food was cold. Customer support was unhelpful about the missing item.,negative,negative,negative,True
+REV0121,LIST0183,Zomato,2026-09-09,2.3,Got a missing item and the taste was disappointing. Delivery was late by 30 minutes and the food was cold. Service was poor; wrong item was delivered.,negative,negative,negative,True
+REV0122,LIST0174,Swiggy,2026-08-06,3.5,"Average taste, decent quantity. Delivery was on time and food was warm.",neutral,positive,not_mentioned,True
+REV0123,LIST0109,Swiggy,2026-07-27,2.7,Loved the freshness and the packaging was neat. Delivery was on time and food was warm.,mixed,positive,not_mentioned,True
+REV0124,LIST0118,Zomato,2026-09-09,1.7,The food was cold and tasted stale. Delivery was on time and food was warm.,negative,positive,not_mentioned,True
+REV0125,LIST0031,Swiggy,2026-09-09,1.9,Got a missing item and the taste was disappointing. Delivery took the usual time.,negative,neutral,not_mentioned,True
+REV0126,LIST0079,Swiggy,2026-06-29,4.0,"Great value for money and the food arrived hot. Delivery was fine. Good service, order was complete and correct.",positive,neutral,positive,True
+REV0127,LIST0079,Swiggy,2026-07-07,2.9,"Food was okay, nothing special. Delivery took the usual time.",neutral,neutral,not_mentioned,True
+REV0128,LIST0012,Zomato,2026-07-26,2.4,Got a missing item and the taste was disappointing. Rider was rude and delivery took too long. Customer support was unhelpful about the missing item.,negative,negative,negative,True
+REV0129,LIST0156,Zomato,2026-07-25,2.1,Portion size was very small for the price. Delivery was on time and food was warm.,negative,positive,not_mentioned,True
+REV0130,LIST0084,Zomato,2026-07-05,4.2,Loved the freshness and the packaging was neat. The package leaked and the order arrived damaged.,positive,negative,not_mentioned,True
+REV0131,LIST0114,Zomato,2026-07-28,3.3,"Standard fare, neither great nor bad. Delivery took the usual time.",neutral,neutral,not_mentioned,True
+REV0132,LIST0080,Zomato,2026-07-22,3.6,"Standard fare, neither great nor bad. Delivery was quick and the rider was polite.",neutral,positive,not_mentioned,True
+REV0133,LIST0014,Zomato,2026-10-24,1.0,Portion size was very small for the price. Delivery was fine.,negative,neutral,not_mentioned,True
+REV0134,LIST0071,Swiggy,2026-08-25,3.3,Really enjoyed the taste; the spices were well balanced. Rider was rude and delivery took too long. Customer support was unhelpful about the missing item.,mixed,negative,negative,True
+REV0135,LIST0006,Zomato,2026-10-14,4.0,"Loved the freshness and the packaging was neat. Delivery took the usual time. Good service, order was complete and correct.",positive,neutral,positive,True
+REV0136,LIST0139,Swiggy,2026-08-01,2.2,The food was bland and the packaging leaked. Delivery was quick and the rider was polite.,negative,positive,not_mentioned,True
+REV0137,LIST0044,Zomato,2026-07-04,4.7,Great value for money and the food arrived hot. Delivery was quick and the rider was polite. Service was courteous and the order was accurate.,positive,positive,positive,True
+REV0138,LIST0083,Swiggy,2026-08-22,3.3,"Average taste, decent quantity. Delivery took the usual time.",neutral,neutral,not_mentioned,True
+REV0139,LIST0193,Zomato,2026-10-23,3.2,"Average taste, decent quantity. Delivery was quick and the rider was polite.",neutral,positive,not_mentioned,True
+REV0140,LIST0105,Swiggy,2026-09-04,2.9,"The food was fresh, flavourful and the portion size was generous. The package leaked and the order arrived damaged. Service was poor; wrong item was delivered.",mixed,negative,negative,True
+REV0141,LIST0115,Swiggy,2026-09-02,4.4,Really enjoyed the taste; the spices were well balanced. Delivery was late by 30 minutes and the food was cold.,positive,negative,not_mentioned,True
+REV0142,LIST0143,Zomato,2026-10-05,3.3,"The food was fresh, flavourful and the portion size was generous. Delivery was quick and the rider was polite.",mixed,positive,not_mentioned,True
+REV0143,LIST0001,Swiggy,2026-08-13,4.8,"Loved the freshness and the packaging was neat. Arrived earlier than expected, well packed. Good service, order was complete and correct.",positive,positive,positive,True
+REV0144,LIST0131,Swiggy,2026-10-11,3.0,"Food was okay, nothing special. Delivery took the usual time.",neutral,neutral,not_mentioned,True
+REV0145,LIST0036,Zomato,2026-09-13,3.4,"Average taste, decent quantity. Arrived earlier than expected, well packed.",neutral,positive,not_mentioned,True
+REV0146,LIST0163,Zomato,2026-08-11,3.1,"Standard fare, neither great nor bad. Delivery was fine.",neutral,neutral,not_mentioned,True
+REV0147,LIST0085,Swiggy,2026-08-16,4.6,Really enjoyed the taste; the spices were well balanced. Delivery was on time and food was warm. Service was courteous and the order was accurate.,positive,positive,positive,True
+REV0148,LIST0179,Swiggy,2026-07-04,3.2,Loved the freshness and the packaging was neat. Delivery was on time and food was warm.,mixed,positive,not_mentioned,True
+REV0149,LIST0172,Swiggy,2026-07-11,3.0,"The food was fresh, flavourful and the portion size was generous. Arrived earlier than expected, well packed.",mixed,positive,not_mentioned,True
+REV0150,LIST0197,Swiggy,2026-09-21,4.9,"The food was fresh, flavourful and the portion size was generous. Arrived earlier than expected, well packed. Good service, order was complete and correct.",positive,positive,positive,True
+REV0151,LIST0175,Swiggy,2026-10-22,4.8,"Really enjoyed the taste; the spices were well balanced. Delivery took the usual time. Good service, order was complete and correct.",positive,neutral,positive,True
+REV0152,LIST0072,Zomato,2026-08-15,3.6,Really enjoyed the taste; the spices were well balanced. Delivery was quick and the rider was polite.,mixed,positive,not_mentioned,True
+REV0153,LIST0129,Swiggy,2026-10-04,3.3,Really enjoyed the taste; the spices were well balanced. Delivery was on time and food was warm.,mixed,positive,not_mentioned,True
+REV0154,LIST0017,Swiggy,2026-08-21,1.4,Portion size was very small for the price. Standard delivery experience.,negative,neutral,not_mentioned,True
+REV0155,LIST0187,Swiggy,2026-07-31,3.3,"Food was okay, nothing special. Standard delivery experience.",neutral,neutral,not_mentioned,True
+REV0156,LIST0144,Zomato,2026-09-01,3.7,"The food was fresh, flavourful and the portion size was generous. Arrived earlier than expected, well packed.",mixed,positive,not_mentioned,True
+REV0157,LIST0105,Swiggy,2026-07-26,3.2,"Food was okay, nothing special. Standard delivery experience.",neutral,neutral,not_mentioned,True
+REV0158,LIST0058,Zomato,2026-07-15,4.3,"Great value for money and the food arrived hot. Arrived earlier than expected, well packed. Good service, order was complete and correct.",positive,positive,positive,True
+REV0159,LIST0007,Swiggy,2026-10-23,3.3,Loved the freshness and the packaging was neat. Delivery was late by 30 minutes and the food was cold. Service was poor; wrong item was delivered.,mixed,negative,negative,True
+REV0160,LIST0123,Swiggy,2026-07-12,1.4,The food was cold and tasted stale. Rider was rude and delivery took too long. Customer support was unhelpful about the missing item.,negative,negative,negative,True
+REV0161,LIST0014,Zomato,2026-10-19,4.8,"Really enjoyed the taste; the spices were well balanced. Delivery took the usual time. Good service, order was complete and correct.",positive,neutral,positive,True
+REV0162,LIST0009,Swiggy,2026-08-09,1.1,The food was bland and the packaging leaked. Rider was rude and delivery took too long. Service was poor; wrong item was delivered.,negative,negative,negative,True
+REV0163,LIST0161,Swiggy,2026-07-22,1.4,The food was cold and tasted stale. Delivery was late by 30 minutes and the food was cold. Service was poor; wrong item was delivered.,negative,negative,negative,True
+REV0164,LIST0106,Zomato,2026-08-04,2.6,"The food was fresh, flavourful and the portion size was generous. The package leaked and the order arrived damaged. Customer support was unhelpful about the missing item.",mixed,negative,negative,True
+REV0165,LIST0173,Swiggy,2026-08-12,4.6,"Loved the freshness and the packaging was neat. Delivery was on time and food was warm. Good service, order was complete and correct.",positive,positive,positive,True
+REV0166,LIST0050,Zomato,2026-10-03,1.5,Portion size was very small for the price. Standard delivery experience.,negative,neutral,not_mentioned,True
+REV0167,LIST0063,Swiggy,2026-09-11,1.9,The food was cold and tasted stale. Delivery was quick and the rider was polite.,negative,positive,not_mentioned,True
+REV0168,LIST0080,Zomato,2026-08-21,1.9,Portion size was very small for the price. Delivery took the usual time.,negative,neutral,not_mentioned,True
+REV0169,LIST0151,Zomato,2026-10-01,2.3,The food was cold and tasted stale. Delivery was quick and the rider was polite.,negative,positive,not_mentioned,True
+REV0170,LIST0052,Zomato,2026-09-14,3.3,"The food was fresh, flavourful and the portion size was generous. The package leaked and the order arrived damaged. Service was poor; wrong item was delivered.",mixed,negative,negative,True
+REV0171,LIST0149,Swiggy,2026-07-02,1.5,The food was bland and the packaging leaked. Standard delivery experience.,negative,neutral,not_mentioned,True
+REV0172,LIST0011,Swiggy,2026-08-26,2.8,Really enjoyed the taste; the spices were well balanced. Delivery was quick and the rider was polite.,mixed,positive,not_mentioned,True
+REV0173,LIST0189,Zomato,2026-10-23,4.2,"Loved the freshness and the packaging was neat. Delivery took the usual time. Good service, order was complete and correct.",positive,neutral,positive,True
+REV0174,LIST0143,Zomato,2026-10-23,4.4,Really enjoyed the taste; the spices were well balanced. The package leaked and the order arrived damaged.,positive,negative,not_mentioned,True
+REV0175,LIST0051,Swiggy,2026-10-04,3.2,Great value for money and the food arrived hot. Delivery was late by 30 minutes and the food was cold. Service was poor; wrong item was delivered.,mixed,negative,negative,True
+REV0176,LIST0051,Swiggy,2026-10-12,4.0,"Really enjoyed the taste; the spices were well balanced. Arrived earlier than expected, well packed. Service was courteous and the order was accurate.",positive,positive,positive,True
+REV0177,LIST0087,Swiggy,2026-07-16,3.2,Great value for money and the food arrived hot. The package leaked and the order arrived damaged. Service was poor; wrong item was delivered.,mixed,negative,negative,True
+REV0178,LIST0160,Zomato,2026-07-30,1.2,The food was cold and tasted stale. Delivery was late by 30 minutes and the food was cold. Service was poor; wrong item was delivered.,negative,negative,negative,True
+REV0179,LIST0096,Zomato,2026-09-19,4.9,Loved the freshness and the packaging was neat. Standard delivery experience. Service was courteous and the order was accurate.,positive,neutral,positive,True
+REV0180,LIST0039,Swiggy,2026-09-30,4.9,"Really enjoyed the taste; the spices were well balanced. Delivery took the usual time. Good service, order was complete and correct.",positive,neutral,positive,True
+REV0181,LIST0187,Swiggy,2026-07-22,4.6,Loved the freshness and the packaging was neat. Rider was rude and delivery took too long.,positive,negative,not_mentioned,True
+REV0182,LIST0131,Swiggy,2026-08-24,4.2,"Loved the freshness and the packaging was neat. Standard delivery experience. Good service, order was complete and correct.",positive,neutral,positive,True
+REV0183,LIST0122,Zomato,2026-07-04,3.3,"Standard fare, neither great nor bad. Delivery was fine.",neutral,neutral,not_mentioned,True
+REV0184,LIST0052,Zomato,2026-07-11,2.7,"Really enjoyed the taste; the spices were well balanced. Arrived earlier than expected, well packed.",mixed,positive,not_mentioned,True
+REV0185,LIST0096,Zomato,2026-08-13,3.2,"Standard fare, neither great nor bad. Delivery took the usual time.",neutral,neutral,not_mentioned,True
+REV0186,LIST0011,Swiggy,2026-09-22,3.1,"Great value for money and the food arrived hot. Arrived earlier than expected, well packed.",mixed,positive,not_mentioned,True
+REV0187,LIST0098,Zomato,2026-08-23,4.3,"Really enjoyed the taste; the spices were well balanced. Arrived earlier than expected, well packed. Service was courteous and the order was accurate.",positive,positive,positive,True
+REV0188,LIST0132,Zomato,2026-10-22,2.9,"Standard fare, neither great nor bad. Delivery was quick and the rider was polite.",neutral,positive,not_mentioned,True
+REV0189,LIST0140,Zomato,2026-10-02,3.6,Great value for money and the food arrived hot. Delivery was late by 30 minutes and the food was cold. Customer support was unhelpful about the missing item.,mixed,negative,negative,True
+REV0190,LIST0181,Zomato,2026-07-13,2.4,Portion size was very small for the price. Standard delivery experience.,negative,neutral,not_mentioned,True
+REV0191,LIST0089,Swiggy,2026-09-06,1.8,Got a missing item and the taste was disappointing. Rider was rude and delivery took too long. Service was poor; wrong item was delivered.,negative,negative,negative,True
+REV0192,LIST0059,Swiggy,2026-08-28,3.4,Really enjoyed the taste; the spices were well balanced. The package leaked and the order arrived damaged. Service was poor; wrong item was delivered.,mixed,negative,negative,True
+REV0193,LIST0088,Zomato,2026-07-09,4.4,Great value for money and the food arrived hot. Delivery was late by 30 minutes and the food was cold.,positive,negative,not_mentioned,True
+REV0194,LIST0143,Zomato,2026-09-11,4.3,Great value for money and the food arrived hot. Delivery was quick and the rider was polite. Service was courteous and the order was accurate.,positive,positive,positive,True
+REV0195,LIST0087,Swiggy,2026-08-15,3.3,Loved the freshness and the packaging was neat. The package leaked and the order arrived damaged. Customer support was unhelpful about the missing item.,mixed,negative,negative,True
+REV0196,LIST0009,Swiggy,2026-09-06,2.2,"Portion size was very small for the price. Arrived earlier than expected, well packed.",negative,positive,not_mentioned,True
+REV0197,LIST0098,Zomato,2026-07-04,3.1,Loved the freshness and the packaging was neat. Delivery was late by 30 minutes and the food was cold. Customer support was unhelpful about the missing item.,mixed,negative,negative,True
+REV0198,LIST0078,Zomato,2026-10-23,4.7,Really enjoyed the taste; the spices were well balanced. Delivery was late by 30 minutes and the food was cold.,positive,negative,not_mentioned,True
+REV0199,LIST0048,Zomato,2026-09-09,3.1,"The food was fresh, flavourful and the portion size was generous. The package leaked and the order arrived damaged. Customer support was unhelpful about the missing item.",mixed,negative,negative,True
+REV0200,LIST0133,Swiggy,2026-07-23,4.4,"Really enjoyed the taste; the spices were well balanced. Arrived earlier than expected, well packed. Good service, order was complete and correct.",positive,positive,positive,True
+REV0201,LIST0018,Zomato,2026-08-14,2.2,Portion size was very small for the price. Delivery was late by 30 minutes and the food was cold. Service was poor; wrong item was delivered.,negative,negative,negative,True
+REV0202,LIST0080,Zomato,2026-08-30,1.7,Portion size was very small for the price. Standard delivery experience.,negative,neutral,not_mentioned,True
+REV0203,LIST0017,Swiggy,2026-07-24,2.3,Portion size was very small for the price. Rider was rude and delivery took too long. Customer support was unhelpful about the missing item.,negative,negative,negative,True
+REV0204,LIST0024,Zomato,2026-07-13,3.4,"Standard fare, neither great nor bad. Delivery was fine.",neutral,neutral,not_mentioned,True
+REV0205,LIST0045,Swiggy,2026-09-06,2.4,Portion size was very small for the price. Delivery was late by 30 minutes and the food was cold. Customer support was unhelpful about the missing item.,negative,negative,negative,True
+REV0206,LIST0179,Swiggy,2026-07-26,4.9,"Really enjoyed the taste; the spices were well balanced. Delivery was quick and the rider was polite. Good service, order was complete and correct.",positive,positive,positive,True
+REV0207,LIST0185,Swiggy,2026-09-15,3.5,Loved the freshness and the packaging was neat. The package leaked and the order arrived damaged. Service was poor; wrong item was delivered.,mixed,negative,negative,True
+REV0208,LIST0105,Swiggy,2026-08-01,3.3,"Really enjoyed the taste; the spices were well balanced. Arrived earlier than expected, well packed.",mixed,positive,not_mentioned,True
+REV0209,LIST0192,Swiggy,2026-10-12,2.5,"Loved the freshness and the packaging was neat. Arrived earlier than expected, well packed.",mixed,positive,not_mentioned,True
+REV0210,LIST0182,Swiggy,2026-09-25,1.7,The food was bland and the packaging leaked. Delivery was on time and food was warm.,negative,positive,not_mentioned,True
+REV0211,LIST0183,Zomato,2026-10-14,2.5,"Really enjoyed the taste; the spices were well balanced. Arrived earlier than expected, well packed.",mixed,positive,not_mentioned,True
+REV0212,LIST0046,Zomato,2026-09-22,3.3,"Food was okay, nothing special. Standard delivery experience.",neutral,neutral,not_mentioned,True
+REV0213,LIST0040,Zomato,2026-07-29,2.8,Great value for money and the food arrived hot. Delivery was quick and the rider was polite.,mixed,positive,not_mentioned,True
+REV0214,LIST0013,Swiggy,2026-10-20,3.1,"Standard fare, neither great nor bad. Delivery was on time and food was warm.",neutral,positive,not_mentioned,True
+REV0215,LIST0154,Swiggy,2026-09-03,4.9,"The food was fresh, flavourful and the portion size was generous. Arrived earlier than expected, well packed. Service was courteous and the order was accurate.",positive,positive,positive,True
+REV0216,LIST0008,Zomato,2026-10-05,4.2,Great value for money and the food arrived hot. Delivery was quick and the rider was polite. Service was courteous and the order was accurate.,positive,positive,positive,True
+REV0217,LIST0186,Zomato,2026-08-08,2.2,"The food was cold and tasted stale. Arrived earlier than expected, well packed.",negative,positive,not_mentioned,True
+REV0218,LIST0054,Zomato,2026-09-05,3.1,"Average taste, decent quantity. Arrived earlier than expected, well packed.",neutral,positive,not_mentioned,True
+REV0219,LIST0168,Swiggy,2026-09-09,4.5,"The food was fresh, flavourful and the portion size was generous. Delivery was fine. Service was courteous and the order was accurate.",positive,neutral,positive,True
+REV0220,LIST0012,Zomato,2026-08-19,4.3,Really enjoyed the taste; the spices were well balanced. The package leaked and the order arrived damaged.,positive,negative,not_mentioned,True
+REV0221,LIST0146,Zomato,2026-07-20,2.5,The food was bland and the packaging leaked. Delivery was quick and the rider was polite.,negative,positive,not_mentioned,True
+REV0222,LIST0178,Zomato,2026-08-26,2.3,The food was bland and the packaging leaked. Delivery was quick and the rider was polite.,negative,positive,not_mentioned,True
+REV0223,LIST0018,Zomato,2026-10-25,4.4,"The food was fresh, flavourful and the portion size was generous. Standard delivery experience. Good service, order was complete and correct.",positive,neutral,positive,True
+REV0224,LIST0060,Zomato,2026-09-09,4.7,"The food was fresh, flavourful and the portion size was generous. Arrived earlier than expected, well packed. Service was courteous and the order was accurate.",positive,positive,positive,True
+REV0225,LIST0128,Zomato,2026-08-31,3.0,"Food was okay, nothing special. Delivery took the usual time.",neutral,neutral,not_mentioned,True
+REV0226,LIST0190,Swiggy,2026-08-05,4.6,"Really enjoyed the taste; the spices were well balanced. Delivery was fine. Good service, order was complete and correct.",positive,neutral,positive,True
+REV0227,LIST0074,Zomato,2026-09-25,4.3,"Really enjoyed the taste; the spices were well balanced. Delivery was on time and food was warm. Good service, order was complete and correct.",positive,positive,positive,True
+REV0228,LIST0176,Swiggy,2026-10-02,3.1,Loved the freshness and the packaging was neat. Rider was rude and delivery took too long. Customer support was unhelpful about the missing item.,mixed,negative,negative,True
+REV0229,LIST0014,Zomato,2026-09-26,1.9,Portion size was very small for the price. Delivery was quick and the rider was polite.,negative,positive,not_mentioned,True
+REV0230,LIST0130,Zomato,2026-08-10,4.5,Loved the freshness and the packaging was neat. Rider was rude and delivery took too long.,positive,negative,not_mentioned,True
+REV0231,LIST0064,Zomato,2026-10-16,3.0,"Average taste, decent quantity. Standard delivery experience.",neutral,neutral,not_mentioned,True
+REV0232,LIST0093,Swiggy,2026-07-14,1.8,Got a missing item and the taste was disappointing. Delivery was late by 30 minutes and the food was cold. Customer support was unhelpful about the missing item.,negative,negative,negative,True
+REV0233,LIST0124,Zomato,2026-07-25,4.8,"Loved the freshness and the packaging was neat. Arrived earlier than expected, well packed. Service was courteous and the order was accurate.",positive,positive,positive,True
+REV0234,LIST0045,Swiggy,2026-09-14,3.2,"Average taste, decent quantity. Delivery was fine.",neutral,neutral,not_mentioned,True
+REV0235,LIST0035,Swiggy,2026-09-09,3.4,Really enjoyed the taste; the spices were well balanced. Delivery was quick and the rider was polite.,mixed,positive,not_mentioned,True
+REV0236,LIST0126,Zomato,2026-07-05,1.5,Got a missing item and the taste was disappointing. The package leaked and the order arrived damaged. Customer support was unhelpful about the missing item.,negative,negative,negative,True
+REV0237,LIST0010,Zomato,2026-07-22,4.2,Loved the freshness and the packaging was neat. Rider was rude and delivery took too long.,positive,negative,not_mentioned,True
+REV0238,LIST0185,Swiggy,2026-09-25,4.7,"Loved the freshness and the packaging was neat. Standard delivery experience. Good service, order was complete and correct.",positive,neutral,positive,True
+REV0239,LIST0123,Swiggy,2026-07-31,4.7,Great value for money and the food arrived hot. Delivery was on time and food was warm. Service was courteous and the order was accurate.,positive,positive,positive,True
+REV0240,LIST0038,Zomato,2026-10-15,2.9,"Food was okay, nothing special. Standard delivery experience.",neutral,neutral,not_mentioned,True
+REV0241,LIST0165,Zomato,2026-09-24,1.3,Got a missing item and the taste was disappointing. Rider was rude and delivery took too long. Service was poor; wrong item was delivered.,negative,negative,negative,True
+REV0242,LIST0178,Zomato,2026-07-06,3.0,"Standard fare, neither great nor bad. Standard delivery experience.",neutral,neutral,not_mentioned,True
+REV0243,LIST0187,Swiggy,2026-09-30,4.6,"The food was fresh, flavourful and the portion size was generous. Rider was rude and delivery took too long.",positive,negative,not_mentioned,True
+REV0244,LIST0192,Swiggy,2026-08-20,1.0,The food was bland and the packaging leaked. Delivery was late by 30 minutes and the food was cold. Service was poor; wrong item was delivered.,negative,negative,negative,True
+REV0245,LIST0107,Swiggy,2026-10-03,3.4,"Standard fare, neither great nor bad. Delivery was fine.",neutral,neutral,not_mentioned,True
+REV0246,LIST0129,Swiggy,2026-07-21,4.8,Loved the freshness and the packaging was neat. Rider was rude and delivery took too long.,positive,negative,not_mentioned,True
+REV0247,LIST0050,Zomato,2026-09-19,3.5,"Average taste, decent quantity. Delivery was fine.",neutral,neutral,not_mentioned,True
+REV0248,LIST0022,Zomato,2026-10-14,1.9,The food was cold and tasted stale. The package leaked and the order arrived damaged. Service was poor; wrong item was delivered.,negative,negative,negative,True
+REV0249,LIST0003,Swiggy,2026-07-21,4.1,Great value for money and the food arrived hot. Delivery was quick and the rider was polite. Service was courteous and the order was accurate.,positive,positive,positive,True
+REV0250,LIST0069,Swiggy,2026-09-16,2.9,"Loved the freshness and the packaging was neat. Arrived earlier than expected, well packed.",mixed,positive,not_mentioned,True
+REV0251,LIST0062,Zomato,2026-07-07,5.0,Loved the freshness and the packaging was neat. Delivery was fine. Service was courteous and the order was accurate.,positive,neutral,positive,True
+REV0252,LIST0179,Swiggy,2026-09-09,1.4,Portion size was very small for the price. Delivery was late by 30 minutes and the food was cold. Service was poor; wrong item was delivered.,negative,negative,negative,True
+REV0253,LIST0116,Zomato,2026-07-14,1.3,Got a missing item and the taste was disappointing. Standard delivery experience.,negative,neutral,not_mentioned,True
+REV0254,LIST0083,Swiggy,2026-07-17,4.7,"Great value for money and the food arrived hot. Delivery was quick and the rider was polite. Good service, order was complete and correct.",positive,positive,positive,True
+REV0255,LIST0021,Swiggy,2026-08-21,4.7,Loved the freshness and the packaging was neat. Delivery was fine. Service was courteous and the order was accurate.,positive,neutral,positive,True
+REV0256,LIST0147,Zomato,2026-07-07,3.5,"Food was okay, nothing special. Delivery was quick and the rider was polite.",neutral,positive,not_mentioned,True
+REV0257,LIST0120,Zomato,2026-08-03,1.8,Got a missing item and the taste was disappointing. Delivery was quick and the rider was polite.,negative,positive,not_mentioned,True
+REV0258,LIST0180,Zomato,2026-09-07,5.0,"The food was fresh, flavourful and the portion size was generous. The package leaked and the order arrived damaged.",positive,negative,not_mentioned,True
+REV0259,LIST0197,Swiggy,2026-10-09,3.5,"Food was okay, nothing special. Standard delivery experience.",neutral,neutral,not_mentioned,True
+REV0260,LIST0137,Swiggy,2026-10-18,3.7,"The food was fresh, flavourful and the portion size was generous. Delivery was on time and food was warm.",mixed,positive,not_mentioned,True
+REV0261,LIST0165,Zomato,2026-09-27,4.7,"Loved the freshness and the packaging was neat. Standard delivery experience. Good service, order was complete and correct.",positive,neutral,positive,True
+REV0262,LIST0058,Zomato,2026-07-23,3.4,"Food was okay, nothing special. Delivery was fine.",neutral,neutral,not_mentioned,True
+REV0263,LIST0030,Zomato,2026-10-19,2.4,The food was bland and the packaging leaked. Delivery took the usual time.,negative,neutral,not_mentioned,True
+REV0264,LIST0152,Zomato,2026-07-17,3.1,"Food was okay, nothing special. Arrived earlier than expected, well packed.",neutral,positive,not_mentioned,True
+REV0265,LIST0033,Swiggy,2026-09-16,2.8,"Standard fare, neither great nor bad. Delivery was on time and food was warm.",neutral,positive,not_mentioned,True
+REV0266,LIST0038,Zomato,2026-07-10,3.0,"Food was okay, nothing special. Delivery was fine.",neutral,neutral,not_mentioned,True
+REV0267,LIST0180,Zomato,2026-09-29,4.3,"Great value for money and the food arrived hot. Arrived earlier than expected, well packed. Service was courteous and the order was accurate.",positive,positive,positive,True
+REV0268,LIST0127,Swiggy,2026-07-10,2.9,"Standard fare, neither great nor bad. Delivery was fine.",neutral,neutral,not_mentioned,True
+REV0269,LIST0188,Swiggy,2026-10-06,3.7,"The food was fresh, flavourful and the portion size was generous. Delivery was late by 30 minutes and the food was cold. Customer support was unhelpful about the missing item.",mixed,negative,negative,True
+REV0270,LIST0006,Zomato,2026-10-17,3.1,"Average taste, decent quantity. Arrived earlier than expected, well packed.",neutral,positive,not_mentioned,True
+REV0271,LIST0136,Zomato,2026-09-15,3.2,"Average taste, decent quantity. Standard delivery experience.",neutral,neutral,not_mentioned,True
+REV0272,LIST0193,Zomato,2026-08-26,2.0,The food was cold and tasted stale. Standard delivery experience.,negative,neutral,not_mentioned,True
+REV0273,LIST0075,Swiggy,2026-07-09,1.3,Portion size was very small for the price. Delivery was quick and the rider was polite.,negative,positive,not_mentioned,True
+REV0274,LIST0148,Swiggy,2026-10-14,5.0,Really enjoyed the taste; the spices were well balanced. The package leaked and the order arrived damaged.,positive,negative,not_mentioned,True
+REV0275,LIST0092,Zomato,2026-10-07,3.1,Really enjoyed the taste; the spices were well balanced. Delivery was quick and the rider was polite.,mixed,positive,not_mentioned,True
+REV0276,LIST0161,Swiggy,2026-08-04,1.7,Portion size was very small for the price. Delivery was late by 30 minutes and the food was cold. Service was poor; wrong item was delivered.,negative,negative,negative,True
+REV0277,LIST0191,Swiggy,2026-10-16,2.0,The food was cold and tasted stale. The package leaked and the order arrived damaged. Customer support was unhelpful about the missing item.,negative,negative,negative,True
+REV0278,LIST0032,Zomato,2026-10-14,3.4,Really enjoyed the taste; the spices were well balanced. Delivery was quick and the rider was polite.,mixed,positive,not_mentioned,True
+REV0279,LIST0152,Zomato,2026-09-15,2.1,"Got a missing item and the taste was disappointing. Arrived earlier than expected, well packed.",negative,positive,not_mentioned,True
+REV0280,LIST0017,Swiggy,2026-07-15,3.2,"Food was okay, nothing special. Arrived earlier than expected, well packed.",neutral,positive,not_mentioned,True
+REV0281,LIST0136,Zomato,2026-07-22,3.3,"The food was fresh, flavourful and the portion size was generous. Delivery was on time and food was warm.",mixed,positive,not_mentioned,True
+REV0282,LIST0193,Zomato,2026-08-14,2.6,"The food was fresh, flavourful and the portion size was generous. Delivery was late by 30 minutes and the food was cold. Service was poor; wrong item was delivered.",mixed,negative,negative,True
+REV0283,LIST0053,Swiggy,2026-09-18,2.1,The food was cold and tasted stale. Delivery was on time and food was warm.,negative,positive,not_mentioned,True
+REV0284,LIST0094,Zomato,2026-08-21,3.0,"Food was okay, nothing special. Arrived earlier than expected, well packed.",neutral,positive,not_mentioned,True
+REV0285,LIST0076,Zomato,2026-09-11,3.2,"Average taste, decent quantity. Delivery was quick and the rider was polite.",neutral,positive,not_mentioned,True
+REV0286,LIST0156,Zomato,2026-10-08,2.8,"Standard fare, neither great nor bad. Delivery was quick and the rider was polite.",neutral,positive,not_mentioned,True
+REV0287,LIST0077,Swiggy,2026-08-17,3.0,Really enjoyed the taste; the spices were well balanced. Rider was rude and delivery took too long. Service was poor; wrong item was delivered.,mixed,negative,negative,True
+REV0288,LIST0066,Zomato,2026-09-02,2.9,"Average taste, decent quantity. Standard delivery experience.",neutral,neutral,not_mentioned,True
+REV0289,LIST0178,Zomato,2026-07-27,1.4,Portion size was very small for the price. Delivery was quick and the rider was polite.,negative,positive,not_mentioned,True
+REV0290,LIST0096,Zomato,2026-08-10,1.5,Portion size was very small for the price. Delivery was fine.,negative,neutral,not_mentioned,True
+REV0291,LIST0064,Zomato,2026-10-15,4.5,Great value for money and the food arrived hot. Delivery was late by 30 minutes and the food was cold.,positive,negative,not_mentioned,True
+REV0292,LIST0093,Swiggy,2026-10-13,4.3,Great value for money and the food arrived hot. Delivery took the usual time. Service was courteous and the order was accurate.,positive,neutral,positive,True
+REV0293,LIST0032,Zomato,2026-07-08,1.7,The food was bland and the packaging leaked. Delivery was on time and food was warm.,negative,positive,not_mentioned,True
+REV0294,LIST0073,Swiggy,2026-10-03,3.1,"Average taste, decent quantity. Delivery was on time and food was warm.",neutral,positive,not_mentioned,True
+REV0295,LIST0089,Swiggy,2026-07-31,3.3,"Standard fare, neither great nor bad. Delivery was on time and food was warm.",neutral,positive,not_mentioned,True
+REV0296,LIST0132,Zomato,2026-09-09,2.1,Portion size was very small for the price. Delivery was quick and the rider was polite.,negative,positive,not_mentioned,True
+REV0297,LIST0182,Swiggy,2026-09-21,3.2,Loved the freshness and the packaging was neat. Rider was rude and delivery took too long. Customer support was unhelpful about the missing item.,mixed,negative,negative,True
+REV0298,LIST0110,Zomato,2026-09-16,3.6,"Standard fare, neither great nor bad. Delivery was quick and the rider was polite.",neutral,positive,not_mentioned,True
+REV0299,LIST0024,Zomato,2026-09-20,4.2,"The food was fresh, flavourful and the portion size was generous. Rider was rude and delivery took too long.",positive,negative,not_mentioned,True
+REV0300,LIST0142,Zomato,2026-07-31,3.1,"The food was fresh, flavourful and the portion size was generous. Arrived earlier than expected, well packed.",mixed,positive,not_mentioned,True
+REV0301,LIST0174,Swiggy,2026-07-27,3.5,"Standard fare, neither great nor bad. Delivery was quick and the rider was polite.",neutral,positive,not_mentioned,True
+REV0302,LIST0109,Swiggy,2026-07-06,3.6,"Standard fare, neither great nor bad. Arrived earlier than expected, well packed.",neutral,positive,not_mentioned,True
+REV0303,LIST0136,Zomato,2026-07-03,1.3,The food was cold and tasted stale. Standard delivery experience.,negative,neutral,not_mentioned,True
+REV0304,LIST0058,Zomato,2026-09-08,1.8,"The food was cold and tasted stale. Arrived earlier than expected, well packed.",negative,positive,not_mentioned,True
+REV0305,LIST0044,Zomato,2026-08-26,4.8,"The food was fresh, flavourful and the portion size was generous. Delivery was fine. Service was courteous and the order was accurate.",positive,neutral,positive,True
+REV0306,LIST0076,Zomato,2026-06-29,3.0,"Food was okay, nothing special. Delivery took the usual time.",neutral,neutral,not_mentioned,True
+REV0307,LIST0165,Zomato,2026-08-29,2.8,"Food was okay, nothing special. Arrived earlier than expected, well packed.",neutral,positive,not_mentioned,True
+REV0308,LIST0085,Swiggy,2026-10-14,2.9,"Average taste, decent quantity. Delivery took the usual time.",neutral,neutral,not_mentioned,True
+REV0309,LIST0111,Swiggy,2026-10-26,3.7,Really enjoyed the taste; the spices were well balanced. Delivery was quick and the rider was polite.,mixed,positive,not_mentioned,True
+REV0310,LIST0040,Zomato,2026-07-15,3.1,"Food was okay, nothing special. Delivery was fine.",neutral,neutral,not_mentioned,True
+REV0311,LIST0069,Swiggy,2026-09-11,4.8,Loved the freshness and the packaging was neat. Rider was rude and delivery took too long.,positive,negative,not_mentioned,True
+REV0312,LIST0182,Swiggy,2026-10-06,3.7,"The food was fresh, flavourful and the portion size was generous. Delivery was late by 30 minutes and the food was cold. Customer support was unhelpful about the missing item.",mixed,negative,negative,True
+REV0313,LIST0171,Swiggy,2026-10-10,3.4,Loved the freshness and the packaging was neat. Rider was rude and delivery took too long. Customer support was unhelpful about the missing item.,mixed,negative,negative,True
+REV0314,LIST0084,Zomato,2026-10-25,2.2,Got a missing item and the taste was disappointing. Delivery was late by 30 minutes and the food was cold. Service was poor; wrong item was delivered.,negative,negative,negative,True
+REV0315,LIST0197,Swiggy,2026-09-20,3.1,"The food was fresh, flavourful and the portion size was generous. Rider was rude and delivery took too long. Customer support was unhelpful about the missing item.",mixed,negative,negative,True
+REV0316,LIST0125,Swiggy,2026-10-12,4.6,Loved the freshness and the packaging was neat. Delivery was late by 30 minutes and the food was cold.,positive,negative,not_mentioned,True
+REV0317,LIST0068,Zomato,2026-10-03,3.2,Loved the freshness and the packaging was neat. Delivery was late by 30 minutes and the food was cold. Customer support was unhelpful about the missing item.,mixed,negative,negative,True
+REV0318,LIST0049,Swiggy,2026-10-08,1.6,Portion size was very small for the price. Delivery took the usual time.,negative,neutral,not_mentioned,True
+REV0319,LIST0110,Zomato,2026-09-28,4.4,Really enjoyed the taste; the spices were well balanced. Delivery was quick and the rider was polite. Service was courteous and the order was accurate.,positive,positive,positive,True
+REV0320,LIST0087,Swiggy,2026-09-12,1.5,Got a missing item and the taste was disappointing. Delivery was late by 30 minutes and the food was cold. Customer support was unhelpful about the missing item.,negative,negative,negative,True

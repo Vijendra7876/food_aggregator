@@ -1,0 +1,40 @@
+table,column,description
+provider_restaurants.csv,listing_id,"PK, unique listing ID (LIST0001...)"
+provider_restaurants.csv,provider,Swiggy or Zomato (simulated source)
+provider_restaurants.csv,provider_restaurant_id,Unique within provider
+provider_restaurants.csv,canonical_restaurant_id,FK to canonical_restaurants; null if unresolved
+provider_restaurants.csv,restaurant_name,"Provider-listed name, may contain variants"
+provider_restaurants.csv,city,One of Gwalior/Agra/Indore/Delhi/Bengaluru
+provider_restaurants.csv,locality,City-appropriate locality; may be null
+provider_restaurants.csv,full_address,Synthetic locality-level address
+provider_restaurants.csv,cuisines,Comma-separated cuisine tags
+provider_restaurants.csv,rating,1.0-5.0 or null
+provider_restaurants.csv,rating_count,Non-negative integer or null
+provider_restaurants.csv,average_price_inr,"Average cost per person, INR, or null"
+provider_restaurants.csv,average_delivery_time_minutes,Positive integer or null
+provider_restaurants.csv,is_vegetarian,true/false/null
+provider_restaurants.csv,offers_available_count,Non-negative integer or null
+provider_restaurants.csv,source_updated_at,Synthetic ISO timestamp
+provider_restaurants.csv,is_synthetic,Always true
+canonical_restaurants.csv,canonical_restaurant_id,PK (CAN0001...)
+canonical_restaurants.csv,canonical_name,Normalized outlet name
+canonical_restaurants.csv,identity_confidence,0-1 synthetic confidence
+canonical_restaurants.csv,entity_status,verified_synthetic_match / single_provider
+provider_menu_items.csv,menu_listing_id,PK (MEN0001...)
+provider_menu_items.csv,listing_id,FK to provider_restaurants
+provider_menu_items.csv,provider_menu_item_id,Unique within provider
+provider_menu_items.csv,price_inr,Positive when known; null if missing
+provider_menu_items.csv,spice_level,mild/medium/spicy/null
+provider_menu_items.csv,is_available,true/false/null
+provider_offers.csv,offer_id,PK (OFF0001...)
+provider_offers.csv,discount_type,percentage/flat_amount/free_delivery/combo
+provider_offers.csv,discount_value,Numeric or null when not applicable
+provider_offers.csv,offer_status,active/expired/scheduled/unknown (vs 2026-10-27)
+reviews.csv,review_id,PK (REV0001...)
+reviews.csv,food_sentiment,positive/neutral/negative/mixed
+reviews.csv,delivery_sentiment,positive/neutral/negative/mixed/not_mentioned
+reviews.csv,service_sentiment,positive/neutral/negative/mixed/not_mentioned
+restaurant_match_evaluation.csv,pair_id,PK (PAIR0001...)
+restaurant_match_evaluation.csv,name_similarity_case,exact/spelling_variant/spacing_variant/abbreviation/similar_name_different_entity/insufficient_information
+restaurant_match_evaluation.csv,same_outlet_ground_truth,true/false/unknown
+restaurant_match_evaluation.csv,expected_decision,match/non_match/manual_review
