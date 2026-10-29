@@ -1,9 +1,11 @@
 const configuredApiBase = import.meta.env.VITE_API_BASE_URL?.trim().replace(/\/+$/, '') || undefined;
 
 export async function api<T>(path: string, init?: RequestInit): Promise<T> {
+  const headers = new Headers(init?.headers);
+  if (init?.body != null && !headers.has('content-type')) headers.set('content-type', 'application/json');
   const res = await fetch(`${configuredApiBase ?? '/api'}${path}`, {
-    headers: { 'content-type': 'application/json' },
     ...init,
+    headers,
   });
   const body: unknown = await res.json().catch(() => null);
 

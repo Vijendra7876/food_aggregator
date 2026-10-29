@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 import { api, inr } from '../api';
 import type { Compare, Detail, Priority } from '../types';
 import { ProviderCard } from '../components/ProviderCard';
@@ -10,8 +10,11 @@ const PRIORITIES: [Priority, string][] = [['value', 'Best value'], ['cheapest', 
 
 export default function Restaurant() {
   const { id } = useParams();
+  const [searchParams] = useSearchParams();
   const [detail, setDetail] = useState<Detail | null>(null);
-  const [err, setErr] = useState('');
+  const [detailErr, setDetailErr] = useState('');
+  const [detailRetry, setDetailRetry] = useState(0);
+  const [compareErr, setCompareErr] = useState('');
   const [qty, setQty] = useState<Record<string, number>>({});
   const [priority, setPriority] = useState<Priority>('value');
   const [maxEta, setMaxEta] = useState('');
@@ -21,27 +24,36 @@ export default function Restaurant() {
 
   useEffect(() => {
     setDetail(null);
-    setErr('');
+    setDetailErr('');
     if (!id) return;
     api<Detail>(`/restaurants/${encodeURIComponent(id)}`).then(data => {
       setDetail(data);
-      setQty(data.items[0] ? { [data.items[0].id]: 1 } : {});
-    }).catch(error => setErr(error instanceof Error ? error.message : 'Could not load this restaurant.'));
-  }, [id]);
+      const requestedItem = searchParams.get('item');
+      const requestedQuantity = Number(searchParams.get('qty') || 1);
+      const item = data.items.find(candidate => candidate.id === requestedItem) ?? data.items[0];
+      const quantity = Number.isInteger(requestedQuantity) && requestedQuantity > 0 ? Math.min(20, requestedQuantity) : 1;
+      setQty(item ? { [item.id]: quantity } : {});
+    }).catch(error => setDetailErr(error instanceof Error ? error.message : 'Could not load this restaurant.'));
+  }, [id, searchParams, detailRetry]);
 
   useEffect(() => {
     if (!detail) return;
     const selections = Object.entries(qty).filter(([, quantity]) => quantity > 0).map(([itemId, quantity]) => ({ itemId, qty: quantity }));
-    if (!selections.length) { setCompare(null); return; }
+    if (!selections.length) { setCompare(null); setCompareErr(''); return; }
+    let cancelled = false;
     setBusy(true);
-    setErr('');
+    setCompare(null);
+    setCompareErr('');
     api<Compare>('/compare', {
       method: 'POST',
       body: JSON.stringify({ restaurantId: detail.id, selections, priority, maxEta: maxEta ? Number(maxEta) : undefined }),
-    }).then(setCompare).catch(error => setErr(error instanceof Error ? error.message : 'Could not compare providers.')).finally(() => setBusy(false));
+    }).then(data => { if (!cancelled) setCompare(data); })
+      .catch(error => { if (!cancelled) setCompareErr(error instanceof Error ? error.message : 'Could not compare providers.'); })
+      .finally(() => { if (!cancelled) setBusy(false); });
+    return () => { cancelled = true; };
   }, [detail, qty, priority, maxEta]);
 
-  if (err) return <div className="state error">{err}</div>;
+  if (detailErr) return <div className="state error" role="alert">{detailErr} <button className="btn ghost" onClick={() => setDetailRetry(count => count + 1)}>Retry</button></div>;
   if (!detail) return <div className="state">Loading restaurant…</div>;
   const setItemQuantity = (itemId: string, quantity: number) => setQty(current => ({ ...current, [itemId]: Math.max(0, Math.min(20, quantity)) }));
 
@@ -67,8 +79,9 @@ export default function Restaurant() {
               <div className="chips">{PRIORITIES.map(([key, label]) => <button key={key} className={'chip' + (priority === key ? ' on' : '')} onClick={() => setPriority(key)}>{label}</button>)}</div>
               <label className="muted">Max delivery time <input type="number" min={10} placeholder="any" value={maxEta} onChange={event => setMaxEta(event.target.value)} /> min</label>
             </div>
-            {!compare && !busy && <div className="state">Add at least one item to compare providers.</div>}
+            {!compare && !busy && !compareErr && <div className="state">Add at least one item to compare providers.</div>}
             {busy && !compare && <div className="state">Comparing…</div>}
+            {compareErr && <div className="state error" role="alert">{compareErr}</div>}
             {compare && <div className="grid cards">{compare.options.map(option => <ProviderCard key={option.providerId} o={option} />)}</div>}
             {compare?.options.length === 0 && <div className="state">No provider can fulfil this basket within your limits.</div>}
             {compare?.excluded.map(option => <div key={option.providerId} className="state excluded"><b>{option.providerName}</b>: {option.reason}</div>)}
