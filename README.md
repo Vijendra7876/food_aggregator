@@ -11,6 +11,14 @@ cd frontend && npm install && npm run dev
 ```
 Open http://localhost:5173. Tests: `cd backend && npm test`.
 
+## Google sign-in setup
+Google sign-in requires a Google OAuth **Web application** client ID:
+1. Create a client ID in the Google Cloud Console and add your frontend origin (for local development, `http://localhost:5173`) to its authorized JavaScript origins.
+2. Set `VITE_GOOGLE_CLIENT_ID` in the frontend environment and `GOOGLE_CLIENT_ID` in the backend environment to that same client ID.
+3. Restart both development servers.
+
+The browser sign-in credential is verified by the backend with Google before the UI confirms the signed-in identity. This MVP does not create persistent user accounts or an application session.
+
 ## How it connects
 ```
 Adapters (data/synthetic.ts)  --Raw listings-->  validate -> resolve (entity matching) -> reconcile + menu match   [Data Truth Layer: src/pipeline]

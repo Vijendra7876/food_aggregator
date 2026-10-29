@@ -58,8 +58,16 @@ details { margin:.6rem 0; } summary { cursor:pointer; color:var(--leaf-d); font-
 .login-submit,.social-button { width:100%; border-radius:10px; padding:.78rem 1rem; font:inherit; font-weight:700; cursor:pointer; } .login-submit { margin-top:.25rem; border:0; color:#fff; background:#276bd6; box-shadow:0 7px 15px rgba(39,107,214,.22); } .login-submit:hover { background:#1b58b7; }
 .login-divider { display:flex; align-items:center; gap:.7rem; color:#a0adbd; font-size:.75rem; margin:1.3rem 0; } .login-divider::before,.login-divider::after { content:''; height:1px; background:#e7edf4; flex:1; }
 .social-button { border:1px solid #d9e3ef; background:#fff; color:#35486a; } .social-button:hover { background:#f7faff; } .google-mark { color:#4285f4; font-weight:900; margin-right:.5rem; }
+.social-button:disabled { cursor:not-allowed; opacity:.72; }
+.google-button { display:flex; justify-content:center; min-height:40px; }
+.google-message { margin:.6rem 0 0; color:#7788a1; font-size:.72rem; text-align:center; }
+.google-error { color:#b4372a; }
+.google-success { color:#0a5c4c; }
+.signup-shell { grid-template-columns:1fr .9fr; }
+.signup-message { color:#7788a1; font-size:.75rem; line-height:1.45; margin:.9rem 0 0; text-align:center; }
+.signup-error { color:#b4372a; }
 .login-signup { text-align:center; color:#73839a; font-size:.82rem; margin:1.4rem 0 .8rem; } .login-terms { color:#a0adbd; text-align:center; font-size:.68rem; margin:0; }
-@media (max-width:720px) { .top nav a { margin-left:.55rem; font-size:.85rem; } .login-page { padding-top:1.5rem; } .login-shell { grid-template-columns:1fr; gap:1rem; max-width:440px; } .login-intro { text-align:center; } .login-brand { margin-bottom:1.8rem; } .login-copy { margin-left:auto; margin-right:auto; } .login-perks { text-align:left; margin:0 auto; } }
+@media (max-width:720px) { .top nav a { margin-left:.55rem; font-size:.85rem; } .login-page { padding-top:1.5rem; } .login-shell,.signup-shell { grid-template-columns:1fr; gap:1rem; max-width:440px; } .login-intro { text-align:center; } .login-brand { margin-bottom:1.8rem; } .login-copy { margin-left:auto; margin-right:auto; } .login-perks { text-align:left; margin:0 auto; } }
 
 .home-hero { position:relative; display:grid; grid-template-columns:1fr .9fr; gap:2rem; align-items:center; min-height:450px; padding:2.5rem clamp(1.4rem,5vw,4.5rem); margin:0 0 2.5rem; overflow:hidden; border:1px solid #e3eaf3; border-radius:28px; background:linear-gradient(112deg,#f8fbff 0%,#edf5ff 58%,#fff5e8 100%); }
 .home-copy { position:relative; z-index:1; max-width:580px; }

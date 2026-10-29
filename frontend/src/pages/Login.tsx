@@ -1,11 +1,86 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { api } from '../api';
+
+interface GoogleUser {
+  name: string;
+  email: string;
+  picture?: string;
+}
+
+interface GoogleCredentialResponse {
+  credential: string;
+}
+
+interface GoogleIdentity {
+  accounts: {
+    id: {
+      initialize: (options: {
+        client_id: string;
+        callback: (response: GoogleCredentialResponse) => void;
+      }) => void;
+      renderButton: (element: HTMLElement, options: {
+        type: 'standard';
+        theme: 'outline';
+        size: 'large';
+        text: 'continue_with';
+        shape: 'rectangular';
+        width: number;
+      }) => void;
+    };
+  };
+}
+
+declare global {
+  interface Window {
+    google?: GoogleIdentity;
+  }
+}
 
 export default function Login() {
   const navigate = useNavigate();
+  const googleButton = useRef<HTMLDivElement>(null);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [googleUser, setGoogleUser] = useState<GoogleUser | null>(null);
+  const [googleError, setGoogleError] = useState('');
+  const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+
+  useEffect(() => {
+    if (!googleClientId || !googleButton.current) return;
+
+    const renderGoogleButton = () => {
+      if (!window.google || !googleButton.current) return;
+      window.google.accounts.id.initialize({
+        client_id: googleClientId,
+        callback: (response) => {
+          setGoogleError('');
+          api<{ user: GoogleUser }>('/auth/google', {
+            method: 'POST',
+            body: JSON.stringify({ credential: response.credential }),
+          }).then(({ user }) => setGoogleUser(user)).catch((error: Error) => setGoogleError(error.message));
+        },
+      });
+      window.google.accounts.id.renderButton(googleButton.current, {
+        type: 'standard',
+        theme: 'outline',
+        size: 'large',
+        text: 'continue_with',
+        shape: 'rectangular',
+        width: Math.min(400, googleButton.current.clientWidth),
+      });
+    };
+
+    if (window.google) {
+      renderGoogleButton();
+      return;
+    }
+
+    const script = document.getElementById('google-identity');
+    script?.addEventListener('load', renderGoogleButton);
+    return () => script?.removeEventListener('load', renderGoogleButton);
+  }, [googleClientId]);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -40,8 +115,13 @@ export default function Login() {
             <button className="login-submit" type="submit">{submitted ? 'Signing you in…' : 'Log in'}</button>
           </form>
           <div className="login-divider"><span>or</span></div>
-          <button className="social-button" type="button" onClick={() => setSubmitted(true)}><span className="google-mark">G</span> Continue with Google</button>
-          <p className="login-signup">New to FoodLens? <a href="#signup">Create an account</a></p>
+          {googleClientId
+            ? <div className="google-button" ref={googleButton} />
+            : <button className="social-button" type="button" disabled><span className="google-mark">G</span> Continue with Google</button>}
+          {!googleClientId && <p className="google-message">Google sign-in needs a Google OAuth client ID. See the setup steps in README.md.</p>}
+          {googleError && <p className="google-message google-error" role="alert">{googleError}</p>}
+          {googleUser && <p className="google-message google-success" role="status">Signed in as {googleUser.name} ({googleUser.email}).</p>}
+          <p className="login-signup">New to FoodLens? <Link to="/signup">Create an account</Link></p>
           <p className="login-terms">By continuing, you agree to our <a href="#terms">Terms</a> and <a href="#privacy">Privacy Policy</a>.</p>
         </div>
       </section>

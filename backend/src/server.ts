@@ -15,6 +15,47 @@ const bad = (res: express.Response, message: string, code = 400) => res.status(c
 
 app.get('/api/meta', (_q, res) => res.json({ dataMode: 'synthetic', notice: 'All providers, prices, ratings and reviews are synthetic demo data.', providers: store.providers, priorities: WEIGHTS }));
 
+app.post('/api/auth/google', async (req, res) => {
+  const clientId = process.env.GOOGLE_CLIENT_ID;
+  if (!clientId) return bad(res, 'Google sign-in is not configured on the server', 503);
+
+  const credential = req.body?.credential;
+  if (typeof credential !== 'string' || credential.length === 0 || credential.length > 10000) {
+    return bad(res, 'A valid Google credential is required');
+  }
+
+  try {
+    const verification = await fetch('https://oauth2.googleapis.com/tokeninfo', {
+      method: 'POST',
+      headers: { 'content-type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({ id_token: credential }),
+    });
+    if (!verification.ok) return bad(res, 'Google could not verify this sign-in', 401);
+
+    const claims: unknown = await verification.json();
+    if (!claims || typeof claims !== 'object') return bad(res, 'Google returned an invalid sign-in response', 401);
+    const identity = claims as Record<string, unknown>;
+    const expiresIn = Number(identity.expires_in);
+    const validIssuer = identity.iss === 'accounts.google.com' || identity.iss === 'https://accounts.google.com';
+    if (identity.aud !== clientId || !validIssuer || !Number.isFinite(expiresIn) || expiresIn <= 0 ||
+      identity.email_verified !== 'true' || typeof identity.sub !== 'string' ||
+      typeof identity.email !== 'string' || typeof identity.name !== 'string') {
+      return bad(res, 'Google sign-in could not be validated for this application', 401);
+    }
+
+    return res.json({
+      user: {
+        id: identity.sub,
+        email: identity.email,
+        name: identity.name,
+        ...(typeof identity.picture === 'string' ? { picture: identity.picture } : {}),
+      },
+    });
+  } catch {
+    return bad(res, 'Unable to verify sign-in with Google right now', 502);
+  }
+});
+
 app.get('/api/search', (req, res) => {
   const qt = tokens(String(req.query.q ?? ''));
   const cuisine = String(req.query.cuisine ?? '').toLowerCase();
