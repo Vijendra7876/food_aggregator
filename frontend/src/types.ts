@@ -1,6 +1,6 @@
 export type Priority = 'cheapest' | 'fastest' | 'reliable' | 'rated' | 'value';
 export interface Fresh { ageMin: number | null; status: 'fresh' | 'aging' | 'stale' }
-export interface Meta { dataMode: string; notice: string; providers: { id: string; name: string }[]; adminDemoEnabled?: boolean }
+export interface Meta { dataMode: string; notice: string; providers: { id: string; name: string }[]; cuisines?: string[]; adminDemoEnabled?: boolean }
 export interface SearchResult {
   id: string;
   name: string;
@@ -86,5 +86,42 @@ export interface Option {
 export interface Compare {
   options: Option[];
   excluded: { providerId: string; providerName: string; reason: string }[];
+  weights?: Record<string, number>;
+  disclaimer: string;
+}
+export interface Recommendation {
+  id: string;
+  restaurantId: string;
+  restaurantName: string;
+  area: string;
+  cuisines: string[];
+  itemId: string;
+  itemName: string;
+  vegetarian: boolean;
+  unitPrice: number;
+  estimatedSubtotal: number;
+  people: number;
+  providerId: string;
+  providerName: string;
+  etaMin: number | null;
+  freshness: Fresh;
+  rating: number | null;
+  ratingCount: number;
+  score: number;
+  reasons: string[];
+  factors: { factor: string; weight: number; value: number; known: boolean }[];
+}
+export interface RecommendationResponse {
+  total: number;
+  recommendations: Recommendation[];
+  priority: Priority;
+  weights: Record<string, number>;
+  message?: string;
+  disclaimer: string;
+}
+export interface ReviewSignalsResponse {
+  totalReviews: number;
+  signalCount: number;
+  signals: { type: string; reviewCount: number; providers?: string[]; provider?: string; date?: string; excerpt?: string; reason: string; reviewIds: string[] }[];
   disclaimer: string;
 }

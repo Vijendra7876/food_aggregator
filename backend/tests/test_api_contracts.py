@@ -33,6 +33,22 @@ def test_meta_returns_frontend_contract(client):
     assert "not live or verified" in body["notice"]
     assert {"id", "name"} <= body["providers"][0].keys()
     assert body["adminDemoEnabled"] is False
+    assert "South Indian" in body["cuisines"]
+
+
+def test_sentiment_scores_shrink_sparse_feedback_toward_neutral():
+    one = main._sentiment_aggregate(pd.DataFrame({"food_sentiment": ["positive"]}), "food_sentiment")
+    three = main._sentiment_aggregate(pd.DataFrame({"food_sentiment": ["positive", "positive", "positive"]}), "food_sentiment")
+    assert one["score"] == 0.667
+    assert one["enough"] is False
+    assert three["score"] == 0.8
+    assert three["enough"] is True
+
+
+def test_review_text_deduplication_normalizes_whitespace_and_keeps_blank_rows():
+    reviews = pd.DataFrame({"review_id": ["A", "B", "C", "D"], "review_text": ["Good food", " good  food ", "", None]})
+    unique = main._deduplicate_review_text(reviews)
+    assert unique["review_id"].tolist() == ["A", "C", "D"]
 
 
 def test_search_returns_grouped_restaurant_cards_from_csv(client):
@@ -44,6 +60,22 @@ def test_search_returns_grouped_restaurant_cards_from_csv(client):
     assert {"id", "name", "area", "cuisines", "rating", "matchedItems", "providers"} <= result.keys()
     assert any("Uttapam" in item["name"] for item in result["matchedItems"])
     assert all({"id", "name", "etaMin", "freshness"} <= provider.keys() for provider in result["providers"])
+
+
+def test_search_paginates_and_validates_filters(client):
+    first = client.get("/api/search", params={"page": 1, "pageSize": 10}).json()
+    second = client.get("/api/search", params={"page": 2, "pageSize": 10}).json()
+    assert first["total"] > 10
+    assert first["pageSize"] == 10
+    assert first["results"][0]["id"] != second["results"][0]["id"]
+    assert client.get("/api/search", params={"pageSize": 51}).status_code == 400
+
+
+def test_data_endpoints_return_service_unavailable_when_required_csv_is_missing(client, monkeypatch):
+    missing_root = BACKEND_DIR / "missing_data_test_root"
+    monkeypatch.setattr(main, "SCRIPT_DIR", str(missing_root))
+    response = client.get("/api/restaurants/CAN0001")
+    assert response.status_code == 503
 
 
 def test_restaurant_detail_returns_complete_frontend_shape_from_csv(client):
@@ -118,6 +150,83 @@ def test_compare_rejects_invalid_quantity(client):
     assert response.status_code == 400
 
 
+def test_recommendations_are_ranked_from_available_csv_menu_rows(client):
+    response = client.get("/api/intelligence/recommendations", params={
+        "budgetPerPerson": 500, "people": 2, "vegetarian": "true", "cuisine": "South Indian", "priority": "cheapest", "limit": 8,
+    })
+    assert response.status_code == 200
+    body = response.json()
+    assert body["recommendations"]
+    assert body["priority"] == "cheapest"
+    assert body["weights"]["cost"] > body["weights"]["eta"]
+    first = body["recommendations"][0]
+    assert {"restaurantId", "itemId", "providerName", "estimatedSubtotal", "score", "reasons", "factors"} <= first.keys()
+    assert first["vegetarian"] is True
+    assert any("South Indian" in cuisine for cuisine in first["cuisines"])
+    canonical = pd.read_csv(BACKEND_DIR / "data" / "canonical_restaurants.csv").set_index("canonical_restaurant_id")
+    if first["restaurantId"] in canonical.index:
+        assert first["restaurantName"] == canonical.loc[first["restaurantId"], "canonical_name"]
+    assert first["estimatedSubtotal"] <= 1000
+    assert first["reasons"]
+    assert len(first["factors"]) == 4
+    assert "taxes" in body["disclaimer"]
+
+
+def test_recommendations_reject_unknown_priority(client):
+    response = client.get("/api/intelligence/recommendations", params={"priority": "random"})
+    assert response.status_code == 400
+
+
+def test_compare_rejects_unknown_priority(client):
+    response = client.post("/api/compare", json={"restaurantId": "CAN0001", "selections": [{"itemId": "masala-dosa", "qty": 1}], "priority": "random"})
+    assert response.status_code == 400
+
+
+def test_unknown_delivery_estimate_does_not_fail_eta_limit(client):
+    providers = pd.read_csv(BACKEND_DIR / "data" / "provider_restaurants.csv")
+    menus = pd.read_csv(BACKEND_DIR / "data" / "provider_menu_items.csv")
+    available = menus[menus["is_available"].astype(str).str.casefold().isin(["true", "1"]) & menus["price_inr"].notna()]
+    candidates = providers[providers["average_delivery_time_minutes"].isna()]
+    match = None
+    for _, listing in candidates.iterrows():
+        rows = available[available["listing_id"].astype(str) == str(listing["listing_id"])]
+        if not rows.empty:
+            match = (listing, rows.iloc[0])
+            break
+    assert match is not None
+    listing, menu = match
+    restaurant_id = str(listing["canonical_restaurant_id"]) if pd.notna(listing["canonical_restaurant_id"]) else str(listing["listing_id"])
+    response = client.post("/api/compare", json={"restaurantId": restaurant_id, "selections": [{"itemId": str(menu["normalized_item_name"]), "qty": 1}], "maxEta": 1})
+    assert response.status_code == 200
+    provider_id = str(listing["provider"]).casefold().replace(" ", "-")
+    option = next(row for row in response.json()["options"] if row["providerId"] == provider_id)
+    assert option["etaMin"] is None
+
+
+def test_unknown_availability_is_not_treated_as_available(client):
+    menus = pd.read_csv(BACKEND_DIR / "data" / "provider_menu_items.csv")
+    providers = pd.read_csv(BACKEND_DIR / "data" / "provider_restaurants.csv")
+    unknown = menus[menus["is_available"].isna()].iloc[0]
+    listing = providers[providers["listing_id"].astype(str) == str(unknown["listing_id"])].iloc[0]
+    restaurant_id = str(listing["canonical_restaurant_id"]) if pd.notna(listing["canonical_restaurant_id"]) else str(listing["listing_id"])
+    detail = client.get(f"/api/restaurants/{restaurant_id}").json()
+    item = next(row for row in detail["items"] if row["id"] == str(unknown["normalized_item_name"]))
+    provider_id = str(listing["provider"]).casefold().replace(" ", "-")
+    offer = next(row for row in item["offers"] if row["providerId"] == provider_id)
+    assert offer["available"] is False
+    assert offer["price"] is None or offer["price"] > 0
+
+
+def test_review_signals_are_labeled_for_human_review(client):
+    response = client.get("/api/intelligence/review-signals")
+    assert response.status_code == 200
+    body = response.json()
+    assert body["totalReviews"] == len(pd.read_csv(BACKEND_DIR / "data" / "reviews.csv"))
+    assert body["signalCount"] > 0
+    assert any(signal["type"] == "repeated_text" for signal in body["signals"])
+    assert "not fraud" in body["disclaimer"].lower()
+
+
 def test_admin_read_contract_and_demo_decision_is_ephemeral(client, monkeypatch):
     monkeypatch.setenv("ADMIN_DEMO_MODE", "true")
     monkeypatch.delenv("NODE_ENV", raising=False)
@@ -132,7 +241,9 @@ def test_admin_read_contract_and_demo_decision_is_ephemeral(client, monkeypatch)
 
     pipeline = client.get("/api/admin/pipeline").json()
     assert {"rawListings", "canonicalRestaurants", "pendingReviews", "issues"} <= pipeline.keys()
+    assert {"menuItems", "offers", "reviews", "issueCount"} <= pipeline.keys()
     assert pipeline["rawListings"] == len(pd.read_csv(BACKEND_DIR / "data" / "provider_restaurants.csv"))
+    assert pipeline["menuItems"] == len(pd.read_csv(BACKEND_DIR / "data" / "provider_menu_items.csv"))
 
     decision = client.post(f"/api/admin/review-queue/{candidate['id']}/decision", json={"decision": "keep_separate"})
     assert decision.status_code == 200

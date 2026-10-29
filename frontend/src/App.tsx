@@ -15,11 +15,13 @@ export default function App() {
   // original: API status + synthetic-data banner
   const [meta, setMeta] = useState<Meta | null>(null);
   const [down, setDown] = useState(false);
+  const [retryCount, setRetryCount] = useState(0);
   useEffect(() => {
+    setDown(false);
     api<Meta>('/meta')
-      .then(setMeta)
+      .then(data => { setMeta(data); setDown(false); })
       .catch(() => setDown(true));
-  }, []);
+  }, [retryCount]);
 
   return (
     <>
@@ -29,19 +31,17 @@ export default function App() {
         <Link to="/" className="brand">FoodLens</Link>
         <nav>
           <NavLink to="/">Search</NavLink>
-          {/* incoming (v0) */}
           <NavLink to="/smart-meal">Smart meal</NavLink>
-          <NavLink to="/shared-cart">Shared cart</NavLink>
+          <NavLink to="/shared-cart">Basket split</NavLink>
           <NavLink to="/sustainability">Sustainability</NavLink>
           <NavLink to="/savings">My savings</NavLink>
-          {/* original */}
           <NavLink to="/admin">Data quality</NavLink>
-          <NavLink to="/login">Log in</NavLink>
+          <NavLink to="/login">Account</NavLink>
         </nav>
       </header>
 
       <main>
-        {down && <div className="state error">The API is unavailable. Check that the backend is running and configure <code>VITE_API_BASE_URL</code> for your deployment.</div>}
+        {down && <div className="state error">The API is unavailable. Check that the backend is running and configure <code>VITE_API_BASE_URL</code> for your deployment. <button className="btn ghost" onClick={() => setRetryCount(count => count + 1)}>Retry connection</button></div>}
         <Routes>
           {/* original routes */}
           <Route path="/login" element={<Login />} />
@@ -60,7 +60,7 @@ export default function App() {
       {/* incoming (v0) footer, moved inside the single root fragment */}
       <footer id="contact">
         <div className="footer-brand"><span className="brand-orbit"><span>F</span></span><b>FoodLens</b><p>Make every penny worth spending.</p></div>
-        <div><span className="section-label">GET STARTED</span><h2>Start saving<br /><span>on every order</span></h2></div>
+        <div><span className="section-label">GET STARTED</span><h2>Compare clearly<br /><span>choose confidently</span></h2></div>
         <a className="primary-button" href="https://github.com/vedu989v-wq/Online_food_delivery_aggregator" target="_blank" rel="noreferrer">View on GitHub <span>↗</span></a>
       </footer>
     </>

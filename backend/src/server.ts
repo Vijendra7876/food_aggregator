@@ -11,7 +11,7 @@ const adminMutationsEnabled = process.env.NODE_ENV !== "production"
   && process.env.ADMIN_DEMO_MODE === "true"
   && localBind;
 
-app.use(cors({ origin: process.env.CORS_ORIGIN?.split(",").map(value => value.trim()) ?? "http://localhost:5173" }));
+app.use(cors({ origin: process.env.CORS_ORIGIN?.split(",").map(value => value.trim()) ?? ["http://localhost:5173", "http://127.0.0.1:5173"] }));
 app.use(express.json({ limit: "1mb" }));
 app.use((_req, res, next) => {
   res.setHeader("X-Content-Type-Options", "nosniff");
@@ -71,6 +71,8 @@ app.get("/api/meta", (req, res) => proxyPython(req, res, "/api/meta"));
 app.get("/api/search", (req, res) => proxyPython(req, res, "/api/search"));
 app.get("/api/restaurants/:id", (req, res) => proxyPython(req, res, `/api/restaurants/${encodeURIComponent(req.params.id)}`));
 app.post("/api/compare", (req, res) => proxyPython(req, res, "/api/compare", "POST"));
+app.get("/api/intelligence/recommendations", (req, res) => proxyPython(req, res, "/api/intelligence/recommendations"));
+app.get("/api/intelligence/review-signals", (req, res) => proxyPython(req, res, "/api/intelligence/review-signals"));
 
 app.get("/api/admin/review-queue", (req, res) => proxyPython(req, res, "/api/admin/review-queue"));
 app.get("/api/admin/pipeline", (req, res) => proxyPython(req, res, "/api/admin/pipeline"));
